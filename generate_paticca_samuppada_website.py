@@ -356,6 +356,8 @@ footer {
 }
 """
 
+GOOGLE_VERIFICATION_TAG = '<meta name="google-site-verification" content="NkJU5DZeKtPJ9VdSStdwPMNk8dOVW9erCKCQr88meQE" />'
+
 def build_header_html(active_tab="home"):
     tabs = [
         ("home", "Home", "index.html"),
@@ -391,6 +393,7 @@ def generate_index_page():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+""" + GOOGLE_VERIFICATION_TAG + r"""
 <title>The Law of Dependent Arising | Ven. Katukurunde Nanananda Thero</title>
 <style>""" + SITE_CSS + r"""</style>
 </head>
@@ -458,6 +461,7 @@ def generate_read_and_reader_pages():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+""" + GOOGLE_VERIFICATION_TAG + r"""
 <title>Read | The Law of Dependent Arising</title>
 <style>""" + SITE_CSS + r"""</style>
 </head>
@@ -508,6 +512,7 @@ def generate_read_and_reader_pages():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+""" + GOOGLE_VERIFICATION_TAG + r"""
 <title>Chapter """ + str(ch_num) + r""" (Sermon """ + s_num + r""") | The Law of Dependent Arising</title>
 <style>""" + SITE_CSS + r"""</style>
 </head>
@@ -619,6 +624,7 @@ Your browser does not support the audio element.
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+""" + GOOGLE_VERIFICATION_TAG + r"""
 <title>Listen | The Law of Dependent Arising</title>
 <style>""" + SITE_CSS + r"""</style>
 </head>
@@ -662,6 +668,7 @@ def generate_search_page():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+""" + GOOGLE_VERIFICATION_TAG + r"""
 <title>Search | The Law of Dependent Arising</title>
 <style>""" + SITE_CSS + r"""</style>
 </head>
@@ -761,6 +768,7 @@ def generate_about_page():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+""" + GOOGLE_VERIFICATION_TAG + r"""
 <title>About | The Law of Dependent Arising</title>
 <style>""" + SITE_CSS + r"""</style>
 </head>
@@ -812,7 +820,7 @@ This website is offered in that same spirit of Dhamma Dana, freely available to 
         f.write(html)
 
 def generate_sitemap():
-    base_url = "https://chamaniw.github.io/law-of-dependent-arising" # Replace with your GitHub Pages URL if needed
+    base_url = "https://chamaniw.github.io/law-of-dependent-arising"
     urls = [
         ("/", "1.0", "daily"),
         ("/index.html", "1.0", "daily"),
@@ -831,7 +839,6 @@ def generate_sitemap():
     ]
     
     for path, priority, freq in urls:
-        # If hosting locally or relative, you can also use relative or absolute URLs
         clean_path = path.lstrip('/')
         xml_lines.append('  <url>')
         xml_lines.append(f'    <loc>{base_url}/{clean_path}</loc>')
