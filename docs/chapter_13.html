@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 13 (Sermon 195) | The Law of Dependent Arising</title>
+<style>
+:root {
+    --header-bg: #800000;
+    --header-text: #ffffff;
+    --header-subtitle: #ffd1d1;
+    --primary-color: #5c2c16;
+    --accent-color: #c88a2a;
+    --bg-color: #fdfbf7;
+    --card-bg: #ffffff;
+    --text-color: #2c2c2c;
+    --text-muted: #666666;
+    --border-color: #e2d7c7;
+    --reader-font-family: Georgia, "Times New Roman", serif;
+    --reader-font-size: 1.15rem;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.site-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 1.5rem 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-align: center;
+}
+.brand-section .logo-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+}
+.brand-section .subtitle {
+    font-size: 0.95rem;
+    color: var(--header-subtitle);
+    font-style: italic;
+    padding: 0 0.5rem;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+}
+.top-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.2s, color 0.2s;
+}
+.top-nav a:hover, .top-nav a.active {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.main-content {
+    max-width: 950px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.hero {
+    background: var(--card-bg);
+    padding: 2.5rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    text-align: center;
+}
+.hero h1 { font-size: 2rem; color: #222; margin-bottom: 0.3rem; }
+.hero h2 { font-size: 1.15rem; color: var(--primary-color); margin-bottom: 0.4rem; font-weight: normal; font-style: italic; }
+.hero h3 { font-size: 1.2rem; color: #333; margin-bottom: 1.5rem; font-weight: normal; font-style: italic; }
+.hero .author-title { font-size: 1.05rem; color: #555; margin-bottom: 2rem; font-style: italic; }
+
+.pali-quote { 
+    color: var(--header-bg); 
+    text-align: center; 
+    margin: 2.5rem 0; 
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin: 2rem 0;
+}
+@media (max-width: 768px) {
+    .button-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .main-content {
+        margin: 1rem auto;
+        padding: 0 0.5rem;
+    }
+    .hero {
+        padding: 1.5rem 1rem;
+    }
+    .brand-section .logo-title {
+        font-size: 1.5rem;
+    }
+}
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1rem;
+    background-color: var(--header-bg);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+.btn:hover { background-color: #5c0000; }
+.btn-secondary {
+    background-color: transparent;
+    color: var(--header-bg) !important;
+    border: 1px solid var(--header-bg);
+}
+.btn-secondary:hover { background-color: #f4eee6; }
+
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.chapter-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-color 0.2s, transform 0.1s;
+    text-decoration: none;
+    color: inherit;
+}
+.chapter-card:hover {
+    border-color: var(--header-bg);
+    transform: translateY(-1px);
+}
+.chapter-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--header-bg);
+}
+.sermon-badge {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    font-size: 1.1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    outline: none;
+    font-family: Georgia, serif;
+}
+.search-input:focus {
+    border-color: var(--header-bg);
+    box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.1);
+}
+
+.sermon-reader {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2.5rem 3rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    font-family: var(--reader-font-family);
+    font-size: var(--reader-font-size);
+    line-height: 1.9;
+}
+@media (max-width: 768px) {
+    .sermon-reader {
+        padding: 1.2rem 1rem;
+    }
+}
+.sermon-reader p {
+    margin-bottom: 1.6rem;
+    text-align: justify;
+}
+.sermon-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.sermon-nav-bar a {
+    color: var(--header-bg);
+    text-decoration: none;
+    font-weight: 600;
+}
+.sermon-nav-bar a:hover { text-decoration: underline; }
+
+.reader-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4eee6;
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.control-group button, .download-btn {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--header-bg);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background 0.2s, color 0.2s;
+}
+.control-group button:hover, .control-group button.active, .download-btn:hover {
+    background: var(--header-bg);
+    color: #fff;
+    border-color: var(--header-bg);
+}
+
+mark {
+    background-color: #ffeeba;
+    color: inherit;
+    padding: 0.1rem 0.2rem;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    margin-top: 4rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="brand-section"><div class="logo-title">The Law of Dependent Arising</div><div class="subtitle">The Secret of Bondage and Release &mdash; Ven. Katukurunde Nanananda Thero</div></div><nav class="top-nav"><a href="index.html">Home</a><a href="read.html" class="active">Read</a><a href="listen.html">Listen</a><a href="search.html">Search</a><a href="about.html">About</a></nav></header>
+<main class="main-content" style="max-width: 950px;">
+<div class="sermon-nav-bar">
+<a href="chapter_12.html">&larr; Previous Chapter</a>
+<a href="read.html">Table of Contents</a>
+<a href="chapter_14.html">Next Chapter &rarr;</a>
+</div>
+
+<div class="reader-controls">
+  <div class="control-group">
+    <span>Font Size:</span>
+    <button onclick="setFontSize('1rem')" id="size-sm">Small</button>
+    <button onclick="setFontSize('1.15rem')" id="size-md" class="active">Medium</button>
+    <button onclick="setFontSize('1.3rem')" id="size-lg">Large</button>
+    <button onclick="setFontSize('1.5rem')" id="size-xl">X-Large</button>
+  </div>
+  <div class="control-group">
+    <span>Font Type:</span>
+    <button onclick="setFontFamily('Georgia, serif')" id="font-serif" class="active">Serif</button>
+    <button onclick="setFontFamily('-apple-system, BlinkMacSystemFont, sans-serif')" id="font-sans">Sans</button>
+  </div>
+  <div class="control-group">
+    <span>Download:</span>
+    <a href="docx/sermon_013_ENGLISH.docx" class="download-btn" download>DOCX</a>
+    <a href="pdf/sermon_013_ENGLISH.pdf" class="download-btn" download>PDF</a>
+    <a href="epub/sermon_013_ENGLISH.epub" class="download-btn" download>EPUB</a>
+  </div>
+</div>
+
+<div style="text-align: center; margin-bottom: 2rem;">
+<h1 style="font-size: 1.8rem; margin-bottom: 0.3rem;">Chapter 13</h1>
+<p style="color: var(--text-muted); font-style: italic; font-family: -apple-system, sans-serif; font-size: 0.95rem;">(Pahankanuwa Sermon 195)</p>
+</div>
+
+<article class="sermon-reader" id="readerArticle">
+<p>Paticca Samuppada Sermon 13<br>The Law of Dependent Arising</p><p>(Pahan Kanuwa Sermon – No. 195)</p><p>‘Namo tassa bhagavato arahato sammāsambuddhassa’ ‘Homage be! To the Fortunate One – the Worthy, Fully Enlightened!’</p><p>Yaṁ kiñci dukkhaṁ sambhoti – sabbaṁ saṁkhāra paccayā</p><p>Saṁkhārānaṁ nirodhena – natthi dukkhassa sambhavo</p><p>Etamādīnavaṁ  ñatvā – dukkhaṁ saṁkhāra paccayā</p><p>Sabbasaṁkhāra samathā – saññāya uparodhanā</p><p>Evaṁ dukkhakkhayo hoti – etaṁ ñatvā yathātathaṁ</p><p>Sammaddasā vedaguno – sammadaññāya paṇditā</p><p>Abhibhuyya mārasaṁyogaṁ – nāgacchanti punabbhavaṁ</p><p>– Dvayatānupassanā S., Sutta Nipāta</p><p>Whatever suffering arises, it is all dependent on preparations.</p><p>When preparations cease, the arising of suffering ceases.</p><p>Knowing the evils of suffering dependent on preparations,</p><p>with the stilling of all preparations, unobstructed by perceptions, that is the way suffering ceases.</p><p>Thus, knowing this as it is,</p><p>The wise, endowed with correct vision and well versed in knowledge,</p><p>realizing this as it is, overpowering the bonds of Māra,</p><p>do not go into another birth.</p><p>Dear Listeners,</p><p>Sabbasaṁkhāra samatha or the stilling of 	the preparations, stands foremost in the phrase that declares the peaceful excellent nature of Nibbāna.  It is the saṇkhāras or preparations that take the first plunge into the endless misery of Saṁsāra in the darkness of ignorance. Therefore, it is clear that an intensive and an extensive clarification of the cluster of interpretations of the Law of Dependent Arising  is essential. To venture into that subject we have chosen three verses in the Dvayatānupassanā Sutta of the Sutta Nipāta, as the title for the 13 discourse on Paṭicca Samuppāda. Since this Dvayatānupassanā Sutta was the topic of three earlier discourses, I am sure you remember the technique, the pattern the Buddha followed. The speciality about this Sutta is that the Buddha has followed a technique of duality, a dual contemplation in clarifying the dhamma.</p><p>This is how the Buddha presents the problem about the saṇkhāras (preparations) to the monks.</p><p>“Monks, if a question arises as to whether there is another method of practicing dual contemplation, do affirm that there is. Let me explain how it can be done.</p><p>“Yaṁ kiñci dukkhaṁ sambhoti - sabbaṁ saṁkhāra paccayā. Ayaṁ ekānupassanā.”</p><p>One method of contemplating is that whatever suffering arises, it is entirely dependent on saṁkhāra.</p><p>“Saṁkhārānaṁ ceva asesa virāga nirodhā, natthi dukkhassa sambhavo.”</p><p>With the total detachment and cessation of preparations, suffering ceases. That is the second method of contemplation. These two methods have been explicitly clarified by the Buddha in the three verses I recited earlier.</p><p>Yaṁ kiñci dukkhaṁ sambhoti -sabbaṁ saṁkhāra paccayā</p><p>Saṁkhārānaṁ nirodhena - natthi dukkhassa sambhavo</p><p>Whatever suffering arises, it is all dependent on preparations. When the preparations cease, the arising of suffering ceases.</p><p>Etamādīnavaṁ  ñatvā - dukkhaṁ saṁkhāra paccayā</p><p>Knowing the evils of suffering dependent on preparations,  Sabbasaṁkhāra samathā - saññāya uparodhanā</p><p>Evaṁ dukkhakkhayo hoti - evaṁ ñatvā yathātathaṁ</p><p>With the stilling of all preparations, unobstructed by perceptions, that is the way suffering ceases. Thus, knowing this as it is,</p><p>Sammaddasā vedaguno - sammadaññāya paṇditā</p><p>The wise, endowed with correct vision and well versed in knowledge, realizing this as it is,</p><p>Abhibhuyya mārasaṁyogaṁ - nāgacchanti punabbhavaṁ</p><p>Overpowering the bonds of Māra, do not go into another birth.</p><p>That is the meaning of the verses.</p><p>Coming back to our subject saṁkhāra, we see it occurs as the second factor in the Paṭicca Samuppāda, following avijjā. You know we have many a time repeated avijjā paccayā saṁkhārā, saṁkhāra paccayā viññānaṁ,  viññāna paccayā nāmarūpaṁ, nāmarūpa paccayā saḷāyatanaṁ and so on. The Buddha has himself given a clarification of the term saṁkhāra, in the Vibhanga Sutta, in the Nidāna Saṁyutta of the Saṁyutta Nikāya.</p><p>“Katame ca bhikkhave saṁkhārā. Tayo me bhikkhave saṁkhārā. Kāya saṁkhāro, vacī saṁkhāro, citta saṁkhāro”</p><p>Monks, what are the preparations? There are three, preparations of the body, speech and mind. Remember they are in the singular. There is yet another clear analysis of these terms in the Cūla Vedalla Sutta of the Majjhima Nikāya. We meet Arahant Therī Dhammadinnā making a comprehensive analysis of them in reply to lay disciple Visākha’s questions. He wished to know what exactly is meant by kāya saṁkhāra, vacī saṁkhāra, citta saṁkhāra.</p><p>Arahant Therī Dhammadinnā explained,</p><p>“assāsa passāsā kho āvuso visākha kāyasaṁkhāro, vitakka vicārā vacī saṁkhāro, saññā ca vedanā ca citta saṁkhāro.”</p><p>Let me give the meaning.</p><p>“Friend Visākha, inhalation and exhalation are the preparation of the body, reasoning and deliberation are the preparation of speech. Perception and feeling are the preparation of the mind.”</p><p>Again the layman Visākha questions,</p><p>“Noble lady, how do inhalation and exhalation be the preparation for the body? How do reasoning and deliberation be the preparation for speech?</p><p>How do perception and feeling be the preparation for the mind?”</p><p>Then the Arahant Therī  had to explain further.</p><p>“Assāsa passāsā kho āvuso visākha kāyikā ete dhammā kāya paṭibaddhā. Tasmā assāsa passāsā kāyasaṁkhāro.”</p><p>“Friend Visākha, inhalation and exhalation are physical and bound to be associated with the body. They are Therefore, the preparation of the body.”</p><p>Then she continues.</p><p>“Pubbe kho āvuso visākha, vitakketvā vicāretvā pacchā vācaṁ bhindati. Tasmā vitakka vicārā vacī saṁkhāro.”</p><p>Here she explains something special.</p><p>“Friend Visākha, first, one reasons out and deliberates. Then expresses in speech. Therefore, reasoning and deliberation are the preparation of speech.”</p><p>Then she continues,</p><p>“saññā ca vedanā ca āvuso visākha cetasikā. ete dhammā cittapaṭibaddhā. tasmā saññā ca vedanā ca citta saṁkhāro.”</p><p>Perceptions and feelings are mental phenomena. They are associated with the mind. Therefore, they are the preparation of the mind.</p><p>Now let us explore the implications behind these words.</p><p>According to the accepted theory of Paṭicca Samuppāda, consciousness leading to another birth is fashioned by saṁkhāra or preparations. But, this reveals something more fantastic. You know that your breathing does not take you to the Deva world or to the lower realms. Respiration is not considered as an action – kamma. But inhalation and exhalation provide the rehearsal for the drama of becoming. You know that inhalation and exhalation establish the first contact with the atmosphere, at birth. They represent the subtle act of grasping. Similarly, they make the last effort at death. Let me explain this with the help of a simile. Imagine an iceberg in the ocean. What you see is only one tenth of it. Nine tenths are hidden below the sea level. Similarly, the wholesome and unwholesome deeds we consider as greatly significant are merely the visible section. The nine tenths that lie below is inhalation and exhalation. Remember I said just now that breathing does not drag you to hell. But if you take a deep breath and deal a mighty blow on someone with a rod, you’ll definitely end up in hell. What I want you to understand is that our breath is similar to the invisible portion or the rehearsal of the drama of becoming.</p><p>Next vitakka vicāra, reasoning and deliberation in speech are similar. It was specifically mentioned that before a word is uttered vitakka and vicāra are activated. We see that the word ‘rehearsal’ is ideally applicable to this process as well. The mind dwells on the word by way of reasoning and deliberation before it is uttered, similar to decorating the stage before the drama begins. Lying beneath the words are the invisible preparation called vitakka vicāra – reasoning and deliberation.</p><p>Now look at saññā and vedanā – perception and feeling – as the process of preparation for thought. Thought, according to the Buddha is more fascinating than a painting – cittaññeva cittataraṁ. But that thought is prepared by perception and feeling. Therefore, the thought is essentially a preparation, a planning, a rehearsal.</p><p>What serves as the background for this rehearsal? It’s avijjā ignorance. Avijjā paccayā saṁkhārā. It is familiar to you but let’s go back to Vibhanga Sutta for further explanation. How does the Buddha interpret avijjā – “dukkhe aññāṇaṁ, dukkha samudaye aññāṇaṁ, dukkha nirodhe aññāṇaṁ, dukkha nirodha gāminiyā paṭipadāya aññāṇaṁ.”  In brief, it is ignorance of the four Noble Truths. Aññāṇaṁ  means ignorance. That is the background. The rehearsal is done in this dark background, by inhalation and exhalation, reasoning and deliberation, perception and feeling.</p><p>Now, for what purpose is this rehearsal? Let us find out.</p><p>Saṁkhāras (preparations) are followed by viññāna (consciousness). Viññāna is followed by nāmarūpa (name-andform). We have already discussed viññāna and nāmarūpa at length. Certain books, when discussing paṭicca samuppāda,  talk of a paṭisandhi viññāna, consciousness leading to a birth. But the Buddha has defined viññāna as six-fold.</p><p>“Katamaṁ ca bhikkhave viññāṇaṁ? Cakkhu viññāṇaṁ, sota viññāṇaṁ, ghāna viññāṇaṁ, jivhā  viññāṇaṁ, kāya  viññāṇaṁ, mano viññāṇaṁ.”</p><p>Consciousness was explained this way, as six-fold. We have on an earlier occasion given the analysis of  nāmarūpa, in Venerable Sāriputta’s words. In the Buddha’s words, this is how it is defined;</p><p>“Katamaṁ ca bhikkhave nāmarūpaṁ? saññā, vedanā, cetanā, phasso, manasikāro. Idaṁ vuccati bhikkhave nāmaṁ. Cattāro ca mahābhūtā catunnaṁ ca mahābhūtānaṁ upādāya rūpaṁ. Idaṁ vuccati bhikkhave rūpaṁ.”</p><p>“What monks is Name-and-form? Perception, feeling, intention, contact and attention – this is called name. The four primaries and the form that arises with a grip on the primaries – this, monks, is called form.”</p><p>That’s the explanation. The words of the Buddha.</p><p>As we earlier remarked contact or phassa cannot be brought forward. We have compared the five-fold factors of nāma to the five fingers, although later interpretations varied.</p><p>“Cattāro ca mahābhūtā  catunnaṁ ca mahābhūtānaṁ upādāya rūpaṁ.”  This means the perception of rūpa arises in accordance with the four elements, that is, with a grip on the four elements. On either side of rūpa are viññāna and nāmarūpa. The vortex or whirlpool that we have often referred to, is also found between these two. The drama of becoming is also manifested between them.</p><p>This can be well explained as aññamañña paccayatā – mutual interdependence. The bodily preparation (kāya saṁkhāra) the verbal preparation (vaci saṁkhāra) and the mental preparation (citta saṁkhāra) are shown as only the rehearsals for this interdependence. The final outcome of the interdependent drama between viññāna and  nāmarūpa is the preparation of the five aggregates of grasping (pañca upādānakkhanda). We have drawn many a comparison such as the game of draughts, the game of cricket etc. to illustrate the dual nature of viññāna. Becoming (bhava) is dependent on the performance between these two teams, and an apparent continuity is thereby prepared. The final outcome of this process is the accumulation of the fivefold aggregates of grasping.</p><p>Following the identification of consciousness as two-fold, the six sense spheres begin to function as a duality. And within the six sense spheres are produced the preparations that weave the web of becoming.</p><p>It is very significant that cetanā, intention is included among the five-fold nāmadhamma – constituents of name. The meditative yogins prior to the Buddha had already realized that respiration was suffering, that reasoning and deliberation (vitakka vicāra) were suffering, that perception and feeling were suffering. Although they had no clear idea of saṁkhāras or the background of ignorance, through the attainment of Jhānas they became aware of the coarseness of preparations. As a result they were playing a game of see-saw, as I have already mentioned. According to the Buddha, there are six kinds of pacifications. You will understand them as I explain. What are the six?</p><p>Speech is pacified in him who enters the first Jhāna.  Reasoning and deliberation is pacified in him who enters the second Jhāna.</p><p>Joy is pacified in him who enters the third Jhāna.  Respiration is pacified in him who enters the fourth Jhāna.</p><p>Perception and feeling are pacified in him who enters the attainment of cessation of perceptions and feelings.</p><p>Finally, it is said that lust, anger and delusion are pacified in the monk whose influxes are extinct.</p><p>These six steps of pacification – passaddhi – are mentioned in the Saṁyutta Nikāya. The contemporary meditators of the time had attained the pacification of speech, reasoning and deliberation as well as inhalation and exhalation through jhāna practice, but were unable to move beyond that. Freeing themselves from perception – saññā – was a problem, a challenge. We referred to it as a game of see-saw.</p><p>Their highest attainment nevasaññānāsaññāyatana  the realm of neither perception nor non-perception is explained in the Pañcattaya Sutta of the Majjhima Nikāya as follows:</p><p>“saññā  rogo, saññā gaṇḍo, saññā sallaṁ, asaññā sammoho 	etaṁ 	santaṁ 	etaṁ 	paṇītaṁ 	yadidaṁ  nevasaññānāsaññaṁ.”</p><p>They realized that saññā  is a disease, a wound, a dart but the absence of saññā  is delusion. It was not possible to relinquish it. That’s why they were playing a game of see-saw. They held on to nevasaññā nāsaññā, an excellent peaceful position, santaṁ paṇītaṁ, which is neither perception nor non-perception.</p><p>What is found beyond nevasaññā nāsaññā I have discussed it, if you remember, drawing facts from Poṭṭhapāda Sutta of the Dīgha Nikāya which holds an amazing store of facts. It records how some ascetics and Brahmins asked the Buddha for an explanation of abhisaññā  nirodha. The Buddha said it is the stage where even cetanā is given up.</p><p>Why was there a confusion regarding abhisaññā  nirodha? I wonder whether you remember I explained it earlier.</p><p>Natthi kiñci conveys the idea that ‘there is nothing’ (nothing exists). These ascetics with their yearning for becoming, saw natthi kiñci as referring to some ‘thing’. They made a samāpatti out of it, which took them to Brahma worlds with an unlimited life span. They could not attain anything beyond this due to ignorance of preparations - saṁkhāras.</p><p>Let us see what the Buddha has to say regarding this mental state. Poṭṭhapāda Sutta has a valuable statement as follows;</p><p>A monk who attains ākiñcaññāyatana thinks</p><p>“cetayamānassa me pāpiyo, acetayamānassa me seyyo. Yannūnāhaṁ na ceva ceteyyaṁ na cābhisaṁkareyyaṁ ti.”</p><p>Using cetanā (intention) at this stage is not correct. I shall refrain from cetanā. Cetanā is a gross mental state. With the determination to avoid saṁkhāras finally he attains saññā  vedayita nirodha.</p><p>Let me explain this with the simile of the five fingers, though it was not used by the Buddha. The last finger stands for feeling (vedanā). The fourth finger represents perception (saññā). The stubborn middle finger is intention (cetanā). With the pacifying of cetanā that is bringing the middle finger under control, one experiences nirodha (cessation) which is not a ‘thing’. Nibbāna is signless (‘animitta’), undirected (‘appaṇihita’) and void (‘suññāta’). It is the furthest end of the three signata – impermanence, suffering and not-self.</p><p>When you arise from the attainment of cessation – nirodha samāpatti – your attention is focused towards the signless state (animitta), the undirected state (appaṇihita) and the void state with no soul, no continuity (suññata). This is the special message from the Buddha to the world, the significance of which was unknown to the meditators of the time. You could remember this mental state as Vimokkha.</p><p>Since preparations – saṁkhāras – is our main topic, let us discuss it further depending on the time available. Saṁkhāra which we compared to the hidden part of the iceberg, is used here in the singular. In this background called saṁkhāra there is a drama of becoming between consciousness viññāna and  Name-and-form nāmarūpa. We have used similes such as the game of draughts, and the game Narcissus played with water. The ultimate outcome of this drama is the accumulation of the five aggregates of grasping.</p><p>Now we come to a significant aspect of the five aggregates of grasping. There is reference to saṁkhāra in the aggregates but used in the plural as saṁkhārā. This is the point that misleads us. It is also the most intricate point in our effort to understand Paṭicca Samuppāda. The end result of the activity of Paṭicca Samuppāda is the five aggregates of grasping. You know ignorance means the ignorance of the four Noble Truths. Due to that ignorance, preparations such as inhalation and exhalation are activated. It is followed by another step where, instigated by ignorance and the delusion of consciousness, a duality arises – viññāna and nāmarūpa. This is followed by a drama. As the final outcome of the drama, a multitude of forms appear. A multitude of feelings appear. A multitude of perceptions appear. A multitude of preparations appear. A multitude of consciousness appear. It is important to understand them as prepared preparations – saṁkhata saṁkhārā. It is in the plural.</p><p>The Buddha has offered a clarification to the preparations – saṁkhārā – found in the five aggregates of grasping.</p><p>“Katame ca bhikkhave saṁkhārā? Chayime bhikkhave cetanā kāyā. rūpa saṁcetanā, sadda saṁcetanā, gandha  saṁcetanā, rasa  saṁcetanā, phoṭṭhabba saṁcetanā, dhamma saṁcetanā.”</p><p>How does the Buddha explain saṁkhārā in the context of pañca upādānakkhandha? Not the same interpretation as in vacī saṁkhāra. ‘cetanā kāyā’ means a mass of intentions.</p><p>Intentions are of six kinds. Rūpa saṁcetanā is intention based on form. Sadda saṁcetanā is intention based on sound. You can understand the rest in relation to the six sense bases. Preparations are generated through intention. They are called saṁkata saṁkhāra. They are intentionally prepared.</p><p>We know that inhalation and exhalation, reasoning and deliberation, perception and feeling can be compared to stage settings. The end result of the drama of becoming performed on the stage is the five aggregates of grasping. The Mahā Saḷāyatanika Sutta sheds enough light to clarify this matter. To explain the coming together and the falling apart of the five aggregates of grasping, it uses the terms upacaya and apacaya. The Buddha takes the six āyatanas – sense bases one by one. The eye, the form, the consciousness resulting from those two, the contact that arises and its resultant feeling. Unless this process is understood clearly as it is, it might lead to conflict, delusion and result in the arising of the five aggregates of grasping. One may fall into the deception of believing “this is my form, this is my feeling, this is my perception, these are my preparations and this is my consciousness.”</p><p>The Khajjanīya Sutta in the Saṁyutta Nikāya deals with this subject at depth very clearly. The Buddha begins the Sutta as follows; “Monks, among ascetics and Brahmins, whoever recalled their past births, they did so basing their recollection on the five aggregates of grasping or at least one aggregate.”  What the Buddha means is that their insight into the past births is not clear enough. They see a mass of forms that belong to the past. They identify the forms as “I”.</p><p>They conclude “In the past I was”.</p><p>In recalling the past, in bringing the past births back to memory, certain forms come to one’s view and thinks “In the past I was”.</p><p>The same process takes place regarding vedanā (feeling) and other aggregates. We can see here the saṁkata pattern.</p><p>The Buddha then proceeds to give an amazing analysis of each word. Rūpa, we said, is an aggregate of grasping (upādānakkhanda) upādāna means a mass or cluster in one’s grip. As we often remind you, the ordinary worldling has the notion of compact. Within the view of self (sakkāya diṭṭhi) this notion of substance is apparent. Let us break up the term sakkāya diṭṭhi. ‘Sat’ means ‘there is’. ‘Kāya’ is a ‘bundle’ (collection). With this notion of ‘There is a bundle’ one attempts to establish one’s identity as “I am”.</p><p>What is rūpa? It is only a collection. It is the same with the other aggregates.</p><p>Next, let us discuss the similes associated with the khandhas. Form (rūpa) is like a cluster of foam. Feelings (vedanā) are like bubbles. Perception saññā is similar to a mirage. Preparations are compared to the banana trunk. Consciousness is like an illusion. Why are these called saṁkata saṁkhāra? They are deceptive. These similes bring out their deceptive nature. At a distance a cluster of white foam appears like a stone. It reveals itself only if you look at it scrutinizingly at very close quarters.  Rūpa is similar to foam but an ordinary man of the world will not be able to see through rūpa (form). Similarly, feeling is comparable to a bubble of water floating in mid-air. When it bursts (breaks) one realizes it is nothing more than a bubble. Feeling is only a mirage. You realize a mirage is an illusion only when you chase after it. You have to keep peeling to the centre of the banana trunk to realize it has no hard core. Such is the nature of saṁkhāras. Only with penetrative wisdom could one realize that viññāna  is a magical illusion.</p><p>These similes were given by the Buddha to enable the meditators to realize the intricate nature of the subject at depth, but the ordinary people are not prepared to accept it.</p><p>The Buddha offers a very interesting etymological interpretation of the words rūpa, vedanā etc.</p><p>“kiñca bhikkhave  rūpaṁ vadetha?”  Monks, what is called rūpa? “Ruppatīti kho bhikkhave tasmā rūpanti vuccati”.</p><p>Monks, it is rūpa because it hurts, is oppressed. Then comes a further analysis.</p><p>“kena ruppati, sītena pi ruppati, jighacchāya pi ruppati, pipāsāya pi ruppati, ḍaṁsamakasa vātā tapa siriṁsapa samphassena pi ruppati.”</p><p>This rūpa or body, by what is it oppressed? By cold, heat, hunger, thirst, flies.</p><p>By ruppati, the Buddha meant that rūpa is a boil. One’s attention is drawn towards the body when one is oppressed by cold, heat, hunger etc. This interpretation of ‘ruppati’ as ‘oppressed by’ has a very deep meaning.</p><p>Next vedanā is explained as vediyati. It means one feels, one experiences. That’s not a complicating word. What does one feel? One feels happiness, unhappiness and neither happiness nor unhappiness. Saññā  means sañjānāti. Perceives, identifies. What is perceived (identified)? In terms of colours, blue, red, yellow, white. That is how saññā is explained. Now comes the introduction to saṁkhāra. It is extremely deep in meaning. The Buddha’s technique of explaining saṁkhāra is different.</p><p>“Kiṁ ca bhikkhave saṁkhāre vadetha. Saṁkataṁ abhisaṁkarontī ti saṁkhārā.”</p><p>“Monks, what is meant by saṁkhārā? A special preparation of the prepared.”</p><p>Abhisaṁkaronti  here means, making a special preparation. Saṁkhāra also has the idea of preparing. Abhisaṁkāra means special preparing. Here we must remember that the Buddha explains saṁkhāra in his discussion of pañca upādānakkhandha as “saṁkhataṁ abhisaṁkharontī ti saṁkhārā”.</p><p>That is ‘a special preparation of the prepared.’ The Buddha called the body an abscess. When afflicted by cold, heat hunger, discomfort, our attention is drawn towards it.</p><p>Then comes another intricate question about saṁkhāra.</p><p>“Kiñca saṁkhataṁ abhisaṁkharontī?”</p><p>“What preparation is specially prepared?”</p><p>Rūpaṁ rūpattāya  saṁkhataṁ abhisaṁkharontī ti. Form is prepared into form by a process of specially prepared preparation. In a similar manner, vedanā feeling is prepared into feeling by a process of specially prepared preparation.</p><p>“Vedanaṁ vedanattāya  saṁkhataṁ abhisaṁkharontī.”</p><p>The third one saññā has to be understood in a similar manner. The most wonderful interpretation is given to  saṁkhāra. Saṁkhāre  saṁkhārattāya saṁkhataṁ abhisaṁkharontīti saṁkhārā. Saṁkhārā or preparations are so called because preparations are prepared into prepared form by a process of special preparation.</p><p>Then comes consciousness,</p><p>“viññāṇaṁ viññāṇattāya saṁkhataṁ abhisaṁkharonti”.</p><p>“Consciousness is formed into consciousness by a process of specially prepared preparation.”</p><p>This explanation of the Buddha is enough proof of the importance of saṁkhāra.</p><p>All the saṁkhāras that come under these four categories are transformed into prepared form – specially prepared form. In that case all the people live within the ‘prepared’ state. Saṁkhata  means prepared but the ordinary people do not understand it due to the perception of the compact or ghana saññā. The purpose of giving those similes such as ‘a mass of foam’, ‘a mirage’ etc., was to clarify the perception of the compact.</p><p>We came across some important words such as cetanā, saṁcetanā, saṁkhāra,abhisaṁkhāra, saṁkhata and its opposite asaṁkhata. Let’s study them. Cetanā. Going by its etymology, it means adding up. Adding together. Think of feeling – vedanā – arising in you when a sense organ meets the sense object. It is followed by perception. With perception there is a tendency to add up everything. That is cetanā, intention. We said that cetanā is stubborn. Then comes saṁcetanā. Saṁcetanā arises as rūpa saṁcetanā, sadda saṁcetanā, gandha saṁcetanā and so on. In rūpa saṁcetanā, form is treated as a thing and a process of adding up takes place. In sadda saṁcetanā sound is treated as a thing and cetanā or adding up takes place accordingly. Understand the others in the same way. That’s why the Buddha explained the term saṁkhāra as saṁcetanā in relation to pañca upādānakkhandha.</p><p>“cha ime bhikkhave cetanā”.</p><p>There are six intentions, kāya cetanā (bodily intentions) such as rūpa saṁcetanā, sadda saṁcetanā and so on. Now we have given a brief account of saṁcetanā.</p><p>We have already discussed saṁkhāra or preparation. Those who are interested in Indian literature and history know how stage make-up is done before a drama. To those who watch the modern tele-dramas, ‘make-up’ is nothing new. Such is the change brought about by make-up, that even the actor cannot be identified. That deception is indicated by the term saṁkhāra. So we see that drama actors make full use of the saṁkhāra technique. The kitchen is another place where saṁkhāra or preparation is done before food is brought to the table. That preparation is called saṁkhatiyo. The term ‘susaṁkhata’ is used for a well prepared meal. Once placed on the table, it is totally unidentifiable. There lies deception. The term saṁkhāra has this quality of deception within it. ‘Saṁkhata’ is the word used to indicate things prepared for deception. They are totally misleading.</p><p>Then the term ‘abhisaṁkhata’  means specially prepared. Beneath this superficial meaning abhisaṁkhata has a deeper meaning. Let us try to explore it. These different interpretations are all expressed in the suttas. Pabbajjābhisaṁkhāro indicates the urgency one feels for ordination. One’s impatient urge for ordination. Gamikābhisaṁkhāro refers to one’s anxiety to undertake a journey. The keenness to start on it is so strong that, one’s wish is somehow fulfilled.</p><p>In the Pacetana Rathakāra Vagga of the Anguttara Nikāya, the Buddha uses an ideal simile in a discourse. This etymological analysis is based on that simile. The carpenter of King Pacetana built two wheels. He let one roll forward. When a wheel is made to roll forward, it is given some momentum.</p><p>This is how it is described “yāvatikā abhisaṁkhārassa gati tāvatikaṁ gantvā ciṁgagulāyitvā bhūmiyaṁ papati.”</p><p>As long as the infused force lasted, the wheel rolled forward, twirled and collapsed on the ground. Here, we are interested in the term abhisaṁkhāra. It conveys the idea of momentum, urgency, impatience. That is exactly why the term abhisaṁkhāra is used in discussing kamma.</p><p>Kāya saṁkhāraṁ abhisaṁkharoti, vacī saṁkhāraṁ abhisaṁkharoti, mano saṁkhāraṁ abhisaṁkharoti. It’s here that the serious problem of the resultant aspect of actions come in – kamma vipāka. Cetanā or intention plays a major role here. We have mentioned that mere breathing does not pave the way to hell. With reference to wholesome and unwholesome actions, the three terms used are puññābhisaṁkhāra, apuññābhisaṁkhāra and āneñjābhisaṁkhāra.</p><p>Puññābhisaṁkhāra consists of the preparatory force to prepare another birth in the deva worlds and the human world. A pleasant birth. Apuññābhisaṁkhāra on the other hand prepares the environment for birth in hell.</p><p>The third one, āneñjābhisaṁkhāra is more complex in meaning. Āneñja means steadfast, unshakable. It is closely associated with the jhānas. It is interesting to note that unshakability is also a moving force. I shall explain it with a simile. You know how to spin a top. You wind the thread round it, jerk it and let go. The force enables it to spin round remaining in an erect position. The top stands erect but keeps spinning round. It is similar to being born in formless spheres – arūpa loka – and continuing to live for aeons and aeons. They experience the results of the jhānas they have attained, like the never ending twirl of a top. You can now understand how terrifying the saṁkhāras are. Although one never committed unwholesome actions, one has to take birth in a Brahma sphere and keep spinning endlessly. That is āneñjābhisaṁkhāra.</p><p>Consider these important facts. They indicate the fearfulness of preparations. The Buddha has always emphasized the fearful nature and the sorrowful nature of these preparations.</p><p>“Jigacchā paramā rogā, saṁkhāraparamā dukhā, etaṁ ñatvā yathābhūtaṁ - Nibbānaṁ paramaṁ sukkhaṁ.</p><p>This too has come under discussion in an earlier discourse. Jigacchā paramā rogā. Hunger is the most severe of illnesses. Modern medical men will not agree with this statement. Today what are called ‘diseases’ are those severe deadly diseases now known. But even if all those diseases are cured, what will endure is hunger. It has been called the disease that makes you groan. Hunger makes you groan automatically although you are healthy. That’s why hunger is the most serious of diseases. Jigacchā paramā rogā.</p><p>Saṁkhāraparamā dukhā. That statement too has a deep meaning. We grieve over the superficially manifested physical ailments. The story of the spinning top suggests how deep rooted the problem is. Saṁkhārā paramā dukkhā means, suffering originated by preparations continue, even after all the other sufferings are allayed, that it is the furthermost of sufferings. The top spins by the force of preparations. Saṁkhāras activate the continued becoming. Saṁkhāraparamā dukhā. Etaṁ ñatvā yathābhūtaṁ – If one realizes this as it is, Nibbānaṁ paramaṁ sukkhaṁ – Nibbāna is the highest bliss. At the very outset we pointed out that the very first words expressing the peaceful excellent nature of Nibbāna were ‘stilling of all preparations’ –  ‘sabbasaṁkhāra samatho’. Can you imagine how deep it is?</p><p>In order to free oneself from continued existence, wholesome and unwholesome preparations and specific preparations have to be stilled. Inhalation and exhalation have to be stilled. Reasoning and deliberation have to be stilled. Perception and feeling have to be stilled. The ordinary people, infatuated by desire for becoming, cannot comprehend this message. This subject is discussed in detail in the Saṁcetanā Sutta of the Catukka Nipāta of the Anguttara Nikāya. It simply takes us by surprise “kāye vā bhikkhave sati, kāyasaṁcetanāhetu, uppajjati ajjhattaṁ sukhadukkhaṁ. Vācāya vā bhikkhave sati, vacīsaṁcetanāhetu uppajjati ajjhattaṁ sukhadukkhaṁ, mane vā bhikkhave sati, manosaṁcetanāhetu uppajjati ajjhattaṁ sukhadukkhaṁ avijjāpaccayā va.”</p><p>Let us try to simplify this to our level. Kāye vā sati, means there being a body, due to specific preparations of the body, there arise happiness (pleasant feelings) and suffering within. There being speech, due to  intentions based on speech (words, language, vocal usage) there arise happiness and suffering within. If we consider mind to be something existing, there being mind, due to intentions based on mind, happiness and suffering arise within. One prepares these preparations for oneself, and others too prepare them and pass them to you. One experiences the happiness and suffering intentionally or unintentionally. Then the Buddha explains the more interesting and more important part of the story ‘avijjā paccayā va’. It is due to ignorance that we take the body to be real, speech to be real and mind to be real.</p><p>Then the Buddha explains it in the reverse order.</p><p>“Avijjāyatveva asesa virāga nirodhā so kāyo na hoti yaṁ paccayāssa taṁ uppajjati ajjhattaṁ sukhadukkhaṁ, sā vācā na hoti yaṁ paccayāssa taṁ uppajjati ajjhattaṁ sukhadukkhaṁ  so mano na hoti yaṁ paccayāssa taṁ uppajjati ajjhattaṁ sukha dukkhaṁ.”</p><p>This is a fantastic statement, a revelation. With the complete cessation of ignorance, the body ceases to be. Speech ceases to be and mind ceases to be. Whatever happiness and suffering arose dependent on those three, they cease. The Sutta ends this way “khettaṁ taṁ na hoti, vatthuṁ taṁ na hoti, āyatanaṁ taṁ na hoti, adhikaraṇaṁ taṁ na hoti, yampaccayāssa taṁ uppajjati ajjhattaṁ dukhadukkhaṁ.”</p><p>“Whatever field there was, whatever ground there was, whatever land there was, whatever reason there was, dependent on which suffering arose within, that is no more.”</p><p>That is how suffering is brought to an end. This explanation enlightens us on the deeper implication of saṁkhāra . They play their part first as a rehearsal, and then assist in the drama of becoming, and finally act as the specific preparations for another birth. Such is saṁkhata.</p><p>There are certain verses that confuse most people. Here is one;</p><p>Sabbe saṁkhārā aniccāti</p><p>Yadā paññāya passati</p><p>Atha nibbindatī dukkhe</p><p>Esa maggo visuddhiyā</p><p>Considering all preparations as impermanent, if one realizes it with wisdom, one would be disillusioned about suffering. That is the path towards purity.</p><p>The second verse begins with “sabbe saṁkhārā dukkhāti  yadā paññāya passati”.</p><p>If one realizes through insight that all preparations are suffering, that is the path to purification. The third verse poses a problem to everybody with “sabbe dhammā anattāti yadā paññāya passati.”  The problem is the use of the term ‘dhammā’ instead of ‘saṁkhārā’. The first verse says “All preparations are impermanent”.</p><p>The second verse says “All preparations bring suffering”.</p><p>The third verse says “All dhammas are essenceless”.</p><p>That is the problem. We have explained dhammā as mind objects or ‘things’. According to our ancient teachers, Nibbāna is not a ‘thing’ but it has been misinterpreted as a ‘thing’. The Mūla Pariyāya Sutta which deals with this subject is beyond the understanding of many. Some tend to misinterpret  saṁkhata (prepared), asaṁkhata (non-prepared) and Nibbāna as asaṁkhata dhamma or asaṁkhata dhātu – a nonprepared ‘thing’, which has resulted in a lot of confusion. But what really is asaṁkhata? It is the cessation of preparation.</p><p>This point is further explained in the verse “saṁkhārāṇaṁ khayaṁ ñatvā akataññūsi brāhmaṇa.”</p><p>If one can understand the elimination of preparations as described in the Dhammapada, then the state of asaṁkhata (non-prepared) referred to as akata becomes clear. To make it more lucid, take the pattern woven on this mat. If the pattern is taken as a solid object the mind may get attached to it. If one takes a penetrative look at the straws illusively woven this way and that, the mind can detach itself from the pattern. Asaṁkhata – non-preparation is similar to that. The danger here lies in considering even  asaṁkhata as a ‘thing’.</p><p>In the statement ‘sabbe dhammā anattā ti’, Nibbāna is also included. When we think of Nibbāna as the goal we wish to reach, it takes the form of an object for the mind. I hope it is clear to everybody. It has to be taken as an object to the mind. But in the end, if Nibbāna is treated as a ‘thing’, we will be misled like the ancient yogis.</p><p>‘Natthi kiñci’ or ‘There is nothing’ is mistakenly understood as a reference to a thing. If Nibbāna is also treated as a thing, one can enter Saṁsāra again. This is a subtle point in the Buddha dhamma. Asaṁkhata must be correctly understood. The verse “anekajātisaṁsāraṁ” ends with visaṁkhāragataṁ cittaṁ taṇhānaṁ khayamajjhagā.  Here the phrase visaṁkhāragataṁ cittaṁ is very significant. The mind once dominated by preparations is now free of them. The mind is liberated. That is why it is said that the moment intentions (cetanā) and specific preparations are abandoned, one experiences nirodha – cessation. There is yet another important phrase that describes Nibbāna, from another perspective.</p><p>“Viññānaṁ ca anabhisaṁkhacca vimuttaṁ.”</p><p>The consciousness (viññāna) of an ordinary person is prepared, saṁkhata. But if the mind is liberated from the specific preparations of name-and-form, we have a special term to describe that mind, anidassana viññāna. It is the consciousness that does not display any name-and-form, and is totally liberated. Anabhisaṁkhacca vimuttaṁ also refers to the same state of mind. Similarly, asaṁkhata simply means to emancipate oneself from the ghana saññā or the perception of the compact, and begin to see through the perception of a cluster.</p><p>I would like to draw your attention to another point, at this juncture. Earlier I pointed out to you that the word saṁkhāra is used in the singular as kāya saṁkhāro, vacī saṁkhāro and citta saṁkhāro, but with reference to kamma, it is used in the plural. For example kāya saṁkhārā, vacī saṁkhārā but mano saṁkhārā instead of citta saṁkhārā. This may be slightly confusing. We have told you that the three preparations – inhalation and exhalation, reasoning and deliberation, and perception and feeling – make up the underneath layers. But they encroach the top layer when mana gets recognition, that is when the mind receives objects (dhamma) for thought. The moment these objects or dhammā are treated as ‘things’, cetanā or intention arises. It is the objects that flow into the mind that activate the stubborn middle finger.</p><p>Let us now arrange everything in its proper order. First we used the three words kāya saṁkhāro, vacī saṁkhāro and citta saṁkhāro with reference to the three types of preparation. If we move on to the topic of kamma, kamma that prepares the ground for another birth, the terms used are kāya saṁkhārā (in the plural), vacī saṁkhārā and instead of citta saṁkhārā, the third is mano saṁkhārā. Why? When the sense objects grasped by the sense faculties reach the mind, they are transformed into ‘things’. Chandamūlakā āvuso sabbe dhammā. All dhammas have desire (chanda) as their root. These are complicated points, although we try to summarize them. You know saṁkhāra is a term with deep implications.</p><p>Beneath saṁkhata or ‘the prepared’ runs an undercurrent of taṇhā, craving. These are the words of the Buddha.</p><p>“Avijjā samphassajena bhikkhave, vedayitena phuṭṭhassa assutavato puthujjanassa taṇhā uppaṇṇā tatojo so saṁkhāro.”Craving (taṇhā) arises in ordinary worldly people, who are afflicted by ignorance. Preparation or saṁkhāra is born out of this craving. Think of respiration for example. You may give up everything but you cannot give up breathing. It’s called the most elementary level of grasping. You know how hard a person gasps for breath at death. That shows that becoming is dependent on the three subtle preparations. The external factors come in later, and continue to follow from birth to birth.  The fundamental force that helps in preparation is taṇhā, craving. The preparation done in the darkness of ignorance is three-fold, kāya saṁkhāro, vaci saṁkhāro, citta saṁkhāro. The third preparation citta saṁkhāro becomes a mano saṁkhāra, a preparation of the mind, when it assumes a gross state, when it becomes a prepared. With the mere arising of feeling and perception, there is no accumulation of kamma. That is called mano saṁcetanā. You know the first two verses in the Dhammapada.</p><p>As the last point in the talk, we have come to the first two verses of the Dhammapada.</p><p>Mano pubbaṁgamā dhammā</p><p>Mano seṭṭhā manomayā</p><p>Manasā ce paduṭṭhena</p><p>The subject discussed here is the mind – mana. The mind takes the responsibility, being in the forefront of mental objects – dhammā. Wholesome or unwholesome intentions cetanā are activated at this point. Kamma is thus accumulated.</p><p>Try to understand all the points we discussed today. We talked about saṁkhāra, abhisaṁkhāra, cetanā, saṁcetanā, saṁkhata and asaṁkhata. The summary of the talk is contained in these words. You can now understand the significance of the Buddha’s words “Yaṁ kiñci dukkhaṁ sambhoti - sabbaṁ saṁkhāra paccayā.”</p><p>But it is not a very popular statement.</p><p>It is very amusing to see that the most fascinating (interesting)</p><p>‘song’ in the Buddha’s teaching is the last thing we hear on earth.</p><p>Aniccā vata saṁkhārā</p><p>Uppāda vaya dhammino</p><p>Uppajjitvā nirujjhanti</p><p>Tesaṁ vūpasamo sukho.</p><p>To tell you the truth, my first impulse was to begin this discourse with this verse. But I knew you would walk out on hearing it. That’s why I brought it out last.</p><p>“Aniccā vata saṅkhārā” is one of the most profound verses. But it has faced the same fate as the Satipaṭṭhāna Sutta. Both have been reduced to the level of a pumpkin among the funeral rites. But you can see that this verse carries a message at its very depth. Aniccā vata saṁkhārā – uppāda vaya dhammino – Impermanent are all preparations. They are of the nature of arising and passing away.</p><p>Uppajjitvā nirujjhanti – They arise and cease. Tesaṁ vūpasamo sukho – Their pacification is bliss.</p><p>Now let’s enrich this treasure of a verse with another Buddha word.</p><p>Aniccā vata saṁkhārā</p><p>Uppāda vaya dhammino</p><p>Uppajjitvā nirujjhanti</p><p>Tesaṁ vūpasamo sukho.</p><p>That is all the verse says, but let us expand on it. In the saṁkhāras referred to in the above verse, from inhalation and exhalation to the more gross preparations called abhisaṁkhāra, the nature of arising and ceasing is evident.</p><p>“Uppāda vaya dhammino”.</p><p>But there occurs a more revealing exposition of saṁkhata.</p><p>“Tīṇimāni bhikkhave saṁkhatassa saṁkhata lakkhaṇān?”</p><p>Monks, three main characteristics are seen in preparations that have been prepared. What are they? “Uppādo paññāyati, vayo paññāyati, ṭhitassa aññathattaṁ  paññāyati.”</p><p>An arising is visible, a cessation is visible. Furthermore,</p><p>“ṭhitassa aññathattaṁ”  ‘ṭhiti’ means ‘being’ “continuing”.</p><p>While being, (while continuing) a change is visible. We saw that saṁkhāra has only an arising and ceasing. But regarding saṁkhata there is an arising, a passing away and an otherwiseness of the (apparently) static. The Buddha explains ‘ṭhitassa aññathattaṁ’ – ‘a turning otherwise of the apparently static state’ –  what is mistakenly seen as ‘being, continuing, enduring’ undergoes change. The essence of the problem lies hidden there.</p><p>Now let us understand what is called asaṁkhata dhātu. You have heard that asaṁkhata refers to Nibbāna. This is how it is described.</p><p>“Tīṇimāni bhikkhave asaṁkhatassa asaṁkhata lakkhaṇāni”.</p><p>In the non-prepared state three non-prepared characteristics are to be found. What are the three? Arising is not found, cessation is not found, a change of an apparent static state is not found. With the cessation of consciousness, with the cessation of name-and-form, with the cessation of six sense spheres, everything ceases. There is no possibility of arising and ceasing again. That is the point we tried to drive in, through our sermons on Nibbāna. A sphere or āyatana is mentioned. Many did not understand the use of the term āyatana here. In this sphere, there is no going. There is no coming. There is no being. There is no continuing. There is no anything.</p><p>That is the explanation to asaṁkhata. We have tried our best to put across as much as we could within one hour. Try to digest them well. Try to understand them from diverse perspectives. What do I mean? All these years you have been listening to the conventional interpretation of Paṭicca Samuppāda where saṁkhāra (preparations) are supposed to prepare a paṭisandhi viññāna (a consciousness leading to another birth). Now you know it is not correct. It has two meanings, within the terms saṁkhāra, abhisaṁkhāra saṁkhata.</p><p>The purpose behind our explanation is not to argue or challenge, but merely to put the listeners into correct view. Meditation cannot proceed on misconceived views. Try and maintain the perfectly correct understanding in order to continue on this journey.</p><p>You have observed the valuable precepts and spent the day in meditation, as usual. You have developed awareness and mindfulness. You must also apply to your meditational practices, the contents of this discourse which will lead you to insight. Make the determination to attain the four stages on the path to emancipation, before the light of the Dhamma goes out.</p><p>Whatever beings there are, from the lowest to the highest state of existence, who wish to share in the merits of listening to this discourse, may they accomplish their aspirations and attain the peace of Nibbāna!</p>
+</article>
+
+<div class="sermon-nav-bar" style="margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+<a href="chapter_12.html">&larr; Previous Chapter</a>
+<a href="read.html">Table of Contents</a>
+<a href="chapter_14.html">Next Chapter &rarr;</a>
+</div>
+</main>
+<footer><p>This website is offered in the spirit of Dhamma Dana, freely available to all.</p></footer>
+<script>
+function setFontSize(size) {
+    const article = document.getElementById('readerArticle');
+    article.style.fontSize = size;
+    localStorage.setItem('preferred_font_size', size);
+    document.querySelectorAll('.control-group button').forEach(b => {
+        if(['Small','Medium','Large','X-Large'].some(t => b.innerText.includes(t))) {
+            b.classList.remove('active');
+        }
+    });
+    if(size === '1rem') document.getElementById('size-sm').classList.add('active');
+    if(size === '1.15rem') document.getElementById('size-md').classList.add('active');
+    if(size === '1.3rem') document.getElementById('size-lg').classList.add('active');
+    if(size === '1.5rem') document.getElementById('size-xl').classList.add('active');
+}
+
+function setFontFamily(font) {
+    const article = document.getElementById('readerArticle');
+    article.style.fontFamily = font;
+    localStorage.setItem('preferred_font_family', font);
+    document.getElementById('font-serif').classList.toggle('active', font.includes('Georgia'));
+    document.getElementById('font-sans').classList.toggle('active', !font.includes('Georgia'));
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const savedSize = localStorage.getItem('preferred_font_size');
+    const savedFont = localStorage.getItem('preferred_font_family');
+    if(savedSize) setFontSize(savedSize);
+    if(savedFont) setFontFamily(savedFont);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 12 (Sermon 194) | The Law of Dependent Arising</title>
+<style>
+:root {
+    --header-bg: #800000;
+    --header-text: #ffffff;
+    --header-subtitle: #ffd1d1;
+    --primary-color: #5c2c16;
+    --accent-color: #c88a2a;
+    --bg-color: #fdfbf7;
+    --card-bg: #ffffff;
+    --text-color: #2c2c2c;
+    --text-muted: #666666;
+    --border-color: #e2d7c7;
+    --reader-font-family: Georgia, "Times New Roman", serif;
+    --reader-font-size: 1.15rem;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.site-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 1.5rem 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-align: center;
+}
+.brand-section .logo-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+}
+.brand-section .subtitle {
+    font-size: 0.95rem;
+    color: var(--header-subtitle);
+    font-style: italic;
+    padding: 0 0.5rem;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+}
+.top-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.2s, color 0.2s;
+}
+.top-nav a:hover, .top-nav a.active {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.main-content {
+    max-width: 950px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.hero {
+    background: var(--card-bg);
+    padding: 2.5rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    text-align: center;
+}
+.hero h1 { font-size: 2rem; color: #222; margin-bottom: 0.3rem; }
+.hero h2 { font-size: 1.15rem; color: var(--primary-color); margin-bottom: 0.4rem; font-weight: normal; font-style: italic; }
+.hero h3 { font-size: 1.2rem; color: #333; margin-bottom: 1.5rem; font-weight: normal; font-style: italic; }
+.hero .author-title { font-size: 1.05rem; color: #555; margin-bottom: 2rem; font-style: italic; }
+
+.pali-quote { 
+    color: var(--header-bg); 
+    text-align: center; 
+    margin: 2.5rem 0; 
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin: 2rem 0;
+}
+@media (max-width: 768px) {
+    .button-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .main-content {
+        margin: 1rem auto;
+        padding: 0 0.5rem;
+    }
+    .hero {
+        padding: 1.5rem 1rem;
+    }
+    .brand-section .logo-title {
+        font-size: 1.5rem;
+    }
+}
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1rem;
+    background-color: var(--header-bg);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+.btn:hover { background-color: #5c0000; }
+.btn-secondary {
+    background-color: transparent;
+    color: var(--header-bg) !important;
+    border: 1px solid var(--header-bg);
+}
+.btn-secondary:hover { background-color: #f4eee6; }
+
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.chapter-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-color 0.2s, transform 0.1s;
+    text-decoration: none;
+    color: inherit;
+}
+.chapter-card:hover {
+    border-color: var(--header-bg);
+    transform: translateY(-1px);
+}
+.chapter-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--header-bg);
+}
+.sermon-badge {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    font-size: 1.1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    outline: none;
+    font-family: Georgia, serif;
+}
+.search-input:focus {
+    border-color: var(--header-bg);
+    box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.1);
+}
+
+.sermon-reader {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2.5rem 3rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    font-family: var(--reader-font-family);
+    font-size: var(--reader-font-size);
+    line-height: 1.9;
+}
+@media (max-width: 768px) {
+    .sermon-reader {
+        padding: 1.2rem 1rem;
+    }
+}
+.sermon-reader p {
+    margin-bottom: 1.6rem;
+    text-align: justify;
+}
+.sermon-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.sermon-nav-bar a {
+    color: var(--header-bg);
+    text-decoration: none;
+    font-weight: 600;
+}
+.sermon-nav-bar a:hover { text-decoration: underline; }
+
+.reader-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4eee6;
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.control-group button, .download-btn {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--header-bg);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background 0.2s, color 0.2s;
+}
+.control-group button:hover, .control-group button.active, .download-btn:hover {
+    background: var(--header-bg);
+    color: #fff;
+    border-color: var(--header-bg);
+}
+
+mark {
+    background-color: #ffeeba;
+    color: inherit;
+    padding: 0.1rem 0.2rem;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    margin-top: 4rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="brand-section"><div class="logo-title">The Law of Dependent Arising</div><div class="subtitle">The Secret of Bondage and Release &mdash; Ven. Katukurunde Nanananda Thero</div></div><nav class="top-nav"><a href="index.html">Home</a><a href="read.html" class="active">Read</a><a href="listen.html">Listen</a><a href="search.html">Search</a><a href="about.html">About</a></nav></header>
+<main class="main-content" style="max-width: 950px;">
+<div class="sermon-nav-bar">
+<a href="chapter_11.html">&larr; Previous Chapter</a>
+<a href="read.html">Table of Contents</a>
+<a href="chapter_13.html">Next Chapter &rarr;</a>
+</div>
+
+<div class="reader-controls">
+  <div class="control-group">
+    <span>Font Size:</span>
+    <button onclick="setFontSize('1rem')" id="size-sm">Small</button>
+    <button onclick="setFontSize('1.15rem')" id="size-md" class="active">Medium</button>
+    <button onclick="setFontSize('1.3rem')" id="size-lg">Large</button>
+    <button onclick="setFontSize('1.5rem')" id="size-xl">X-Large</button>
+  </div>
+  <div class="control-group">
+    <span>Font Type:</span>
+    <button onclick="setFontFamily('Georgia, serif')" id="font-serif" class="active">Serif</button>
+    <button onclick="setFontFamily('-apple-system, BlinkMacSystemFont, sans-serif')" id="font-sans">Sans</button>
+  </div>
+  <div class="control-group">
+    <span>Download:</span>
+    <a href="docx/sermon_012_ENGLISH.docx" class="download-btn" download>DOCX</a>
+    <a href="pdf/sermon_012_ENGLISH.pdf" class="download-btn" download>PDF</a>
+    <a href="epub/sermon_012_ENGLISH.epub" class="download-btn" download>EPUB</a>
+  </div>
+</div>
+
+<div style="text-align: center; margin-bottom: 2rem;">
+<h1 style="font-size: 1.8rem; margin-bottom: 0.3rem;">Chapter 12</h1>
+<p style="color: var(--text-muted); font-style: italic; font-family: -apple-system, sans-serif; font-size: 0.95rem;">(Pahankanuwa Sermon 194)</p>
+</div>
+
+<article class="sermon-reader" id="readerArticle">
+<p>Paticca Samuppada Sermon 12<br>The Law of Dependent Arising</p><p>(Pahan Kanuwa Sermon – No. 194)</p><p>‘Namo tassa bhagavato arahato sammāsambuddhassa’ ‘Homage be! To the Fortunate One – the Worthy, Fully Enlightened!’</p><p>Cirassaṁ vata passāmi – brāhmaṇaṁ parinibbutaṁ</p><p>appatiṭṭhaṁ anāyūhaṁ – tiṇṇaṁ loke visattikaṁ</p><p>– Oghataraṇa Sutta, Saṁyutta Nikāya.</p><p>It’s long since I see a Brahmin who has attained Nibbāna</p><p>Crossing over the sticky craving without stopping and  without struggling.</p><p>Dear Listeners,</p><p>The Buddha has on many occasions compared the crossing over of saṁsāra to a crossing over of the four floods. He taught the world the Middle Path as the technique of overcoming the four floods, namely lust (kāma), becoming (bhava), views (diṭṭhi), and ignorance (avijjā). We see the emphasis given to Paṭicca Samuppāda, the Law of Dependent Arising even in this Middle Path. Therefore, we have selected a verse on crossing the floods as the topic for this twelfth discourse on Paṭicca Samuppāda. This verse is found in the Oghataraṇa Sutta, the first sutta in the Saṁyutta Nikāya. This is how it goes.</p><p>When the Buddha was residing at the Jetavana Monastery in Sāvatthi, a certain deity called on the Buddha one night and respectfully stood on a side. He had a question to ask.</p><p>“Kathaṁ nu tvaṁ mārisa oghaṁ atari?”  “How, friend did you cross over the flood?”</p><p>The Buddha replied,</p><p>“Appatiṭṭhaṁ khvāhaṁ āvuso anāyuhaṁ oghaṁ atariṁ”</p><p>“Friend, without stopping, without struggling I crossed the flood.”</p><p>Unable to grasp the implication of this statement the deity asked for further clarification. ‘How exactly did you, friend, cross the four floods?”</p><p>Then the Buddha explained “Friend, whenever I stopped, I sank. Whenever I struggled, I got swept away. Therefore, I crossed over without stopping and without struggling.”</p><p>The deity uttered this verse in praise of the Buddha, venerated him and vanished.</p><p>Now let us take up this verse for discussion.</p><p>‘Cirassaṁ vata passāmi - brāhmaṇaṁ parinibbutaṁ’</p><p>It’s long since I see a Brahmin who has attained Extinction, Nibbāna</p><p>appatiṭṭhaṁ anāyūhaṁ - tiṇṇaṁ loke visattikaṁ</p><p>It’s long indeed since I see a Brahmin who has attained Nibbāna by crossing over the sticky craving called ‘visattikā’ without stopping and without struggling.</p><p>The earlier reference to a forceful flood will not be a problem to you because it is common knowledge that if we stop having gone a little way, we get drowned. If we struggle we would get swept away. Only a systematic middling effort will take us across. Similarly the Buddha has offered a Middle Path in this Dhamma, for crossing over the four floods, lust (kāma), becoming (bhava), views (diṭṭhi) and ignorance (avijjā).</p><p>Let us take them one by one for discussion. The flood of lust comes first. Ascetics and Brahmins contemporary of the Buddha had presented two extreme types of solutions for crossing the floods. As you have often heard about, they are kāmasukhallikānuyoga and attakilamathānuyoga (indulgence in sense pleasure and self  mortification). Ascetics such as Pakudha Kaccāyana, Makkhalī Gosāla and Ajita Kesakambalī, who belonged to the group of six heretics ignored the significance of wholesome and unwholesome actions and their resultant effects. They were critical of this theory. They disregarded the idea of a “this world and a next world”.</p><p>They presented the theories of ucchedavāda (annihilation) nāstikavāda (nihilism) or ahetu appaccayavāda (causeless conditionless fortuity). This resulted in more and more people inclining towards kāmasukhallikānuyoga (indulgence in sense pleasures). If there is no next world, and no results in good and bad actions, the only alternative is selfindulgence. Although this idea is not mentioned in the suttas, the Chārvākins of later origin taught this view which is embodied in a Sanskrit verse familiar to many.</p><p>Yāvat jīvet sukhaṁ jīvet</p><p>ṛṇaṁ kṛtvāpi ghṛtaṁ pivet</p><p>bhasmī bhūtasya dehasya</p><p>punarāgamanaṁ kutah</p><p>Even today we hear young people expressing this idea “Let us enjoy ourselves as long as we live.”</p><p>“ṛṇaṁ kṛtvāpi ghṛtaṁ pivet”</p><p>“Drink ghee even if you run into debt.”</p><p>Ghee was recognized as an expensive drink those days.</p><p>bhasmī bhūtasya dehasya   punarāgamanaṁ kutah</p><p>How could a charred dead body return?</p><p>That was one type of 	philosophy.</p><p>The other aspect was self-mortification (attakilamathānuyoga) taught by Nigaṇṭha Nāthaputta, as you may have heard about. Rejecting both clothes and food, this group followed extremely strict vows. What was their philosophy? Pubbekata hetu. There are past actions, the results of which have to be paid off. New kammas should not be accumulated. They followed a code of torturous vows for that purpose known as attakilamathānuyoga.</p><p>These were the two extremes. In fact as you may have heard, the Buddha himself once followed self-mortification, until realization dawned on him. After renouncing the luxurious life of royalty, the Buddha entered upon the other of extreme socially approved life of self torture. The Mahāsaccaka Sutta records how he realized after six years of self torture, its uselessness in achieving his goal. With this conviction he searched for a more effective path. Gradually it dawned on him how he entered the first jhāna under the cool shade of a rose apple tree at a ploughing ceremony of his father. Recalling this incident, he questioned himself “Why should I fear comforts (sukha) as long as they are free of sense pleasures and evil mental states?”</p><p>“Kiṁ nu kho ahaṁ tassa sukhassa bhāyāmi yaṁtaṁ sukhaṁ aññatreva kāmehi aññatra akusalehi dhammehi?”  Finally, motivated by this reasoning, he entered upon the Middle Path. Here I would like to mention briefly that those who accepted self-indulgence, by their ‘stopping’ (in the flood) actually sank into hell. Those who took up self-mortification, struggled through self torture. It did not lead them to enlightenment either.</p><p>The Buddha taught the Ariya Aṭṭhaṅgika Magga, the Noble Eightfold Path which steers clear of those two extremes, and is  known to you as the Middle Path. One cannot at a glance identify the Law of Dependent Arising, Paṭicca Samuppāda concealed within the Eightfold Path. But the Mahā Cattārīsaka Sutta  in the Majjhima Nikāya offers the following explicit clarification of Paṭicca Samuppāda within the Eightfold Path.</p><p>Sammā diṭṭhissa sammā saṁkappo pahoti</p><p>Sammā saṁkappassa sammā vācā pahoti</p><p>Sammā vācassa sammā kammanto pahoti</p><p>Sammā kammantassa sammā ājīvo pahoti</p><p>Sammā ājīvassa sammā vāyāmo pahoti</p><p>Sammā vāyāmassa sammā sati pahoti</p><p>Sammā satissa sammā samādhi pahoti</p><p>Sammā samādhissa sammā ñāṇaṁ pahoti</p><p>Sammā ñāṇassa sammā vimutti pahoti</p><p>This shows how beautifully each factor is closely linked with the other. When I explain one, you can easily understand the rest.</p><p>“Sammā diṭṭhissa sammā saṁkappo pahoti”</p><p>Right thought dawns on him who has the right view. Right thought gives rise to right words. Right words give rise to right action. In this way the Middle Path is amazingly linked with each other. That itself is the Middle Path.</p><p>A superficial glance at the Middle Path does not reveal the Law of Dependent Arising within. One may argue that there is not even a reference 	to Paṭicca Samuppāda in the Dhammacakka-ppavattana Sutta which we all regard as of prime importance. If that is so, how did Venerable Aññā Koṇdañña describe his attainment of Sotāpanna (Stream Entrant) as the realization of the vision that ‘Whatever is of the nature of arising, all that has the nature of ceasing’ (Yaṁ kiñci samudayadhammaṁ sabbaṁ taṁ nirodhadhammaṁ)? It follows the norm found in the Paṭicca Samuppāda. We have often explained to you that whatever has the nature of arising, all that is of the nature of ceasing. It is clearly evident in the Eightfold Path which begins with the fourfold truth. It closely follows the pattern of the Paṭicca Samuppāda.</p><p>Now that we have touched on the subject, let us see how the Buddha highlights other aspects of the Middle Path. The Jains by giving up clothes and food, followed a path of extreme selfmortification. In contrast to it, the Buddha allowed the monks the use of the four requisites (paccaya). Even the word paccaya has the idea of ‘dependent on’. The monks depended on the four requisites in order to fulfill their objectives. The ordinary laymen, the worldly people use them for sheer enjoyment. But you may have heard that the monks always reflect on the purpose behind the use of the requisites when using each of them.</p><p>Taking food as an example, monks reflect on the purpose of eating</p><p>“Neva davāya na madāya, na maṇḍanāya, na vibhūsanāya”.</p><p>This food is not for enjoyment, nor for pride, nor for adornment, nor for beautification.</p><p>“Yāvadeva imassa kāyassa ṭhitiyā yāpanāya vihiṅsūparatiyā brahmacariyānuggahāya.”</p><p>“Only for the purpose of maintaining this body, for its sustenance, to prevent possible harm through hunger, as a support for holy life”.</p><p>It is interesting to note here that the requisites rejected by the Jains, were converted into objects of meditation by the Buddha. You may have heard that the monks contemplate on the four elements (dhātu) found in their food as ‘dhātu manasikāra’ (attention on elements).</p><p>Let me explain the general idea behind it. This food is made up of the four elements. The pure food becomes impure as it enters this repulsive body. This becomes a very effective subject for meditation. You can see what an amazingly practical Middle Path the Buddha has taught. On the one hand, one avoids the extreme of self-indulgence, and does away with the idea of eating for embellishment. On the other hand, the process of eating is converted into a subject for meditation, instead of totally condemning food.</p><p>Another important factor attracts our attention. The ideal qualities of a monk and a meditative layman are simplicity (appicchatā) and contentment (santuṭṭhi). Yet another quality of a monk is viriya – effort, not to be wasted in practicing vows of self torture, as in Jainism, but to strive to cultivate the factors in the Middle Path in a balanced way called ‘viriya samatā’.</p><p>Now it is clear that the Buddha highlights Dependent Arising or Paṭicca Samuppāda in his Middle Path, and also deviates sharply from the two extremes. That is my brief explanation of the kāmogha, ‘the flood of lust’.</p><p>The next is bhavogha, ‘the flood of becoming’. In the second Nipāta of the Itivuttaka, there is a sutta that discusses bhavogha in detail.</p><p>“Dvīhi bhikkhave diṭṭhigatehi pariyuṭṭhitā devamanussā olīyanti eke atidhāvanti eke.”</p><p>Obsessed by two views, monks, are gods and human beings. Some of them lag behind, some overreach. Both these tendencies are described as “bhavārāmā bhikkhave devamanussā bhavaratā bhava samuditā.”</p><p>These gods and men take delight in becoming, are attached to becoming, take pride in becoming. When the Dhamma is being preached for the cessation of becoming, they are not pleased with it. They fall back. They are displeased. The Buddha’s teaching based on the Middle Path, for the cessation of becoming does not appeal to the eternalists who have grasped the soul theory. Generally those who like becoming, dislike the cessation of becoming. They get drowned in the flood of becoming. They sink in the current of becoming. Their grip on the ‘soul’ prevents them from striving for an escape.</p><p>There is another group called the annihilationists,  developing a revulsion towards becoming. (“Bhaven’eva kho pana eke aṭṭiyamānā harāyamānā”). They treat this body as the soul and reject the idea of a life beyond death. That is an overreaching. This is called ‘vibhava’. They go to the other extreme by denying re-becoming. They are those who overreach.</p><p>Here I would like to repeat a simile I had given earlier, though it is not found in the text. Some run forward hoping to step on their own shadow like little children who do it for fun. Of course they never succeed in doing so. Some others are scared of the shadow and try to run away from it, but on turning back, see the shadow right behind them. Now the two extremes are like that. The Buddha has proclaimed his Middle Path avoiding these two extremes. What did the Buddha do? Having referred to those two extremes with the words ‘olīyanti eke’ (some lag behind) and ‘atidhāvanti eke’ (some overreach), as the third alternative the</p><p>Buddha declared ‘cakkhumanto va passanti’ (only they do see who have eyes to see). This is how he really presents it.</p><p>“Dvīhi bhikkhave diṭṭhigatehi pariyuṭṭhitā devamanussā olīyanti eke atidhāvanti eke cakkhumanto va passanti.”</p><p>The third factor ‘cakkhumanto va passanti’ means ‘only those with eyes, see’. What does he mean by it? The two earlier groups of extremists were gripping on ‘bhava’ (becoming). Discarding them, the Buddha introduced a new word ‘bhūta’.</p><p>Bhūta means, what has arisen. You might recollect this word in connection with the phrase ‘yathābhūta ñāṇadassana’ ‘knowledge and vision of things as they are’. Therefore, the Dhamma does not go to the extreme of existence as eternalists do. Nor does it go to the extreme of destruction of existence as nihilists. Instead, seeing what is arisen as ‘arisen’ is called ‘yathābhūta dassana’ (vision of things as they have arisen). If the simile of the shadows is brought in here, it is like understanding the shadow as a shadow. One who understands shadow as shadow will not run after it nor will he run away from it in fear.</p><p>The shadow is a simile for nāmarūpa (name-and-form) as we have mentioned earlier.</p><p>You have already heard me use the simile of the dog on the bridge and the simile of Narcissus, in order to explain the Buddha’s teaching on ogha ‘floods’ and bhava ‘becoming’. He has also explained how viññāna or consciousness regarding which people had many rigid theories, is interdependent with nāmarūpa. We have referred to this shadow of nāmarūpa many a time. The Buddha avoided that extreme since he saw the shadow as the shadow. There too, we find a Middle Path.</p><p>Let us take up diṭṭhogha next. I am sorry we have to be very brief since there are four oghas to deal with. As I have mentioned earlier, it has been discussed in the Kaccānagotta Sutta. Let me mention in brief its background because of its relevance to this question. Venerable Kaccānagotta once approached the Buddha and asked “To what extent does sammādiṭṭhi (right view) become sammādiṭṭhi?”</p><p>‘Right view’ had been given various suitable interpretations on various occasions, particularly by the Buddha and Venerable Sāriputta. But they are not contradictory to one another.</p><p>As the occasion demanded, here the Buddha explained sammādiṭṭhi as follows.</p><p>“Dvayanissito khvāyaṁ kaccāyana loko yebhuyyena atthitañceva natthitaṁ ca”</p><p>‘Kaccāyana, the worldlings for the most part rest on two extremes.’ Dvayanissita means holding on to a dyad. What are they? Atthitā ‘Is’ (everything exists) and natthitā ‘Is not’ (nothing exists). The world either says everything is or nothing is. Then the Buddha explains the Middle Path in his dhamma.</p><p>“Lokasamudayaṁ kho kaccāyana yathābhūtaṁ sammappaññāya passato yā loke natthitā, sā na hoti”.</p><p>When one sees with wisdom, the nature of constant arising in the world, the view of non-existence does not occur. Then he explains the other aspect.</p><p>“Lokanirodhaṁ kho kaccāyana yathābūtaṁ sammappaññāya passato yā loke atthitā sā na hoti”.</p><p>When one sees as it is with wisdom, the nature of ceasing in the world, the view of existence (atthitā) does not occur. Just think about it. It is amazing. The world is constantly arising and ceasing. Some are caught up in the extreme view that the world really is or the world does not exist. What the Buddha says is that when one sees as it is with wisdom that the world is constantly arising, the extreme view that “The world is not” loses its hold on him. On the other hand when one sees as it is with wisdom, that the world is constantly ceasing, the extreme view that “The world is” fades away. When one sees with wisdom the nature of arising of the world, the extreme of non-existence disappears. When one observes the nature of ceasing in the world, the extreme view of existence of the world disappears.</p><p>Now the Budhha explains what lay between the two extremes.</p><p>“Ete te ubho ante anupagamma”.</p><p>Without approaching either of these extremes,</p><p>“majjhena tathāgato dhammaṁ deset?”</p><p>The Tathāgata takes a Middle Path in preaching the dhamma.</p><p>This Middle Path is the teaching on the Law of Dependent Arising that we have discussed so far.</p><p>Then he explains the Middle Path beginning with “Avijjā paccayā saṁkhārā” as you may have heard. Dependent on ignorance are preparations etc. and finally he explains how the five aggregates of grasping which is suffering, arises. He shows how with the cessation of ignorance, all that suffering ceases. So it is a philosophy of a Middle Way. Arising and ceasing. How the entire mass of suffering arises and then how it ceases.</p><p>The Buddha in this manner rejects both extremes. When both views of existence and non-existence are given up, what remains there, is a question of suffering. The notion of the soul is shattered then and there. Instead of a soul what actually exists is a problem of suffering, and its cessation. That is the Middle Path implied there. That means there is only the arising and ceasing or samudaya and vaya, free from the extreme views of existence and non-existence. As we have earlier mentioned, here too one might wonder why these facts are not found in the Dhammacakkappavattana Sutta. But we know that in the Noble Eightfold Path, what is shown as the right view is suffering, its arising, its cessation and the path leading towards it. Within these four truths, is found a right view, which avoids the extremes of absolute existence and absolute non-existence. Although many cannot comprehend it, right view begins right from the Middle Path shown by the Buddha. In fact we can treat the Kaccānagotta Sutta as a concise commentary on the Dhammacakkappavattana Sutta.</p><p>I would like you to think deeply on this point. A superficial glance at the Dhammacakkappavattana Sutta might make one think that the Law of Dependent Arising  is missing there. But what we wish to point out is that sammādiṭṭhi embodies the Middle Path of the Paṭicca Samuppāda. It should be clear that there is no absolute existence or absolute non-existence. Instead, there is an arising and a ceasing dependent on causes and conditions. If at all, what arises is an entire mass of suffering, and what ceases is an entire mass of suffering. Towards the end of the Kaccānagotta Sutta, the Buddha further explains that those who hold and cling to the aforementioned extreme views, thereby conceive an idea of a soul. The eternalists believe in an eternally present soul while the nihilists imagine that the body is the soul. The reason for this is their taking up a rigid stand point, their firm grip on a view.</p><p>The Buddha on the other hand proclaims right vision showing that where there is no grasping of a view, what arises is only suffering and what ceases is only suffering,</p><p>“dukkhaṁ eva uppajjamānaṁ uppajjati, dukkhaṁ nirujjhamānaṁ nirujjhati”.</p><p>That is why one who has this vision entertains no doubt or uncertainty regarding the past or the future. If at all, what had been there in the past was only these five aggregates of grasping. So will it be in the future. He realizes that there is nothing worthwhile here, but only suffering. With regard to that suffering what the Four Noble Truths imply is that very Middle Path.</p><p>Generally when we speak of the Middle Path, we are not aware that Paṭicca Samuppāda is implicit in it. It is to pinpoint that fact, that I say all this. In fact the Kaccānagotta Sutta serves as a concise commentary to the Right View in the Noble Eightfold Path.</p><p>So we have pinpointed that the Buddha offered a Middle Path to cross over the flood of sensuality (kāmogha) and he offered a Middle Path to cross over the flood of becoming (bhavogha). Moreover he offered a Middle Path to cross over the flood of views (diṭṭhi ogha). Rejecting both extreme views of existence and non-existence, he brought out the fact of suffering in the guise of arising and ceasing.</p><p>“dukkhaṁ eva uppajjamānaṁ uppajjati, dukkhaṁ nirujjhamānaṁ nirujjhati”</p><p>‘What arises is only suffering, what ceases is only suffering’. There too Dependent Arising is highlighted.</p><p>Now we come to the avijjogha, the flood of ignorance. This might sound unusual. Ignorance is here treated as a flood. This is the most difficult of the four to comprehend. The Sammādiṭṭhi Sutta expounded by Venerable Sāriputta provides an explanation as to why the Buddha called it a flood. In fact we come across several definitions of the term sammādiṭṭhi, at different levels. They are not contradictory to one another. They all are correct from different perspectives.</p><p>Here is one of them,</p><p>“Monks, if a noble disciple understands ignorance (avijjā) its arising, its ceasing and the path leading to its cessation, even to that extent he is one with Right View, sammādiṭṭhi.</p><p>“Avijjaṁ ca pajānāti, avijjā samudayaṁ ca pajānāti, avijjā nirodhaṁ ca pajānāti, avijjā nirodhagāminī paṭipadaṁ ca pajānāt?”</p><p>A knowledge of these four is sufficient for sammādiṭṭhi. What is called ignorance (avijjā) in that context? It is already analyzed as “Dukkhe aññāṇaṁ, dukkhasammudaye aññāṇaṁ, dukkhanirodhe aññāṇaṁ, dukkhanirodhagāminiyā paṭipadāya aññāṇa?”</p><p>Ignorance of suffering, ignorance of its arising, ignorance of its cessation and the ignorance of the path leading to its cessation. That is ignorance.</p><p>Then what is the arising of ignorance? How does ignorance come about? That is the crux of the problem. A surprise awaits us here.</p><p>“Āsava samudayā avijjā samudayo”.</p><p>It is with the arising of influxes that ignorance arises. This causes confusion in those who analyze Paṭicca Samuppāda because what precedes is ignorance. They presume that ignorance has no root cause but is simply present and other factors arise from it. Here is the solution to the problem. On behalf of the Buddha,</p><p>Venerable Sāriputta explains “Āsava samudayā avijjā samudayo, āsava nirodhā avijjā nirodho”.</p><p>With the arising of influxes ignorance arises. With the cessation of influxes ignorance ceases.</p><p>The ‘avijjā  nirodhagāminī patipadā’ or the path that leads to the cessation of ignorance is none other than the Noble Eightfold Path.</p><p>From here onwards, I have something special to tell you.</p><p>Perhaps you have already heard or even read the Sabbāsava Sutta, which appears as the second discourse in the Majjhima Nikāya. It explains how one could restrain all the influxes. That is why this Sutta enjoys so much recognition. Herein it gives influxes as the cause of the ‘arising’ of ignorance.</p><p>This particular term āsava is not easy to explain. It has been given different interpretations. We often resort to examples and similes to facilitate understanding. Let us take the term ogha (flood) to denote a body of flowing water. When speaking about a body of flowing water, we are not bothered about it. We are unharmed because it is just flowing downwards. Suppose we get down into this rapidly flowing body of water with the idea of crossing it. How would we feel about it then? Then, we feel it as flowing forcefully towards us. That is the obstacle we have. So far, we had seen it flowing away. Once we get into it to cross over we see it as flowing towards us. That is the basic idea of  āsava or influxes.</p><p>The Sabbāsava Sutta speaks of seven ways in which influxes flow in. This is an extremely profound discourse. But let me condense it for our purpose. The Buddha begins his explanation as follows:</p><p>“Sabbāsava saṁvara pariyāyaṁ vo bhikkhave dhammaṁ desessāmi”</p><p>‘Monks, I shall teach you a way to restrain all influxes.’</p><p>‘Saṁvaro’ means restraint. You may be familiar with the term ‘indriyasaṁvara’ ‘sense-restraint’. Then the Buddha says:</p><p>“Jānato ahaṁ bhikkhave passato āsavānaṁ khayaṁ vadāmi, no ajānato no apassato”</p><p>‘I declare that the extinction of influxes should be done knowing and seeing – that is with awareness and wisdom’. The Buddha himself asks and answers the question Knowing what? Seeing what? What are the two helpful factors for the restraint of influxes?</p><p>We have often mentioned the importance of understanding the ayoniso manasikāra and yoniso manasikāra. These are the two factors that help one to restrain the influxes. The Buddha’s advice is to understand yoniso manasikāra and ayoniso manasikāra correctly with their specific characteristics. To put it in simple language, ayoniso manasikāra means unsuitable, wrong, disorderly, contemplation with a wrong approach. Yoniso manasikāra means to drive at the origin or the cause of a thing and understand it correctly.</p><p>Incorrect contemplation as well as correct contemplation should be clearly understood for the purpose of taming the influxes. Earlier I mentioned that seven types of āsavas are discussed in this sutta. Let me introduce them to you first.</p><p>“Atthi bhikkhave āsavā dassanā pahātabbā”</p><p>‘Monks, there are some influxes that should be abandoned through vision (dassanā). That is the first group. Another group has to be abandoned through restraint (saṁvarā). The third group has to be abandoned through utilizing (paṭisevanā). Some others are removed through endurance (adhivāsanā). The fifth group is expelled through warding off or avoiding (parivajjanā). The sixth group has to be got rid of through vinodanā, dispelling. There seems to be a closeness between the fifth and the sixth. Parivajjanā and vinodanā appear to have some closeness in meaning. Let us understand parivajjanā as avoiding, shunning or keeping away. Vinodanā is eliminating through dispelling. It will be clear when you listen to my explanation. The seventh method is eliminating by developing – bhāvanā. Dassanā pahātabbā, saṁvarā pahātabbā, paṭisevanā pahātabbā, adhivāsanā pahātabbā, parivajjanā pahātabbā, vinodanā pahātabbā  and lastly, bhāvanā pahātabbā. This is a fascinating Sutta with subtle meaning. Some have even confounded the facts in it.</p><p>Now, let me explain them as time permits. First let us discuss “dassanā pahātabbā”.</p><p>The Buddha speaks of influxes that should be eliminated through vision. But there are certain people in the world who resort to wrong ways of attention, for instance recluses and Brahmins of the past. What is this unsuitable method of attention? Certain people presume that a person called ‘I’ really exists. With that presumption they go on asking themselves in terms of the three periods of time. Regarding the past they have fivefold doubts.</p><p>“Was I in the past? Was I not in the past? Who was I in the past? How was I in the past? Having been what, what did I become in the past?”</p><p>Regarding the future too they go on attending on the fivefold questions. Will I be in the future? Will I not be in the future? What will I be in the future? How will I be in the future? Having been what, what will I be in the future? Regarding the present they would think, Am I now? Am I not now? Who am I? How am I? Where has this being come from and where will it go? Taking the proposition I as the subject, as a permanent individual and indulging in irrelevant contemplation, they finally end up in the extreme ‘I have a soul’ or in the other extreme ‘I do not have a soul’. They are both extremes. That is the result of unwarranted contemplation, placing ‘I’ on a pedestal. It ends up in ayoniso manasikāra. People are engulfed in doubt very often regarding the past ‘Was I? Wasn’t I?’ The Buddha explains that the noble disciples who have the right vision, are not obsessed by such doubts since they think in terms of suffering, its arising, its cessation and the path leading to cessation.</p><p>When the mind is fashioned according to the four noble truths, such doubts do not arise. If at all, there would have been only the five aggregates of grasping (pañca upādānakkhandā) in the past, and the future will hold out only suffering. Therefore, there exists only suffering, its arising, its cessation and the path leading to cessation. The Buddha ascertains that if the mind is cultivated (developed) in accordance with the four truths the inevitable result would be the arising of the Sotāpanna Maggañāṇa (the wisdom of the Stream Entrant) wherein the first three fetters- sakkāyadiṭṭhi, vicikicchā and sīlabbataparāmāsa (view of self, doubt and clinging to rites and rituals) are expelled. We can see that dassanā pahātabbā refers to the controlling of the first three saṁyojanas. If the mind is cultivated in accordance with the four truths, one can eliminate them. That is the explanation to “dassanā pahātabbā”</p><p>Let us now discuss “saṁvarā pahātabbā” elimination through restraint. This is closely associated with indriya  saṁvara, restraint of the senses. Here, the Buddha uses the term ‘paṭisaṁkhā yoniso’ one of his stunning stock of meaningful words. paṭisaṁkhā means scrutinizing with wisdom. After the noble disciples identify the difference between yoniso manasikāra and ayoniso manasikāra, they conduct themselves carefully as befits the occasion. The Buddha in trying to explain the rewards of practicing them and evils of neglecting them, uses another phrase, āsavā vighātapariḷāhā, which means the influxes that cause exhaustion and burning.</p><p>Giving an example the Buddha explains thus. If the eye is not guarded well, various lustful influxes are likely to sweep in. They could arouse the lust dormant within. They could bring about vighāta pariḷāha, exhaustion and burning within. One should scrutinize oneself with wisdom (paṭisankhā yoniso), and restrain one’s eye. Since our subject is restraint of the senses, this procedure applies to the other senses as well, the ear, the nose, the tongue, the body and the mind. Why does the Buddha emphasize restraint? If restraint is lacking those tiresome oppressive influxes come flooding in. That is all about saṁvarā pahātabbā.</p><p>Next comes paṭisevanā  pahātabbā, elimination through utilizing. The Buddha refers to the use of the four requisites here. We mentioned earlier that the Niganṭhas discarded food and clothes, claiming they could thereby become free of craving. But the Buddha shows that the use of the four requisites – robes, alms food, shelter and medicine is essential for maintenance of life. All four are absolutely essential in order to avoid the discomfort and hardship that would otherwise crop up. The Buddha had experienced it when leading a rigorous life. One has to follow the Middle Path here. The reflection on food goes as “paṭisaṁkhā yoniso piṇdapātaṁ paṭisevāmi”.</p><p>I shall partake of my alms food reflecting with wisdom. Next comes the purpose “Neva davāya na madāya na manḍanāya na vibhūsanāya” – not for delectation or gratification or adornment or beautification but simply to sustain my life. Now we are told how to convert this into a subject for meditation. The use of essential requisites in life, without which one would have to experience discomfort and hardship has been permitted, because the body has to be maintained at least for the worthy cause of crossing the saṁsāra. But they must be used reflecting wisely as a source of meditation. With the use of the four requisites, lustful thoughts of lay life may flood in. They have to be minimized through simplicity (appiccatā) and contentment (santuṭṭhi). That is paṭisevanā or utilizing.</p><p>Adhivāsanā pahātabbā comes next, elimination through endurance. It simply means that, meditators have to endure cold, heat, physical ailments, insects or even severe pain. Why endure? Otherwise exhaustion and burning will add up to his already unbearable pain. Take an example. Unable to bear up the pain of a wound, we shout and yell. This shouting and yelling will only add up to the pain. Enduring without reacting to problems, brings us closer to Nibbāna. That is why the Buddha has taught us to endure “adhivāsanā pahātabbā. Even criticism has to be endured. It helps in controlling the influxes.</p><p>Parivajjanā pahātabbā  follows  next, elimination through avoiding. Although this is treated very lightly by some, the Buddha attaches great importance to avoiding risks, threats to our lives and blemish to our conduct. One must not have confidence when confronted with wild animals like elephants, horses, cattle and dogs, trusting in one’s power of meditation. A monk must not frequent questionable places or develop friendship with people with bad reputation. Reflecting wisely a monk must avoid any situation that would affect his spiritual life adversely.</p><p>The next restraint vinodanā pahātabbā is perhaps more familiar to you. It appears in the Girimānanda Sutta as pahāna saññā. Since pahāna appears in all these seven factors, the term vinodanā is used to express the idea of pahāna. It means removing. What must be removed? This is how it is clarified. A noble disciple or a monk,</p><p>“uppannaṁ kāmavitakkaṁ nādhivāseti pajahati, vinodeti, byantikaroti anabhāvaṁ gameti” does not tolerate any lustful thoughts that arise, but discards them, removes them, terminates them and eradicates them. Here vinodanā pahātabbā means the elimination of kāma vitakka (thoughts connected with lust), vyāpāda vitakka (thoughts connected with ill-will), vihiṁsā vitakka (thoughts connected with harm) and the resultant evil thoughts immediately. Those are the influxes that have to be controlled by removing.</p><p>The next and the last is bhāvanā pahātabbā. These are influxes that have to be eliminated through mind development. This refers to the development of the seven bojjhañgas or enlightenment factors. I am sure you are familiar with them. Sati, dammavicaya, viriya, pīti, passaddhi, samādhi and upekkhā. Each of these has to be developed in an environment of seclusion (vivekanissitaṁ),dispassion (virāganissitaṁ), cessation (nirodhanissitaṁ) and relinquishment (vossaggapariṇāmiṁ). It must not be forgotten that paṭisaṁkhā yoniso, wise reflection runs through each of these steps like a web.</p><p>The Sabbāsava Sutta introduces a process of eliminating the influxes (āsavas) in seven ways. They all lead to the same goal.</p><p>“Āsava samudayā avijjā samudayo āsava nirodhā avijjā nirodho.”</p><p>When influxes arise, ignorance arises. When influxes cease, ignorance ceases. This statement caused confusion. Many wondered from where ignorance came into the scene. Now it is clear that influxes give rise to ignorance. Due to ayoniso manasikāra incorrect contemplation, influxes arise and already arisen influxes increase. Due to yoniso manasikāra, correct contemplation, the already arisen influxes cease and no new ones arise. That shows how rewarding yoniso manasikāra is.</p><p>Finally we can arrive at the conclusion that the ultimate purpose of the Sutta is avijjā pahāna, elimination of ignorance. Influxes have the nature of flowing in, every moment. As mentioned earlier watching the water flowing forcefully, while seated on the river bank, one cannot guarantee that one could swim across it in a straight line. No one could. One has to swim while allowing the water to flow. That is similar to the Middle Path, the Paṭicca Samuppāda. Each step is linked to the next.</p><p>Let me now summarize today’s discourse as time permits. By way of summary let me quote a wonderful statement made by Venerable Ānanda in praise of the Buddha’s technique of explaining the path.</p><p>“Nissāya nissāya bhante, Bhagavatā oghassa nittharaṇā akkhātā.”</p><p>The method the Buddha has advocated in order to cross the great flood is nissāya nissāya. It means manipulating (improvising) one thing after the other, but not clinging to any. It is a technique of proceeding systematically forward, step by step.</p><p>You may have heard of crossing the floods by means of saddhā.</p><p>“Saddhāya tarati oghaṁ.”That kind of crossing has to be undertaken with balanced effort viriya samatā.</p><p>Once a youth called Kappa questioned the Buddha regarding the crossing of the flood.</p><p>Majjhe sarasmiṁ tiṭṭhataṁ, oghe jāte mahabbhaye</p><p>jarā maccu paretānaṁ, dīpaṁ pabrūhi mārisa</p><p>tvañ ca me dīpam akkhāhi, yathāyidaṁ  nāparaṁ siyā</p><p>Friend, those marooned in the strong floods,</p><p>threatened by decay and death</p><p>are stranded in the lake</p><p>Show the island to them</p><p>since there is no other, please</p><p>show the island to me.</p><p>Responding to Kappa’s request to show the refuge to those caught up in the strong floods, the Buddha gives an amazing reply.</p><p>“Akiñcanaṁ anādānaṁ - etaṁ dīpaṁ anāparaṁ</p><p>Nibbānamiti taṁ brūmi -  jarā maccu parikkhayaṁ”</p><p>Akiñcanaṁ anādānaṁ means not possessing anything, not grasping anything. This is a reference to Nibbāna the highest goal. Nothing called mine and nothing to grip, getting washed away makes no difference.</p><p>“Possessing nothing, not desirous of grasping anything, where birth and death ceases is this island called Nibbāna.”  Kappa inquired what island is found beyond the floods. It does not correspond to any attractive island in our imagination - or rather the Nibbāna of Siyadoris (that is Simple Simon Nibbāna). The Buddha explains “Possesing nothing and grasping nothing. None other than that. I call it Nibbāna.”</p><p>The Buddha finally winds up saying “Decay is decayed and death is dead”</p><p>“Jarā maccu parikkhayaṁ”.</p><p>If there is nothing possessed how can there be decay? If there is nothing grasped, how can there be death? “akiñcanaṁ anādānaṁ”.</p><p>Please try to reflect deeply on the implication of this fascinating account. Nibbāna is merely a name. That alone is the island.</p><p>If there is nothing to protect, there is nothing to be washed away. If there is nothing grasped, again there is nothing to be washed away. That is why the Buddha calls it Nibbāna. The final result of crossing over the flood is “akiñcanaṁ anādānaṁ etaṁ dīpaṁ anāpara?”</p><p>Possesing nothing, grasping nothing. This is the island and no other. We explained ‘jarā maccu parikkhayaṁ’ as ‘where decay has decayed and death is dead’.</p><p>Friends, we have attempted to condense this story of crossing over the floods into one hour. Treating kāma (lust), bhava (becoming), diṭṭhi (view) and avijjā (ignorance) as one forceful flood, our challenge is to cross over this saṁsāra. There lies before us a very delicate Middle Path to tread, possessing nothing, grasping nothing, leaning against nothing, but carefully working one’s way one step to the next to reach the final goal.</p><p>The path “paṭipadā” with each step leaning towards the other, or each step supporting the other is condensed in the Dhamma into three words:</p><p>‘anupubba sikkhā, anupubba kiriyā  and anupubba paṭipadā’. It involves a gradual process of disciplining, a gradual process of training and a gradually ascending path. The Paṭicca Samuppāda is well incorporated within this path, as it was mentioned earlier.</p><p>“Sammā diṭṭhissa sammā saṁkappo pahoti”.</p><p>Right thinking  dawns on him who holds right view and proceeds up the ladder gradually.The Buddha’s clarification of the path in order to cross over the strong flood of saṁsāra, avoiding the two extremes is praiseworthy indeed. He has made clear what our destination is like after crossing. It is not another birth, or an extraordinary world as we imagine. That destination is where the desire to possess and the desire to grasp anything in the floods have been totally relinquished.</p><p>I have attempted to briefly explain a subject that deserves more elaborate treatment. I believe you are regular listeners of my discourses. I advise you to make use of Paṭicca Samuppāda and other related topics, in your attempts at meditation. Today you have made a good start with the practice of sīla. From now onwards follow the Dhamma path of sīla, samādhi and paññā and utilize this knowledge for the advancement of your samatha  and vipassanā meditation. I hope this discourse will contribute to some extent, towards your attempt to attain the Paths and Fruits of Sotāpanna, Sakadāgāmi, Anāgāmi and Arahant, which is called freedom from saṁsāra, before the light of the sāsana is extinguished.</p><p>Whatever beings there be, from the lowest hell to the highest Brahma world, may they all rejoice in our sermon. May the merits accrued by that rejoicing conduce to the fulfillment of their higher aims</p>
+</article>
+
+<div class="sermon-nav-bar" style="margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+<a href="chapter_11.html">&larr; Previous Chapter</a>
+<a href="read.html">Table of Contents</a>
+<a href="chapter_13.html">Next Chapter &rarr;</a>
+</div>
+</main>
+<footer><p>This website is offered in the spirit of Dhamma Dana, freely available to all.</p></footer>
+<script>
+function setFontSize(size) {
+    const article = document.getElementById('readerArticle');
+    article.style.fontSize = size;
+    localStorage.setItem('preferred_font_size', size);
+    document.querySelectorAll('.control-group button').forEach(b => {
+        if(['Small','Medium','Large','X-Large'].some(t => b.innerText.includes(t))) {
+            b.classList.remove('active');
+        }
+    });
+    if(size === '1rem') document.getElementById('size-sm').classList.add('active');
+    if(size === '1.15rem') document.getElementById('size-md').classList.add('active');
+    if(size === '1.3rem') document.getElementById('size-lg').classList.add('active');
+    if(size === '1.5rem') document.getElementById('size-xl').classList.add('active');
+}
+
+function setFontFamily(font) {
+    const article = document.getElementById('readerArticle');
+    article.style.fontFamily = font;
+    localStorage.setItem('preferred_font_family', font);
+    document.getElementById('font-serif').classList.toggle('active', font.includes('Georgia'));
+    document.getElementById('font-sans').classList.toggle('active', !font.includes('Georgia'));
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const savedSize = localStorage.getItem('preferred_font_size');
+    const savedFont = localStorage.getItem('preferred_font_family');
+    if(savedSize) setFontSize(savedSize);
+    if(savedFont) setFontFamily(savedFont);
+});
+</script>
+</body>
+</html>

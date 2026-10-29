@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 6 (Sermon 188) | The Law of Dependent Arising</title>
+<style>
+:root {
+    --header-bg: #800000;
+    --header-text: #ffffff;
+    --header-subtitle: #ffd1d1;
+    --primary-color: #5c2c16;
+    --accent-color: #c88a2a;
+    --bg-color: #fdfbf7;
+    --card-bg: #ffffff;
+    --text-color: #2c2c2c;
+    --text-muted: #666666;
+    --border-color: #e2d7c7;
+    --reader-font-family: Georgia, "Times New Roman", serif;
+    --reader-font-size: 1.15rem;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.site-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 1.5rem 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-align: center;
+}
+.brand-section .logo-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+}
+.brand-section .subtitle {
+    font-size: 0.95rem;
+    color: var(--header-subtitle);
+    font-style: italic;
+    padding: 0 0.5rem;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+}
+.top-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.2s, color 0.2s;
+}
+.top-nav a:hover, .top-nav a.active {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.main-content {
+    max-width: 950px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.hero {
+    background: var(--card-bg);
+    padding: 2.5rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    text-align: center;
+}
+.hero h1 { font-size: 2rem; color: #222; margin-bottom: 0.3rem; }
+.hero h2 { font-size: 1.15rem; color: var(--primary-color); margin-bottom: 0.4rem; font-weight: normal; font-style: italic; }
+.hero h3 { font-size: 1.2rem; color: #333; margin-bottom: 1.5rem; font-weight: normal; font-style: italic; }
+.hero .author-title { font-size: 1.05rem; color: #555; margin-bottom: 2rem; font-style: italic; }
+
+.pali-quote { 
+    color: var(--header-bg); 
+    text-align: center; 
+    margin: 2.5rem 0; 
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin: 2rem 0;
+}
+@media (max-width: 768px) {
+    .button-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .main-content {
+        margin: 1rem auto;
+        padding: 0 0.5rem;
+    }
+    .hero {
+        padding: 1.5rem 1rem;
+    }
+    .brand-section .logo-title {
+        font-size: 1.5rem;
+    }
+}
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1rem;
+    background-color: var(--header-bg);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+.btn:hover { background-color: #5c0000; }
+.btn-secondary {
+    background-color: transparent;
+    color: var(--header-bg) !important;
+    border: 1px solid var(--header-bg);
+}
+.btn-secondary:hover { background-color: #f4eee6; }
+
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.chapter-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-color 0.2s, transform 0.1s;
+    text-decoration: none;
+    color: inherit;
+}
+.chapter-card:hover {
+    border-color: var(--header-bg);
+    transform: translateY(-1px);
+}
+.chapter-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--header-bg);
+}
+.sermon-badge {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    font-size: 1.1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    outline: none;
+    font-family: Georgia, serif;
+}
+.search-input:focus {
+    border-color: var(--header-bg);
+    box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.1);
+}
+
+.sermon-reader {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2.5rem 3rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    font-family: var(--reader-font-family);
+    font-size: var(--reader-font-size);
+    line-height: 1.9;
+}
+@media (max-width: 768px) {
+    .sermon-reader {
+        padding: 1.2rem 1rem;
+    }
+}
+.sermon-reader p {
+    margin-bottom: 1.6rem;
+    text-align: justify;
+}
+.sermon-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.sermon-nav-bar a {
+    color: var(--header-bg);
+    text-decoration: none;
+    font-weight: 600;
+}
+.sermon-nav-bar a:hover { text-decoration: underline; }
+
+.reader-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4eee6;
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.control-group button, .download-btn {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--header-bg);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background 0.2s, color 0.2s;
+}
+.control-group button:hover, .control-group button.active, .download-btn:hover {
+    background: var(--header-bg);
+    color: #fff;
+    border-color: var(--header-bg);
+}
+
+mark {
+    background-color: #ffeeba;
+    color: inherit;
+    padding: 0.1rem 0.2rem;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    margin-top: 4rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="brand-section"><div class="logo-title">The Law of Dependent Arising</div><div class="subtitle">The Secret of Bondage and Release &mdash; Ven. Katukurunde Nanananda Thero</div></div><nav class="top-nav"><a href="index.html">Home</a><a href="read.html" class="active">Read</a><a href="listen.html">Listen</a><a href="search.html">Search</a><a href="about.html">About</a></nav></header>
+<main class="main-content" style="max-width: 950px;">
+<div class="sermon-nav-bar">
+<a href="chapter_5.html">&larr; Previous Chapter</a>
+<a href="read.html">Table of Contents</a>
+<a href="chapter_7.html">Next Chapter &rarr;</a>
+</div>
+
+<div class="reader-controls">
+  <div class="control-group">
+    <span>Font Size:</span>
+    <button onclick="setFontSize('1rem')" id="size-sm">Small</button>
+    <button onclick="setFontSize('1.15rem')" id="size-md" class="active">Medium</button>
+    <button onclick="setFontSize('1.3rem')" id="size-lg">Large</button>
+    <button onclick="setFontSize('1.5rem')" id="size-xl">X-Large</button>
+  </div>
+  <div class="control-group">
+    <span>Font Type:</span>
+    <button onclick="setFontFamily('Georgia, serif')" id="font-serif" class="active">Serif</button>
+    <button onclick="setFontFamily('-apple-system, BlinkMacSystemFont, sans-serif')" id="font-sans">Sans</button>
+  </div>
+  <div class="control-group">
+    <span>Download:</span>
+    <a href="docx/sermon_006_ENGLISH.docx" class="download-btn" download>DOCX</a>
+    <a href="pdf/sermon_006_ENGLISH.pdf" class="download-btn" download>PDF</a>
+    <a href="epub/sermon_006_ENGLISH.epub" class="download-btn" download>EPUB</a>
+  </div>
+</div>
+
+<div style="text-align: center; margin-bottom: 2rem;">
+<h1 style="font-size: 1.8rem; margin-bottom: 0.3rem;">Chapter 6</h1>
+<p style="color: var(--text-muted); font-style: italic; font-family: -apple-system, sans-serif; font-size: 0.95rem;">(Pahankanuwa Sermon 188)</p>
+</div>
+
+<article class="sermon-reader" id="readerArticle">
+<p>Paticca Samuppada Sermon 6<br>The Law of Dependent Arising</p><p>(Pahan Kanuwa Sermon – No. 188)</p><p>‘Namo tassa bhagavato arahato sammāsambuddhassa’</p><p>‘Homage be! To the Fortunate One – the Worthy, Fully Enlightened!’</p><p>Jāti maraṇa saṁsāraṁ</p><p>ye vajanti punappunaṁ</p><p>itthabhāvaññathābhāvaṁ</p><p>avijjāyeva sā gati</p><p>avijjā hayaṁ mahā moho</p><p>yenidaṁ saṁsitaṁ ciraṁ</p><p>vijjāgatā ca ye sattā</p><p>nāgacchanti punabbhavam</p><p>– Dvāyatānupassanā S. Sn.</p><p>Those who go on wandering again and again</p><p>Alternating in saṁsāra between birth and death</p><p>Are involved in a change from thisness to otherwiseness</p><p>Which is merely a journey of ignorance</p><p>This ignorance is the vast delusion</p><p>Whereby for long this saṁsaric journey has gone on</p><p>But those that have come by knowledge Come back never again to repeated birth.</p><p>Dear Listeners,</p><p>What is called ‘life’ is the period between birth and death. What is called ‘Saṁsāra’ is the alternation between birth and death. We have taken up as the topic of our sixth sermon on Dependent Arising two verses that highlight the connection between these two.</p><p>The two verses are found in the Dvayatānupassanā Sutta of the Sutta Nipāta. In the brief introductory story of this discourse which embodies a lot of deep points in the Dhamma, one can sense an intense fervour of the Dhamma. You had better form a mental picture of a moonlit night at Pubbārāma in Sāvatthi on a full moon day when the Buddha is seated in the open air surrounded by the congregation of monks. Having surveyed the company of monks with the Buddha-eye as they were seated quietly with rapt attention, the Buddha started a deep sermon with this prologue.</p><p>“Monks, whatever skillful contributory mental states there are, that are noble and effectively leading up to enlightenment, if there are any persons who question about the justifiable purpose of listening to them, they should be told:</p><p>“It is just for the purpose of knowing as it is the dualities in this Dhamma. And what would you call a duality?</p><p>‘This is suffering – this is the arising of suffering. This is one mode of contemplation.</p><p>This is the cessation of suffering – this is the path of practice leading towards the cessation of suffering. This is the second mode of contemplation.’</p><p>And therein, monks, of a monk who thus dwells diligently zealous and ardent, rightly contemplating the dualities, one of two results maybe expected – either full comprehension in this very life or if there is any residual clinging, the fruit of nonreturning.”</p><p>After this initial exhortation, the Buddha uttered four verses pertaining to the Four Noble Truths.</p><p>Then again addressing the company of monks, the Buddha said:</p><p>“Monks, if there are any who put the question ‘Could there be another mode of contemplating correctly the duality?’ –  they should be told:</p><p>‘There is’, and how?</p><p>‘Whatever suffering that originates all that is due to assets’ – this is one mode of contemplation.’ But with the utter fading away and cessation of assets there is no origination of suffering – this is the second contemplation.”</p><p>You had better note that what is here called ‘assets’ or ‘upadhi’ are the five aggregates of gasping we have deposited in this long Saṁsāra. So according to the Buddha the cause of the entire mass of suffering is the five aggregates of grasping. So much so that with the remainderless fading away and cessation of these assets there is no origination of suffering.</p><p>In the same way this discourse introduces as many as sixteen modes of contemplation. The special feature is that each mode of contemplation is introduced with the supposition that there are those who question the possibility of another mode of contemplation. Firstly the Buddha describes the topic under consideration in prose and then gives three or four verses concerning its importance as a mode of contemplation. We do not propose to discuss fully all the topics raised in this long discourse but the special significance of this particular sermon preached by the Buddha is that at the end of it all the sixty monks who listened to it attained arahanthood extirpating all influxes. It is such an important discourse.</p><p>It is the third mode of contemplation given in this discourse that we have taken up as the topic of our sermon today. Now this is the statement in prose with which the Buddha introduces the verses relevant to the topic.</p><p>‘yaṁ kiñci dukkhaṁ sambhoti sabbaṁ avijjā paccayā,</p><p>avijjāyatveva asesavirāga nirodhā natthi dukkhassa sambhavo.’ Whatever suffering that originates all that is due to ignorance, with the remainderless fading away and cessation of ignorance, there is no origination of suffering.”</p><p>It is after this declaration that the Buddha utters the two verses forming our topic.</p><p>‘Jāti maraṇa saṁsāraṁ – ye vajanti punappunaṁ</p><p>itthabhāvaññathābhāvaṁ – avijjāyeva sā gati’</p><p>“Those who keep wandering again and again in this saṁsāra which is an alternation between birth and death tantamount to a ‘thisness’ and ‘otherwiseness’, are involved in a journey which is merely a perpetuation of ignorance.”</p><p>‘avijjā hayaṁ mahāmoho – yenidaṁ saṁsitaṁ ciraṁ</p><p>vijjāgatā ca ye sattā – nāgacchanti punabbhavam’</p><p>“Ignorance is the great delusion due to which one has wandered long in this saṁsāra. Those beings that are endowed with knowledge do not come back to repeated existence.”</p><p>I wish to discuss these two verses in some detail. Let me cite at length a certain highly significant discourse which I touched upon briefly the other day, namely the Kaccānagotta Sutta  of the Saṁyutta Nikāya. I shall give it in some detail so that even those of you who were not present the other day could easily follow it. This is how the discourse begins.</p><p>A monk named Kaccānagotta approaches the Buddha and asks him:</p><p>“Venerable Sir, Right view, Right View it is said. In how far Venerable Sir, does one have right view? ”  The Buddha replies:</p><p>“Dvayanissito kho ayaṁ Kaccāna loko yebhuyyena atthitañceva natthitañca”</p><p>“Kaccāna, this world for the most part, rests on a duality, namely existence and non-existence.”</p><p>Then he proceeds to proclaim a wonderful middle path.</p><p>“Kaccāna to one who sees as it is with right wisdom the arising of the world, the view of non-existence about the world does not occur, and to one who sees as it is with right wisdom the cessation of the world, the view of existence about the world does not occur.”</p><p>The reference here is to the two views of eternalism and annihilationism.</p><p>Then the Buddha goes on to say that this world for the most part is given to approaching, grasping and entering into views (upaya upādanā-abhinivesa vinibandho). But if one does not approach, grasp and take one’s stand upon that tendency to approaching, grasping and that mental standpoint with the idea:</p><p>‘This is myself’, then one would not doubt nor waver about the fact that it is only suffering that arises and only suffering that ceases.  He would have a knowledge of it which is not dependent on another. With this the Buddha gives the reply to Kaccāna’s question saying:</p><p>“In so far Kaccāna, has one right view.”</p><p>In conclusion he says by way of explanation:</p><p>“Sabbaṁ atthīti kho Kaccāna, ayaṁ eko anto. Sabbaṁ natthīti ayam dutiyo anto. Ete te  Kaccāna ubho ante anupagamma majjhena Tathāgato dhammaṁ deseti:</p><p>avijjāpaccayā  saṅkharā  saṅkharāpaccayā viññāṇaṁ,................, evametassa kevalassa dukkhakkhandhassa samudayo hoti. avijjāyatveva asesavirāganirodhā saṅkhāranirodho, saṅkhāranirodhā viññāṇanirodho, ..............  evametassa kevalassa dukkhakhhandhassa nirodho hoti.”</p><p>“Everything exists’ – this, O Kaccāna, is one extreme. ‘Nothing exists’ – this, O Kaccāna, is the second extreme. Avoiding these two extremes Kaccāna, the Tathagatha preaches the Dhamma by the middle:</p><p>“Depending on ignorance preparations, depending on preparations consciousness, …........... this is the arising of this whole mass of suffering. But with the remainderless fading away and cessation of ignorance (comes) the cessation of preparations, with the cessation of preparations, cessation of consciousness, …......... thus is the cessation of this whole mass of suffering.”</p><p>You all are familiar with the middle path as expounded in the ‘Dhammacakkapavattana Sutta’ – namely the Noble Eightfold Path which avoids the two extremes of indulgence in sense pleasures and self-mortification. Now this Kaccāna Sutta is also a sermon preached by the Buddha. Here the concept of the middle path is the avoidance of the two extreme views ‘Everything exists’ and ‘Nothing exists’. What does this middle way amount to? The Law of Dependent Arising.</p><p>As we mentioned earlier, the formula of Dependent Arising has a direct order and an indirect order. In the direct order the formula begins with ‘Depending on ignorance, preparations, depending on preparations consciousness and so on and ends with the statement:</p><p>Thus is the arising of this whole mass of suffering. In the indirect order the formula begins by saying that with the remainderless fading away and cessation of ignorance comes the cessation of preparations, with the cessation of preparations the cessation of consciousness, ..... , and concludes with the declaration:</p><p>Thus is the cessation of this whole mass of suffering. You had better note the significance of the direct order and the indirect order. Thereby the Buddha evolves a middle path between the above two extreme views. Talking about the middle path, all this time we are used to identifying the middle path with the Noble Eightfold Path. You had better understand the reason for it.</p><p>It is true that the Dhammacakkappavattana Sutta preached to the group of five monks is undoubtedly the very first sermon and as such a great discourse. But there is a particular reason which inspired it. Those five monks entertained doubts about the Buddha’s enlightenment because he gave up the austerities of self-mortification. That is why the Buddha adopted that mode of presentation of the Noble Eightfold Path as the avoidance of the two extremes of self-indulgence and self-mortification. All the same the Law of Dependent Arising is implicit in that discourse. The reason for the point of emphasis was the necessity of convincing them.</p><p>Unfortunately, however, our commentarial tradition has not taken sufficient cognizance of this aspect of the middle path. Owing to that, quite a number of very important discourses on Nibbāna have remained obscure. A lack of appreciation of the Law of Dependent Arising, or the middle path between ‘is’ and ‘is not’ views is responsible for this neglect. As we pointed out earlier, that spontaneous utterance of the Buddhas, namely, ‘arising, arising’ ‘ceasing, ceasing,’ soon after their realization, sketches out the middle path between those two extremes in that it is a reflection of the incessant process of arising and ceasing going on in the world.</p><p>On various occasions we have brought up important discourses relating to this particular middle path. One such popular but abstruse discourse is the ‘Bāhiya Sutta’. The middle path implicit in the Bāhiya Sutta is not understood by many who read it. Let us recollect it. Bāhiya Dāruciriya was an ascetic with a high degree of samsāric maturity. He had meditated on his own and reached a stage which he took to be arahanthood. A certain deity had pointed out to him that it is an overestimation and directed him to the Buddha. With an intense eagerness he came to see the Buddha. By that time the Buddha was on his alms round, and in all haste Bāhiya begged him to preach the Dhamma. For some reason or other the Buddha refused the request twice but upon the third insistent request came out with a wonderfully brief and cryptic sermon which begins with this initial injunction:</p><p>“Tasmātiha Bāhiya evaṁ sikkhitabbaṁ diṭṭhe diṭṭhamattaṁ bhavissati, sute sutamattaṁ bhavissati, mute mutamattaṁ bhavissati viññāte viññātamattaṁ bhavissati. Evañhite Bāhiya sikkhitabbaṁ.”</p><p>“Well then Bāhiya, thus should you train yourself:</p><p>‘In the seen there will be just the seen, in the heard there will be just the heard, in the sensed there will be just the sensed, in the cognized there will be just the cognized.’ Thus should you train yourself.”</p><p>Then the Buddha outlines the final outcome of that training.</p><p>“Yato kho te Bāhiya diṭṭhe diṭṭhamattaṁ bhavissati, sute sutamattaṁ bhavissati, mute mutamattaṁ bhavissati, viññāte  viññātamattaṁ bhavissati, tato tvaṁ Bāhiya na tena, yato tvaṁ  Bāhiya na tena,  tato tvaṁ Bāhiya na tattha, yato tvaṁ Bāhiya na tattha,  tato tvaṁ Bāhiya nevidha na huraṁ na ubhayamantarena esevanto dukkhassa.”</p><p>“And when, to you Bāhiya there will be in the seen just the seen, in the heard just the heard, in the sensed just the sensed and in the cognized just the cognized, then Bāhiya you are not ‘by it’. And when Bāhiya you are not ‘by it’, then Bāhiya you are not ‘in it’. And when Bāhiya you are not in it, then Bāhiya you are neither here nor there, nor in between. This itself is the end of suffering.”</p><p>The implication is that at whatever time one stops short at the seen and takes it only as a seen and not something seen, and likewise in the case of heard, only as a heard and not something heard, in the sensed only as a sensed and not something sensed, and in the cognized only as a cognized and not as something cognized, that is to say, there is no imagining a ‘thinghood’, then one would not be thinking in terms of it. One would not imagine ‘by it’ (‘tena’) in the instrumental sense or ‘in it’ (‘tattha’) in the locative sense. As we said earlier, the problem of Saṁsāra lies hidden in the linguistic medium. For instance in the case of a seen, when one takes the concept of a chair in the substantive sense there will be ‘by’ or ‘with’ the chair as well as a positing of ‘in the chair’ or else, if one does not stop short at the heard but imagines a ‘music’ in it there will be a ‘by music’ and an ‘in music’. Thereby one takes a standpoint and tacitly identifies oneself with it. On the other hand, if one does not take such a standpoint, one is neither ‘here’ nor ‘there’ nor ‘in between the two’. A middle exists relative to two ends. When one is free from the two ends and does not take a stand in the middle saying ‘this is myself’ as stated in the ‘Kaccānagotta Sutta’ one would win to the conviction that what arises is only suffering and what ceases is only suffering. That itself is the end of suffering.</p><p>Then there is another brief but highly significant sutta in the same text – Udāna. It is a sermon specifically dealing with Nibbāna (‘Nibbāna patisaṁyutta’) which the Buddha addressed to the monks. That sermon too appears rather cryptic and riddlelike in its formulation. It is worded as follows:</p><p>Nissitassa calitaṁ</p><p>anissitassa calitaṁ natthi</p><p>calite asati passaddhi</p><p>passaddhiyā sati nati na hoti</p><p>natiya asati āgati gati na hoti</p><p>āgati gatiyā asati cutūpapāto na hoti</p><p>cutūpapāte asati</p><p>nevidha na huraṁ na ubhayamantarena</p><p>esevanto dukkhassa.</p><p>The first two words are probably familiar to you by now:</p><p>‘Nissitassa calitaṁ’. The word ‘Nissitassa’ might remind you of the term ‘dvayanissita’ (resting on a duality) in the Kaccāna Sutta discussed above. ‘Nissita’ has the sense of ‘resting on’, ‘leaning on’ or ‘being attached to’. To one who rests on the duality of eternalist view and annihilationist view, there is unsteadiness (calitaṁ). If you are leaning on something, when it moves or shakes you have to move or shake with it. This is the basic principle the Buddha puts forward first of all. Then he gives the converse of that statement:</p><p>‘anissitassa calitaṁ natthi.’ To one who does not rest or lean on something, there is no unsteadiness or shaking. As it is said in the ‘Kaccānagotta Sutta’, if one does not lean on extreme views by going the middle way, there is no unsteadiness (‘anissitassa calitaṁ natthi’). When there is no unsteadiness, there is calm (‘passaddhi’). When there is calm there is no inclination or bending (‘passaddhiyā sati nati na hoti’). Understood deeply, it means the absence of craving. Where there is no inclination there is no coming and going (‘natiya asati āgati gati na hoti’). When there is an inclining, there is a possibility of falling somewhere – a possibility of ‘coming and going’. When there is no coming and going there is no question of death and rebirth (‘āgati gatiyā asati cutūpapāto na hoti’). When there is no death and rebirth there is neither a ‘here’ nor a ‘there’ nor in between the two (‘cutūpapāte asati nevidha na huraṁ na ubhayamantarena’). This itself is the end of suffering (‘esevanto dukkhassa’).</p><p>Here too we find the question of linguistic conventions coming in. As we have already mentioned the knotty problem of Saṁsāra can be traced to linguistic conventions which we ourselves have created. Language and logic are transcended in this Dhamma. That is why it is called ‘atakkāvacara’ (‘not moving within the sphere of logic’). It grasps neither the two extremes nor the middle. This is the training which culminates in Nibbāna.</p><p>We put forward these ideas more or less as a commentary to the two verses in question. Let us now turn our attention again to these two verses.</p><p>‘Jāti maraṇa saṁsāraṁ – ye vajanti punappunaṁ</p><p>itthabhāvaññathābhāvaṁ – avijjāyeva sā gati’</p><p>Here we have two peculiar terms:</p><p>itthabhāva aññathābhāva – ‘thisness’ and ‘otherwiseness’. What is called ‘birth’ and ‘death’ is tantamount to an alternation between ‘thisness’ and ‘otherwiseness’. Just ponder over this statement. So this alternation is merely a journey of ignorance. It is not someone’s journey. Only a journey of ignorance. Therefore, ignorance is a vast delusion (‘mahā moho’) as stated in the second verse. However the two most important terms are ‘itthabhāva’ and ‘aññathābhāva’.</p><p>As you might recall, while discussing Mahā Nidāna Sutta we happened to mention that the Buddha in his questioning of venerable Ānanda step by step about the mutual relationship between consciousness and name and form posed the following question:</p><p>“Ānanda if consciousness having descended into the mother’s womb slips out, will name and form get born into a state of thisness (‘itthatta’)?”</p><p>There we came across the term ‘itthatta’; ‘Itthatta’ is none other than ‘itthabhāva’ just as ‘nānatta’ is a synonym for ‘nānābhāva’. Granted that ‘itthatta’ means ‘itthabhāva’ we can gather something about it from the above reference itself. So it is only so long as consciousness and name and form are found together in a mother’s womb, that we can expect the birth of a child. As we happened to mention in that context, if consciousness slips out only a ball of flesh would come out of the womb. It is only when these two continue to be together that a child is born into this world as a ‘thisness’. This is because when the new born child looks around, he finds himself born into a world of six sense spheres. From his point of view it is a ‘thisness’. Therefore, thisness is equivalent to ‘birth’. Otherwiseness is his journey towards ‘decay and death’. So then, ‘thisness’ and ‘otherwiseness’ is an inseparable pair. The worldling tries to separate birth from death and keep back birth and reject death. But this is an impossibility. It is an inseparable pair.</p><p>So it is clear that thisness (itthabhāva) is birth. The moment one grasps something as ‘THIS’ giving it a ‘thingness’ it starts becoming otherwise. He comes under the inescapable law of impermanence. Therefore, ‘itthabhāva’ and ‘aññathābhāva’ are tantamount to ‘birth’ and ‘death’. The alternation between them in Saṁsāra is merely a journey of ignorance (‘avijjāyeva sā gati’).</p><p>There is an important discourse which brings out the implications of the two terms ‘itthabhāva’ and ‘aññathābhāva’. Although we happened to discuss it earlier too, we take it up again because it is relevant. Soon after his enlightenment the Buddha as he was seated cross legged under the Bodhi tree in Uruvelā on the banks of River Neranjarā, arising from his concentration after seven days, surveyed the world with his Buddha-eye and uttered this verse as a paean of joy. It is a powerful utterance showing how deeply he reflected on the pathetic condition of the world.</p><p>ayaṁ loko santāpajāto phassapareto – rogaṁ vadati attato</p><p>yena yenahi maññati – tato taṁ hoti aññathā</p><p>This grief-stricken world given over to contact</p><p>Speaks of a disease in terms of a self</p><p>Whatever ‘thing’ he thinks ‘in terms of’</p><p>Thereby itself it turns otherwise.</p><p>In the introductory part of this discourse it is said that the Buddha in surveying the world with his Buddha-eye, saw beings stricken with grief due to various burning sensations born of lust, hate and delusion and uttered this verse. The world is griefstricken and enslaved by contact (‘santāpajāto phassapareto’) and calls a disease or a nest of diseases (that is the body) a self (‘rogaṁ vadati attato’). What happens as a result of taking this nest of diseases as a self? Now comes a significant statement:</p><p>yena yenahi maññati – tato taṁ hoti aññathā:</p><p>whatever one thinks in terms of, thereby it turns otherwise. The newly born child thinks ‘I am in this world’ and with that very thought the germ of impermanence takes over and that itself is the beginning of turning otherwise or change.</p><p>Then the Buddha goes on to explain what happens as a result of this ‘minding’ (maññanā).</p><p>‘aññathā bhāvī bhavasatto loko</p><p>bhavapareto</p><p>bhavamevābhinandati</p><p>yadabhinandati taṁ bhayaṁ</p><p>yassa bhāyati taṁ dukkhaṁ</p><p>bhavavippahānāya kho panidaṁ</p><p>brahmacariyaṁ vussati.’</p><p>The world attached to becoming</p><p>And given over to becoming</p><p>Though becoming otherwise</p><p>Yet delights in becoming</p><p>What it delights in</p><p>Is a cause for fear</p><p>And what it is scared of</p><p>Is suffering itself</p><p>But for abandoning that becoming</p><p>Is this holy life lived.</p><p>This is an extraordinary analysis of the predicament the world finds itself in. The nature of the world is to become otherwise due to the inexorable law of impermanence. But the world (that is the worldlings) is attached to becoming and given over to becoming (‘Attathābhāvī bhavasatto loko bhavapareto’). It Therefore, delights in becoming (‘bhavamevābhinandati’). The very fact that it delights is a fear – a dread (‘yadabhinandati taṁ bhayaṁ’). What is fearful or dreadful is suffering (‘yassa bhāyati taṁ dukkhaṁ’). Then comes the solution to the problem:</p><p>It is for the abandoning of becoming that this holy life is lived (‘bhavavippahānāya kho panidaṁ – brahmacariyaṁ vussati’).</p><p>Just ponder over this paradoxical situation. It is in the nature of becoming to become otherwise. But the worldling is attached to and given over to becoming. In fact it delights in becoming which itself is a cause of fear. What it is apprehensive of, is suffering bound up with the inexorable law of impermanence.</p><p>Then the Buddha makes this significant declaration:</p><p>“Whatever recluses or Brahmins spoke of release from existence by means of existence, I say that they are not released from existence.</p><p>Whatever recluses or Brahmins who spoke of a stepping out of existence by means of non-existence, I say that they all have not stepped out of existence.</p><p>All this suffering arises due to assets. By the destruction of all grasping there is no arising of suffering.”</p><p>A peculiar word came up in this discourse namely,</p><p>‘maññati’. Earlier too we called ‘maññanā’ a ‘minding’ – a ‘thinking’ – in terms of:</p><p>It is a fancying – in other words caused by ignorance. Once born into the world the child fancies itself to be a mannikin. Parents take it to be their own child – this combination of name and form and consciousness. Whether it likes it or not there is growth which in effect is decay. The Buddha speaks only of birth decay and death – not of any growth as such. From birth itself change takes over. That is to say from birth itself there is a progress towards decay and death. The world is imprisoned within this duality. That is what the Buddha calls suffering. Scholars suggest all sorts of etymologies for the word ‘dukkha’. We in our own way suggested a certain etymology in our Nibbāna sermons. ‘Duh’ means with difficulty or hardship and ‘kha’ means bearing up. So ‘dukkha’ means though with difficulty one bears up. Though one bears up it is difficult.</p><p>Let me give a simple simile as an illustration. In fact I gave a simile of a ‘serpent circle’. I borrowed the idea from a cartoon I saw in my boyhood. The cartoon had three cages or ‘windows’. The first cage showed two serpents – say, a cobra and a viper – trying to swallow each other. In the first cage the viper’s tail is shown to be in the cobra’s mouth while the cobra’s tail is in the viper’s mouth. The second cage showed that the cobra has swallowed half of the viper and that the viper has swallowed half of the cobra. That means now we have a ‘serpent circle’. Try to guess what could be in the third cage. Let us for a moment think that the cobra has swallowed the viper. Then the viper is not visible. If the viper has swallowed the cobra, the latter would not be visible. Whatever it is, the third cage only showed a few short lines in the centre suggestive of a “VOID”.</p><p>But is it a possibility? can they successfully swallow each other? It is a possibility only in the realm of logic – never in the world of reality. So the actual situation in the world is as represented by the second cage – the ‘serpent-circle’. It is a conflict – a deadlock. The cobra has to bear up somehow though it is difficult to do so. It started swallowing but cannot finish it. Same with the viper’s attempt to swallow the cobra. Though it is difficult both have to bear up. Though they bear up, it is difficult. They are in a fix!</p><p>Well, this is our predicament too. You talk about income and expenditure. It is a similar attempt to swallow up – whether at state level or household level. Husband and wife are in conflict with regard to income and expenditure. ‘Income’ tries to swallow up ‘expenditure’ and ‘expenditure’ tries to swallow up ‘income’. In economics there is the risk of inflation. Between supply and demand there is another ‘serpent-circle’. Just think about the society at large-institutions and the like. ‘Duties’ try to swallow up ‘rights’ and ‘rights’ try to swallow up ‘duties’. The result is strikes. What about our in-breath and out-breath and our blood circulation? It is the same conflict everywhere. This is the suffering. But the world refuses to understand this precarious situation for what it is. Instead it goes on craving for existence – for birth again and again.</p><p>It craves for birth but abhors death. This is the tragicomedy before us.</p><p>Talking about this liking for birth and disliking for death, let us bring up a little simile in the form of a parable. However much we explain this deep point some of you might not grasp it. But when it comes in the form of simile it is easily understood. Let us take one from the village life itself.</p><p>Simple Siyadoris, the habitual drunkard, suddenly dies. Usually in the case of a sudden death, a post-mortem is held. But before the formal inquest there is a tendency in the village to hold many informal inquests. First of all let us consult the venerable chief monk. His verdict is that his lay-supporter, Siyadoris died because he could not keep the fifth precept (that is abstinence from intoxicants). Now let us ask the village school master. His opinion is that this premature death is due to illiteracy. What does the Member of the Parliament say? He would put it down to abject poverty due to misgovernment by the ruling party. Let us ask the wife of the dead man who was at his bedside at the time of the death. She might say that her husband died because he could not breathe. What is the coroner’s verdict? It states that the death is due to chronic cirrhosis. But all these are partial truths.</p><p>If we ask the Buddha he would say that Siyadoris died for the simple reason that he was born!</p><p>There you are laughing – but that is the fact. Of course you might say “You don’t have to tell us that. We know tha?”</p><p>But that is precisely what has to be told. That is what the world does not KNOW!</p><p>You may recall what we pointed out in our discussion of the Mahāpadāna Sutta. When we analyse the Paṭicca Samuppāda formula these days we usually begin with the first two lines:</p><p>‘avijjā paccayā saṅkhārā’ (‘dependent on ignorance preparations’). It is very easy for us now. But how did the Buddha lay bare this most wonderful truth for the first time?</p><p>It is through radical attention (‘yonisomanasikāra’).  Yonisomanasikāra means attending by way of the source or matrix. Therefore, not only our Gotama Buddha, but also Vipassi Buddha before him aroused the knowledge of Dependent Arising by attending to ‘decay and death’ upwards. We have already explained these things. For instance the Bodhisatta Vipassi asked himself:</p><p>‘kimhi nu kho sati jarāmaraṇaṁ hoti, kim paccayā jarāmaranaṁ.’</p><p>When what is there (or “what being there”) does decay and death come to be Dependent on what is decay and death?</p><p>Then it occurred to him:</p><p>‘jatiyā sati jarāmaraṇaṁ hoti, jatipaccayā jarāmaranaṁ.’</p><p>‘When birth is there, decay and death come to be, Dependent on birth is decay and death.’</p><p>Just see. There is nothing to laugh about it. Until then the world had not understood it. The worldlings only think up excuses for it. That is why they ask why a Buddha has to come and tell us that. But the Buddhas arouse the knowledge of this basic reason because they want to put an end to samsāric suffering. Worldlings are not concerned with radical solutions to the problem of suffering. Whether he observed the five precepts or not Siyadoris would die. Whether he is literate or illiterate he would die. Whether he held his breath or released it he would die. Whether he had cirrhosis or not he would die.</p><p>But if Siyadoris had put and end to birth, he would not have died.</p><p>To refresh your memory a little more – now you can make sense of the Paṭicca Samuppāda formula because radical attention starts from the very end. Then the Buddha asked himself:</p><p>‘kimhi nu kho sati jāti hoti. kimpaccayā jāti.’</p><p>‘When what is there does birth come to be? Dependent on what is birth?’ And it dawned on him through wisdom:</p><p>‘bhave kho sati jāti hoti, bhavapaccayā jāti’</p><p>‘When becoming is there does birth come to be.</p><p>Dependent on becoming is birth’</p><p>So you can infer that the condition for birth is becoming or existence and likewise the cause and condition for becoming or existence is grasping because what you grasp that you are; the condition for grasping is craving since you grasp because of craving; the condition for craving is feeling since you crave because of feeling; the condition for feeling is contact because where you contact there you feel; the condition for contact is the six sense spheres since you contact because you have six sense spheres. The condition for the six sense spheres is name and form. Now we come to that deep point which we discussed earlier too. The condition for name and form is consciousness and then there is that crucial ‘turning-back’. The condition for consciousness is name and form. The process of questioning through radical attention stopped at the point of this mutual conditionality (‘aññamañña paccayatā’).</p><p>‘nāmarupāpaccayā viññāṇaṁ</p><p>viññāṇapaccayā nāmarupāṁ’</p><p>Dependent on name and form is consciousness</p><p>Dependent on consciousness is name and form.</p><p>Although questioning stopped there the very ignorance of this mental conditionality itself is avijjā or ignorance and the consequent fumbling or groping about in that darkness is sankhārā or preparations. This is what we tried to illustrate by various similes – the delusion arising out of the duality. The tragic self-love of Narcissus is the best example. But the Buddha discovered the secret of this vortical interplay – namely, Dependent Arising (‘Paṭicca Samuppāda’). That he accomplished through radical attention (‘yonisomanasikāra’).</p><p>So you may understand that this discourse which is regarded as deep reveals that Dependent Arising or Paṭicca Samuppāda’ is a middle path. It is due to a lack of understanding of this fact that many find it difficult to understand that the cessation of becoming is Nibbāna. We might have to take up for discussion several other deep discourses to clarify this aspect of the Dhamma.</p><p>Then there is what is called ‘maññanā’ (lit. minding, thinking in terms of or imagining). Let us take up a short discourse to acquaint ourselves with this term and to clarify further the alternation between ‘thisness’ and ‘otherwiseness’ (‘itthabhāva’ – ‘aññathābhāva’). We pointed out that maññanā is an imagining. According to what the Buddha has pointed out to us we are living in a mirage of our own making. The mirage is mind-made. To reveal this fact to us he brings up a strange parable – the parable of Vepacitti in Saṁyutta Nikāya. It is a parable which conveys something extremely deep. The Buddha presents it to the monks as if relating an incident which actually happened in the past. Quite often in the discourses we find an allusion to a battle between gods (sura) and demons (asura). In this particular contest it is said that in the battle between gods and demons, demons lost and gods won. The gods bound Vepacitti, the king of demons in a fivefold bondage neck, hand and foot and brought him into the presence of sakka – the king of gods. The Buddha says that the bondage of Vepacitti has a peculiar mechanism about it. When Vepacitti thinks:</p><p>‘Gods are righteous and demons are unrighteous, I will remain here in the deva world’ with that very thought he finds himself released from the fivefold bondage and enjoying divine pleasures. But as soon as he thinks:</p><p>‘gods are unrighteous and demons are righteous. I will go back to the asura world’ he finds himself bound again in that fivefold bondage. The point here stressed by the Buddha is that the bondage is ‘mind-made’. In summing up the Buddha says:</p><p>‘Evam sukhumaṁ kho bhikkhave Vepacitti bandhanaṁ. Tato sukhumataraṁ mārabandhanaṁ’</p><p>“So subtle, monks, is the bondage of Vepacitti but more subtle still the bondage of Māra.”</p><p>The bondage of Vepacitti is subtle as it is connected with the mind. But it seems the bondage of Māra is subtler.</p><p>Now comes the highly significant statement:</p><p>‘maññanmāno 	kho 	bhikkhave 	baddho 	mārassa</p><p>amaññanmāno mutto pāpimato.’</p><p>“Imagining monks, one is bound by Māra, not imagining one is freed from that evil one.”</p><p>Then the Buddha goes on to explain what this imagining is:</p><p>‘asmīti bhikkhave maññitametaṁ</p><p>ayamahamasmīti maññitametaṁ</p><p>bhavissanti maññitametaṁ</p><p>na bhavissanti maññitametaṁ</p><p>rūpī bhavissanti maññitametaṁ</p><p>arūpī bhavissanti maññitametaṁ</p><p>saññī bhavissanti maññitametaṁ</p><p>asaññī bhavissanti maññitametaṁ</p><p>nevasaññīnāsaññī  bhavissanti maññitametaṁ</p><p>maññitaṁ bhikkhave gando,</p><p>maññitaṁ rogo,</p><p>maññitaṁ sallaṁ.</p><p>Tasmātiha bhikkhave,</p><p>“amaññitamanena cetasā, viharissāmāti”</p><p>evañhi vo bhikkhave sikkhitabbaṁ.’</p><p>‘(I) am’ – monks, this is an imagined</p><p>‘This am I’ – this is an imagined</p><p>‘I should be’ – monks, this is an imagined</p><p>‘I shall not be’ – monks, this is an imagined</p><p>‘I shall be one with form’ – monks, this is an imagined</p><p>‘I shall be formless’ – monks, this is an imagined</p><p>‘I shall be percipient’ – monks, this is an imagined</p><p>‘I shall be non-percipient’ – monks, this is an imagined</p><p>‘I shall be percipient nor non-percipient’ – monks, this is an imagined</p><p>Imagining monks, is a disease, imagining is an abscess, imagining is a barb.</p><p>Therefore, monks you must tell yourselves:</p><p>“We will dwell with a mind free from imaginings”.</p><p>Thus must you train yourselves.</p><p>So here are nine ways of imagining. The first imagining is (I) am. We cannot help using ‘I am’ according to rules of grammar. But that itself is something imagined. That is not enough. We have to say ‘This am I’ identifying ourselves with one or the other of five aggregates. But that again is something imagined. So also is the assertion ‘I shall be’ or ‘I shall not be’. Similarly even the Brahmas are bound since ‘I shall be one with form’ and ‘I shall be formless’ are imaginings. Whether one thinks ‘I shall be percipient’ or ‘I shall be non-percipient’ it is an imagining. So also the see-sawing ‘I shall be neither percipient nor non-percipient’.</p><p>Having thus shown that the entire range of existence rests on imaginings, the Buddha declares:</p><p>‘Imagining is a disease, an abscess, a barb and advises the monks to dwell with a mind free from imaginings. This is the moral behind the parable of Vepacitti’s bondage. That is why we pointed out that delusion is ingrained in the linguistic medium. But we cannot afford to reject it altogether. That is precisely why even the Buddha uses it but without grasping.</p><p>The other day, while discussing the simile of the whirlpool we said something about ‘that place’ and ‘this place’ or ‘here and there’. Corresponding to that we have the three ‘persons’ – “I am” the first person ‘here you are’ the second person in front of me and ‘he’ over there is the third person. That is the grammatical structure. There are verbs that go with the three persons. ‘Am’, ‘are’ and ‘is’. According to the Buddha all these are part and parcel of the disease of imagining. The world is imprisoned by language and logic. The Buddha on the other hand offered us a Dhamma that transcends logic. That in short is the middle path implicit in the law of Dependent Arising. I wonder whether you remember our simile of the magic-kettle. It is not something found in books. It is based on a little bit of experience in my young days. While on a shopping round we once watched a continuous flow of water from a kettle into a basin behind a shop window. The kettle never got empty nor did the basin overflow. We later learned that a hidden tube conveyed the water from the basin back into the kettle. The world is also such a magic-kettle.</p><p>‘Samudayo samudayo’ (arising, arising) – there is an incessant process of arising, ‘nirodho, nirodho’ (ceasing, ceasing) there is an incessant process of ceasing. But the worldling ignores the ceasing aspect and emphasizes the arising aspect in order to hold on to the personality view (‘sakkāyadiṭṭhi’). Just ponder over the etymology of the term ‘sakkāyadiṭṭhi’. ‘Sat’ means ‘existing’ and ‘kāya’ means ‘group’. It is because we take the entire group or the heap as existing that we insist on proving an identity which we do not have in reality. We have our identity cards. How can there be an identity if the nature of the world is otherwiseness (‘aññathābhāva’). Forgetting about this fact we assert saying ‘This is me’ not only our present form but even the beautiful photographs taken in our childhood or at our wedding. That conceit is implicit in the stance ‘Am’. The perception of the compact (‘ghana saññā’) is already there. The world forgets that there is an incessant process of arising and an incessant process of ceasing. This process defies language. When we say ‘River flows’ there is only a process of flowing. But when we give it a name, say River Kelani, then we presume that it is the river that flows. So also is the fluxional nature of this body. Which is concealed. Only a Buddha points it out to us. Though our commentators failed to notice it, some Buddhist sects highlighted the fact that the middle path which avoids the two extremes is Paṭicca Samuppāda. They give it prominence. This does not mean that we accept everything in those Buddhist sects. Some called it ‘Sunyatā’. The important point to note is that there is an incessant arising and ceasing which transcends logic because logic is based on the duality of existence and non-existence – on ‘Is’ and ‘Is not’. Even the four-cornered logic the tetralemma – moves within this same duality. In place of this the Buddha introduced the law of Dependent Arising with its philosophy of incessant arising and ceasing summed up in the exclamation ‘Samudayo Samudayo – Nirodho nirodho.’</p><p>Let us reflect a little more on this imagining ‘I am’. How does it come in? There is an important discourse which explains it for us. Once venerable Ānanda tells his fellow monks ‘Friends when we were newly gone forth venerable Punna Mantāniputta was very helpful to us. He gave us an admonition like this ‘Ānanda, upādāya asmiti hoti no anupādāya’. Ānanda the notion ‘I am’ occurs in-dependence not without dependence. That is to say, due to grasping and not without grasping. So the notion ‘I am’ occurs due to causes and conditions – not fortuitously.</p><p>Then venerable Ānanda reiterates the words of venerable Punna Mantāniputta :</p><p>‘Kiñca upādāya asmīti hoti no anupādāya</p><p>Rūpaṁ upādāya asmīti hoti no anupādāya</p><p>Vedanaṁ upādāya asmīti hoti no anupādāya</p><p>Saññāṁ upādāya asmīti hoti no anupādāya</p><p>Sankhare upādāya asmīti hoti no anupādāya</p><p>Viññāṇaṁ upādāya asmīti hoti no anupādāya’.</p><p>Dependent on form arises (the notion) ‘I am’ – not without dependence</p><p>Dependent on feeling arises (the notion) ‘I am’ – not without dependence</p><p>Dependent on perception arises (the notion) ‘I am’ – not without dependence</p><p>Dependent on preparations arises (the notion) ‘I am’ – not without dependence</p><p>Dependent on consciousness arises (the notion) ‘I am’ – not without dependence</p><p>So it seems that the notion ‘I am’ is fostered by grasping or upādāna.</p><p>Then venerable Puṇṇa Mantāniputta gives a wonderful simile. It is a deep simile which you may ponder upon.</p><p>Just as Ānanda, a young woman or a young man who likes adornment looking at the reflection of her or his face either in a clean mirror or in a bowl of clear water would be seeing depending on it and not without depending, even so Ānanda depending on form arises (the notion) ‘I am’, not without depending. Depending on feeling arises (the notion) ‘I am’, not without depending. Depending on perception arises (the notion) ‘I am’, not without depending. Depending on preparations arises (the notion) ‘I am’, not without depending. Depending on consciousness arises (the notion) ‘I am’, not without depending. It is when one grasps the mirror that one sees one’s form reflected on it. Now think of what happened to Narcissus. Because he had never seen his face as soon as he saw the reflection of his face in the water he imagined an angel in the pond. The notion ‘I am’ is the result of a similar reflection. The reflection in the mirror does not reveal what is inside the entrails. It only shows the external form. That is what the world prides on as self.</p><p>One grasps not only form but feeling, perception, preparations and consciousness as well. The Buddha has clarified to us why each of them is called a group (khanda). On a previous occasion too we explained the significance of the word ‘khanda’ in pañcupādānakhanda (the five groups of grasping). The Buddha has given us an elevenfold analysis of each of the ‘groups’. For instance in the case of form, the formula runs as follows:</p><p>‘yaṁ kiñci rūpaṁ atītānāgata paccuppannaṁ ajjhattaṁ vā bahiddā vā oḷārikaṁ vā sukumaṁ vā hīnaṁ vā panītaṁ vā yaṁ dūre santike vā sabbaṁ rūpaṁ’, etc.</p><p>“Whatever form, whether past, future or present, internal or external, gross or subtle, inferior or superior, far or near, all form.., etc.”</p><p>This elevenfold analysis is recommended for insight meditation to eradicate the conceit of self.</p><p>Let us try to clarify for ourselves the significance of this analysis. ‘yaṁ kiñci rūpaṁ atītānāgata paccuppannaṁ’ – ‘whatever form whether past, future or present’ –  even the past form is prided on as ‘my own’. That beautiful child in your photo album you claim with pride:</p><p>‘This is me’. So that is your past form. What about the ‘future’ form. When you are getting ready to go for a wedding you do a lot of ‘make-up’ before the mirror and ask yourself:</p><p>‘How would I appear there?’ That is your ‘future form’, you have already grasped. ‘ajjhattaṁ vā bahiddā vā’ – ‘internal or external’. You grasp not only your form but forms you see outside. ‘oḷārikaṁ vā sukumaṁ vā’ – ‘whether gross or subtle’.  ‘hīnaṁ vā paṇītaṁ vā’ – ‘inferior or superior’. ‘yaṁ dūre santike vā sabbaṁ rūpaṁ’ – ‘whether far or near’. Every one of the five groups is an ‘aggregate’ of these eleven modes. A person ‘deposits’ his experiences in life according to these eleven modes. This applies not only to one’s present life but to one’s entire samsāric past. This is the ‘bedrock’ of samsāric experience which influences one as a ‘latency’ (‘anusaya’).</p><p>So then we have before us a stupendous samsāric problem of the highest order. But we are not going to blame language for it. Language is of our own creation. After we created it we fell under its spell. That is what we pointed out in our discussion of the term ‘papañca’. We alluded to the legend about the resurrected tiger. Three experts in magic while going through a forest saw the scattered bones of a tiger. One magic worker showed his skill by assembling them into a skeleton. The second one gave it flesh and blood. The third one infused life into it. The magically resurrected tiger sprang up and devoured all of them. Our language and logic worked a similar tragedy on us. We have been imprisoned by language and logic in this Saṁsāra. That is why we said in an earlier sermon that the complications in Saṁsāra are traceable to linguistic conventions. That is not with the idea of stigmatizing it. In fact we cannot help using it.  Even the Buddha had to use it. As the grand finale of the Poṭṭhapāda Sutta comes the following highly significant statement:</p><p>‘Itīmā kho Citta lokasamaññā lokaniruttiyo lokavohārā lokapaññattiyo yāhi Tathāgato voharati aparāmasaṁ’</p><p>“Citta, 	these 	are 	worldly 	conventions, 	worldly expressions, worldly usages, worldly concepts which the Tathāgatha makes use of without grasping”</p><p>The Tathāgatha makes use of them but does not grasp them. That should be the aim of following this Dhamma. Therefore, it is from the misconceptions ingrained in the linguistic medium that we have to get free from. That can be accomplished only through insight and wisdom. By continuously seeing the arising and ceasing nature of phenomena in one’s experience with insight we can extricate ourselves from these misconceptions and that too each one by himself.</p><p>So I think this is enough for today. It seems we are delving deeper and deeper into this Dhamma. But you shouldn’t get disheartened. These sermons may not be as palatable as popular versified sermons. But it is here that we have the quintessence of the Dhamma. As we once told you if you wish to attain Nibbāna after seeing the Buddha, see Paṭicca Samuppāda. If you see Paṭicca Samuppāda you see the Dhamma and whoever sees the Dhamma sees the Buddha. So when you see Paṭicca Samuppāda you see both the Buddha and the Dhamma. You had better reflect wisely on these words.</p><p>I suppose you spent the day in meditation established on higher precepts. Today you had the opportunity to listen to a sermon which is particularly relevant to insight meditation. Making the best use of it in your meditation, I hope you all will put forth your best efforts to escape this terrible Saṁsāra. May you all be able to attain in this very life supramundane states and the bliss of the deathless Nibbāna. Whatever beings there be from the lowest hell to the highest Brahma world may they all rejoice in our sermon. May the merits accrued by that rejoicing conduce to the fulfillment of their higher aims!</p>
+</article>
+
+<div class="sermon-nav-bar" style="margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+<a href="chapter_5.html">&larr; Previous Chapter</a>
+<a href="read.html">Table of Contents</a>
+<a href="chapter_7.html">Next Chapter &rarr;</a>
+</div>
+</main>
+<footer><p>This website is offered in the spirit of Dhamma Dana, freely available to all.</p></footer>
+<script>
+function setFontSize(size) {
+    const article = document.getElementById('readerArticle');
+    article.style.fontSize = size;
+    localStorage.setItem('preferred_font_size', size);
+    document.querySelectorAll('.control-group button').forEach(b => {
+        if(['Small','Medium','Large','X-Large'].some(t => b.innerText.includes(t))) {
+            b.classList.remove('active');
+        }
+    });
+    if(size === '1rem') document.getElementById('size-sm').classList.add('active');
+    if(size === '1.15rem') document.getElementById('size-md').classList.add('active');
+    if(size === '1.3rem') document.getElementById('size-lg').classList.add('active');
+    if(size === '1.5rem') document.getElementById('size-xl').classList.add('active');
+}
+
+function setFontFamily(font) {
+    const article = document.getElementById('readerArticle');
+    article.style.fontFamily = font;
+    localStorage.setItem('preferred_font_family', font);
+    document.getElementById('font-serif').classList.toggle('active', font.includes('Georgia'));
+    document.getElementById('font-sans').classList.toggle('active', !font.includes('Georgia'));
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const savedSize = localStorage.getItem('preferred_font_size');
+    const savedFont = localStorage.getItem('preferred_font_family');
+    if(savedSize) setFontSize(savedSize);
+    if(savedFont) setFontFamily(savedFont);
+});
+</script>
+</body>
+</html>

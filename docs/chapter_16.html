@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 16 (Sermon 198) | The Law of Dependent Arising</title>
+<style>
+:root {
+    --header-bg: #800000;
+    --header-text: #ffffff;
+    --header-subtitle: #ffd1d1;
+    --primary-color: #5c2c16;
+    --accent-color: #c88a2a;
+    --bg-color: #fdfbf7;
+    --card-bg: #ffffff;
+    --text-color: #2c2c2c;
+    --text-muted: #666666;
+    --border-color: #e2d7c7;
+    --reader-font-family: Georgia, "Times New Roman", serif;
+    --reader-font-size: 1.15rem;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.site-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 1.5rem 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-align: center;
+}
+.brand-section .logo-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+}
+.brand-section .subtitle {
+    font-size: 0.95rem;
+    color: var(--header-subtitle);
+    font-style: italic;
+    padding: 0 0.5rem;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+}
+.top-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.2s, color 0.2s;
+}
+.top-nav a:hover, .top-nav a.active {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.main-content {
+    max-width: 950px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.hero {
+    background: var(--card-bg);
+    padding: 2.5rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    text-align: center;
+}
+.hero h1 { font-size: 2rem; color: #222; margin-bottom: 0.3rem; }
+.hero h2 { font-size: 1.15rem; color: var(--primary-color); margin-bottom: 0.4rem; font-weight: normal; font-style: italic; }
+.hero h3 { font-size: 1.2rem; color: #333; margin-bottom: 1.5rem; font-weight: normal; font-style: italic; }
+.hero .author-title { font-size: 1.05rem; color: #555; margin-bottom: 2rem; font-style: italic; }
+
+.pali-quote { 
+    color: var(--header-bg); 
+    text-align: center; 
+    margin: 2.5rem 0; 
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin: 2rem 0;
+}
+@media (max-width: 768px) {
+    .button-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .main-content {
+        margin: 1rem auto;
+        padding: 0 0.5rem;
+    }
+    .hero {
+        padding: 1.5rem 1rem;
+    }
+    .brand-section .logo-title {
+        font-size: 1.5rem;
+    }
+}
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1rem;
+    background-color: var(--header-bg);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+.btn:hover { background-color: #5c0000; }
+.btn-secondary {
+    background-color: transparent;
+    color: var(--header-bg) !important;
+    border: 1px solid var(--header-bg);
+}
+.btn-secondary:hover { background-color: #f4eee6; }
+
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.chapter-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-color 0.2s, transform 0.1s;
+    text-decoration: none;
+    color: inherit;
+}
+.chapter-card:hover {
+    border-color: var(--header-bg);
+    transform: translateY(-1px);
+}
+.chapter-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--header-bg);
+}
+.sermon-badge {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    font-size: 1.1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    outline: none;
+    font-family: Georgia, serif;
+}
+.search-input:focus {
+    border-color: var(--header-bg);
+    box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.1);
+}
+
+.sermon-reader {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2.5rem 3rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    font-family: var(--reader-font-family);
+    font-size: var(--reader-font-size);
+    line-height: 1.9;
+}
+@media (max-width: 768px) {
+    .sermon-reader {
+        padding: 1.2rem 1rem;
+    }
+}
+.sermon-reader p {
+    margin-bottom: 1.6rem;
+    text-align: justify;
+}
+.sermon-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.sermon-nav-bar a {
+    color: var(--header-bg);
+    text-decoration: none;
+    font-weight: 600;
+}
+.sermon-nav-bar a:hover { text-decoration: underline; }
+
+.reader-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4eee6;
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.control-group button, .download-btn {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--header-bg);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background 0.2s, color 0.2s;
+}
+.control-group button:hover, .control-group button.active, .download-btn:hover {
+    background: var(--header-bg);
+    color: #fff;
+    border-color: var(--header-bg);
+}
+
+mark {
+    background-color: #ffeeba;
+    color: inherit;
+    padding: 0.1rem 0.2rem;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    margin-top: 4rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="brand-section"><div class="logo-title">The Law of Dependent Arising</div><div class="subtitle">The Secret of Bondage and Release &mdash; Ven. Katukurunde Nanananda Thero</div></div><nav class="top-nav"><a href="index.html">Home</a><a href="read.html" class="active">Read</a><a href="listen.html">Listen</a><a href="search.html">Search</a><a href="about.html">About</a></nav></header>
+<main class="main-content" style="max-width: 950px;">
+<div class="sermon-nav-bar">
+<a href="chapter_15.html">&larr; Previous Chapter</a>
+<a href="read.html">Table of Contents</a>
+<a href="chapter_17.html">Next Chapter &rarr;</a>
+</div>
+
+<div class="reader-controls">
+  <div class="control-group">
+    <span>Font Size:</span>
+    <button onclick="setFontSize('1rem')" id="size-sm">Small</button>
+    <button onclick="setFontSize('1.15rem')" id="size-md" class="active">Medium</button>
+    <button onclick="setFontSize('1.3rem')" id="size-lg">Large</button>
+    <button onclick="setFontSize('1.5rem')" id="size-xl">X-Large</button>
+  </div>
+  <div class="control-group">
+    <span>Font Type:</span>
+    <button onclick="setFontFamily('Georgia, serif')" id="font-serif" class="active">Serif</button>
+    <button onclick="setFontFamily('-apple-system, BlinkMacSystemFont, sans-serif')" id="font-sans">Sans</button>
+  </div>
+  <div class="control-group">
+    <span>Download:</span>
+    <a href="docx/sermon_016_ENGLISH.docx" class="download-btn" download>DOCX</a>
+    <a href="pdf/sermon_016_ENGLISH.pdf" class="download-btn" download>PDF</a>
+    <a href="epub/sermon_016_ENGLISH.epub" class="download-btn" download>EPUB</a>
+  </div>
+</div>
+
+<div style="text-align: center; margin-bottom: 2rem;">
+<h1 style="font-size: 1.8rem; margin-bottom: 0.3rem;">Chapter 16</h1>
+<p style="color: var(--text-muted); font-style: italic; font-family: -apple-system, sans-serif; font-size: 0.95rem;">(Pahankanuwa Sermon 198)</p>
+</div>
+
+<article class="sermon-reader" id="readerArticle">
+<p>Paticca Samuppada Sermon 16<br>The Law of Dependent Arising</p><p>(Pahan Kanuwa Sermon – No. 198)</p><p>‘Namo tassa bhagavato arahato sammāsambuddhassa’</p><p>‘Homage be! To the Fortunate One – the Worthy, Fully Enlightened!’</p><p>Sukhaṁ vā yadi vā dukkhaṁ – adukkhamasukhaṁ sahā</p><p>ajjhattañ ca bahiddhā ca – yaṁ kiñci atthi veditaṁ</p><p>etaṁ dukkhanti ñatvāna – mosadhammaṁ palokinaṁ</p><p>phussa phussa vayaṁ passaṁ – evaṁ tattha virajjati</p><p>vedanānaṁ khayā bhikkhu – nicchāto parinibbuto</p><p>– Dvayatānupassanā Sutta, Sutta Nipāta.</p><p>Dear Listeners,</p><p>Attainment of Nibbānic peace by overcoming saṁsāric suffering is generally considered as the aim of the Buddhist spiritual path. The problem of misery and happiness invariably reminds us of vedanā, feeling. The above two verses with a deep philosophical interpretation of feeling, which are chosen as the topic for this 16th discourse on Paṭicca Samuppāda, the Law of Dependent Arising, provides an ideal introduction to our discussion on the significance of feeling as revealed in the twelve links of the Paṭicca Samuppāda.</p><p>These two verses in the Dvayatānupassanā Sutta of the Sutta Nipāta, were uttered by the Buddha in order to emphasize the significance of the duality of arising and ceasing. In several of our previous discourses on Paṭicca Samuppāda, this sutta provided the key to our explanation. In the present context too the relevance of the above two verses is established by the Buddha’s remark:</p><p>“Monks, if someone inquires whether there could be another mode of contemplating dualities, you must reply in the affirmative. How is it possible? Whatever suffering arises, all that is dependent on vedanā – feeling. That is one mode of contemplation. With total cessation and detachment from feeling, suffering ceases. That is the other mode of contemplation.</p><p>Monks, if a monk applies himself to the (dvayatānupassanā) twofold method of contemplation without delay, with undeterred effort at cleansing of defilements (kiḷesa) he may expect to attain either Arahanthhood, or the stage of Non-returner, Anāgāmi in case his clinging is not totally extinct.”</p><p>The Buddha uttered the above two verses following this explanation.</p><p>Now let us find out their meanings.</p><p>Sukhaṁ vā yadi vā dukkhaṁ – adukkhamasukhaṁ sahā  	ajjhattañ ca bahiddhā ca – yaṁ kiñci atthi veditaṁ</p><p>Whatever feelings one experiences, either pleasant, unpleasant or neither pleasant nor unpleasant, internally or externally,</p><p>etaṁ dukkhanti ñatvāna – mosadhammaṁ palokinaṁ</p><p>Realizing their deceptive and breakable nature,</p><p>phussa phussa vayaṁ passaṁ – evaṁ tattha virajjati</p><p>Seeing their waning at every sense contact, there arises disenchantment,</p><p>vedanānaṁ khayā bhikkhu – nicchāto parinibbuto</p><p>With the elimination of feeling, the monk overcomes the hunger for craving and attains extinction.</p><p>That is the meaning of the two verses. It is clear that all feelings, according to the Buddha, pleasant, unpleasant and neither pleasant nor unpleasant, lead to suffering due to their deceptive breakable nature and their total cessation amounts to extinction (Parinibbāna).</p><p>Now let us try to understand ‘feeling’ (vedanā) as found in the Paṭicca Samuppāda, the Law of Dependent Arising. You are familiar with the twelve links of the Paṭicca Samuppāda such as avijjā and saṅkhāra. Among them vedanā is described as ‘Phassa paccayā vedanā, vedanā paccayā taṇhā’. I have once mentioned that for the clarification of any particular link, the two links before and after it have to be put in place. To give a simile, in order to illustrate one link in a chain, the two links on either side must be visible at least in part. In this case phassa and taṇhā are the links on either side of vedanā, which need special mention here. In the previous discourse we discussed phassa, which was given a six-fold analysis by the Buddha, such as cakkhu samphassa, sota samphassa etc. Similarly, vedanā is six-fold as cakkhu samphassajā vedanā, sota samphassajā vedanā, ghānasamphassajā vedanā, jivhā samphassajā vedanā, kāya samphassajā vedanā and mano samphassajā vedanā. ‘jā’ means arising. Therefore, cakkhu samphassajā vedanā means feelings arising from (born of) eye contact. The others are the ear contact, nose contact, tongue contact, body contact and mind contact. The deepest implications on vedanā are brought out in the Cūlavedalla Sutta of the Majjhima Nikāya.By way of introduction to this discourse, I wish to quote a part of it. Visākha, an anāgāmi lay disciple, seeks explanation to a series of complicating questions from the nun Dhammadinnā, an Arahant Therī. She tackled them in an expert manner. We would like to quote the last few questions and answers which were based on vedanā.</p><p>“Venerable Lady, how do you classify vedanā?”</p><p>“Friend Visākha, vedanā is threefold, pleasant, unpleasant and neither pleasant nor unpleasant. Sukhā vedanā, dukkhā vedanā and adukkhamasukhā vedanā.”</p><p>“Can you please explain what they mean?” (Visākha pretended not to know what they meant.)</p><p>“Whatever pleasant feeling is experienced physically or mentally, it is sukhā vedanā. An unpleasant physical or mental experience is dukkhā vedanā. Whatever physical and mental feeling is neither pleasant nor unpleasant is called adukkhamasukhā vedanā.”</p><p>“Venerable lady, what is pleasant about a pleasant feeling? and what is unpleasant? What is pleasant about an unpleasant feeling and what is unpleasant? What is pleasant about a neither pleasant nor unpleasant feeling? and what is unpleasant?”</p><p>“Friend Visākha, a pleasant feeling is pleasant only as long as it lasts. Its change is unpleasant. Ṭhitisukhā viparināma dukkhā. An unpleasant feeling is unpleasant only as long as it lasts. Its change is pleasant. Ṭhitidukkhā viparināma sukhā. A neither pleasant nor unpleasant feeling is pleasant if surveyed with wisdom. It is unpleasant if surveyed without wisdom.”</p><p>“What is the latency (anusaya) underlying a pleasant feeling? What is the latency underlying an unpleasant feeling? What is the latency underlying a neither pleasant nor unpleasant feeling?”</p><p>Before we quote Arahant Therī Dhammadinnā’s reply to this question, let me explain the term anusaya in case it is unfamiliar to some. In discussing kilesa, we come across three stages, the dormant stage called anusaya, the awakening (activating) stage called pariyuṭṭhāna, and the active stage that violates a precept called vītikamma. Our present discussion is on the anusaya stage. The Therī’s reply is as follows:</p><p>“Friend Visākha, the latency that lies hidden underneath a pleasant feeling is lust (rāgānusaya). The latency that lies hidden underneath an unpleasant feeling is anger (paṭighānusaya). The latency that lies hidden underneath a neither pleasant nor unpleasant feeling is ignorance (avijjānusaya).”</p><p>“Venerable Lady, is the latency of lust found underneath every pleasant feeling? Is the latency of anger found underneath every unpleasant feeling? And is the latency of ignorance found underneath every feeling that is neither pleasant nor unpleasant?”</p><p>“No friend Visākha. Lust is not found underneath every pleasant feeling. Anger is not found underneath every unpleasant feeling. Ignorance is not found underneath every feeling that is neither pleasant nor unpleasant.”</p><p>This position is further explained when the Therī answers Visakha’s questions that follow.</p><p>“Venerable Lady, what must be eradicated in the case of pleasant feelings? What must be eradicated in the case of unpleasant feelings? What must be eradicated in the case of feelings neither pleasant nor unpleasant?”</p><p>“Friend Visākha, in the case of pleasant feelings, the latency of lust must be eradicated. In the case of unpleasant feelings, the latency of anger must be eradicated. In the case of feelings neither pleasant nor unpleasant, the latency of ignorance must be eradicated.”</p><p>“Venerable Lady, must the latency of lust be eradicated in every instance of pleasant feelings? Must the latency of anger be eradicated in every instance of unpleasant feelings? Must the latency of ignorance be eradicated in every instance of feelings neither pleasant nor unpleasant?”</p><p>“No friend Visākha. Anusayas need not be eradicated in the case of every pleasant feeling or unpleasant feeling or every feeling that is neither pleasant or unpleasant.”</p><p>With this brief reply the Therī presents an unusual description introducing three very special situations.</p><p>First and foremost a monk who deviates from lustful thoughts and unwholesome thoughts and immerses in seclusion with reflection and investigation (vitakka vicāra) attains the first absorption endowed with joy and ease (pīti sukha). The latency of lust is absent here although joy and ease are present. That is a very special mental state.</p><p>Secondly the Buddha declares something special about anger ‘paṭigha’:</p><p>A meditative monk entertains a longing, a yearning to speedily attain the noble emancipation through Arahatphala Samādhi, which is signeless (animitta) undirected (appaṇihita) and void (suññata), which the noble arahants attain and continue to abide in. The longing to attain that spiritual state is identified in the Dhamma as nekkammasita domanassa, dejection within renounced life and not gehasita domanassa, dejection within lay life. Dhammadinnā Therī declares that underneath this dejection no anger is found. That is a very special situation. Only a yearning prevails that the spiritual state has not yet been acquired, but no anger prevails.</p><p>The third factor is then explained. A certain monk who keeps aloof from pleasant and unpleasant feelings attains the fourth absorption which has only feelings that are neither pleasant nor unpleasant. No latency of ignorance is found underneath it. That is a special situation.</p><p>Followed by this explanation, the lay disciple Visākha comes up with an out of the ordinary question.</p><p>Venerable Lady, what is the counterpart of pleasant feeling?</p><p>This term needs explanation. Think of a coconut or something similar that has two halves. Paṭibhāga means the counterpart. Now let’s get back to the questions and answers.</p><p>Venerable Lady, what is the counterpart of pleasant feeling?</p><p>Friend Visākha, the counterpart of pleasant feeling is unpleasant feeling.</p><p>Then, what is the counterpart of unpleasant feeling?</p><p>The counterpart of unpleasant feeling is pleasant feeling.</p><p>This answer establishes a relationship between the two.  Then, what is the counterpart of feeling neither pleasant nor unpleasant.</p><p>The counterpart, Friend Visākha, is ignorance (avijjā).</p><p>This answer is also unusual. The questioning continues.</p><p>What is the counterpart of avijjā, ignorance?</p><p>The counterpart is vijjā, knowledge.</p><p>What is the counterpart of vijjā, knowledge?</p><p>The counterpart is vimutti, emancipation.</p><p>What is the counterpart of vimutti?</p><p>The counterpart of vimutti is Nibbāna, extinction.</p><p>What is the counterpart of Nibbāna?</p><p>Friend Visākha, unable to restrain yourself from questioning, you are overstepping the boundaries. Higher life of Brahmacariya ends with Nibbāna, extinction. That is the end. Your question is erroneous.</p><p>But I am sure you can see, when you go deep into this subject, that the worldlings exist between pleasant and unpleasant experiences. Emancipation on the other hand arises in mid position called neither pleasant nor unpleasant.</p><p>Now we know the counterpart of pleasant feeling is unpleasant feeling, and the counterpart of unpleasant feeling is pleasant feeling. But the feeling neither pleasant nor unpleasant goes deeper. When ignorance that lies hidden is dispelled knowledge dawns. When knowledge is dispelled, emancipation dawns, and Nibbāna emerges. Everything ends there. There is another valuable sutta relevant to this subject in the Vedanā Saṁyutta named Salla Sutta. Here the Buddha directly calls a person ignorant of the Dhamma as an illiterate common man. Afflicted with unpleasant feelings he desires for sensual pleasure. What is the reason for this? Being illiterate and worldly, he can visualize no other escape from misery than through sense pleasure. He is totally ignorant of feelings that are neither pleasant nor unpleasant. In an attempt to clarify this point on an earlier occasion, we remember bringing out the simile of a seesaw. A ride on the see-saw is similar to the ride on the head of a coconut frond which was a game of long ago. We see the ordinary worldlings ride the see-saw between joy and misery. They are not aware of the neither pleasant nor unpleasant position in the center. Only the noble disciple who dedicates himself to the serious practice of contemplation on feeling according to the Satipaṭṭhāna Sutta, is capable of identifying the neither pleasant nor unpleasant feeling. The worldlings on the run between the two extremes know nothing about the mid-position.</p><p>This point is well illustrated in the commentary with the simile of deer footprints. On a stretch of flat land there was a rocky plateau. A deer used to walk across it leaving footprints on the bare land but no trace on the rock. The feeling neither pleasant nor unpleasant is similar to the rocky plateau. Emancipation lies there, although the worldlings are not aware. Emancipation is found concealed. Talking of the two extremes and the middle, I would like to switch on to Majjhe Sutta again for clarification, as we have done earlier. First let me give a summary of the sutta for the benefit of the new-comers.</p><p>When the Buddha was residing at Isipatana in Benaris, a group of theras (senior monks) while relaxing after the mid-day meal, initiated a dhamma discussion. They selected a riddle-like verse with subtle meaning from the Metteyya Pañha in the Sutta Nipāta, and sitting in conference as it were formulated four questions for interpretation.</p><p>Yo ubhante viditvāna</p><p>majjhe mantā na lippati</p><p>taṁ brūmi mahāpurisoti</p><p>sodha sibbanimaccagā</p><p>Knowing the two ends, he who with wisdom</p><p>refrains from attachment to the middle,</p><p>I call him a great man (mahā purisa)</p><p>who transcends the seamstress in this world.</p><p>The four questions formulated were What is the first end? What is the second end? What is the middle? Who is the seamstress? Six senior monks contributed their deep interpretations which were even suitable as objects of meditation. When presented to the Buddha he approved all six as correct. Here, we will discuss the third interpretation, as it is the most relevant to us.</p><p>“One end is pleasant feeling. The other is unpleasant feeling. In the middle is the feeling neither pleasant nor unpleasant. The seamstress is craving.”</p><p>This makes it clear that the ordinary worldling runs between pleasure and pain driven by craving. Craving ignores the middle position and keeps tying knots with the two extreme ends. On the sly, she conceals ‘neither pleasant nor unpleasant’ feelings and keeps tying up the two ends. It is similar to the ride on the see-saw totally ignorant of the emancipation in the middle.</p><p>Now let’s go into another relevant sutta, the Phassamūlaka Sutta in the Vedanā Saṁyutta. The Buddha begins as follows “Monks, there are three feelings”.</p><p>To quote the Pāli statement</p><p>“Tisso imā bhikkhave vedanā, phassajā phassamūlakā, phassanidānā, phassapaccayā”.</p><p>‘Monks, Feelings are of three types whether arisen from contact, rooted in contact, founded on contact or conditioned by contact. What are they? Pleasant, unpleasant and neither pleasant nor unpleasant’. The Buddha further clarifies how they arise. ‘Monks, a contact conducive to a pleasant feeling, generates a pleasant feeling”.</p><p>That contact is referred to as ‘tajjaṁ’ a word which has to be broken up as tat+ja. Tajja means ‘born of that’ ‘arisen from that’. When a contact which gives rise to a pleasant feeling ceases, the resultant pleasant feeling ceases. The Buddha stresses this fact with reference to unpleasant feelings as well. ‘dukkhavedaniyaṁ bhikkhave phassaṁ paṭicca uppajjati dukkhā vedanā’. Dependent on contact which generates an unpleasant feeling there arises an unpleasant feeling. With the cessation of that contact, the unpleasant feeling ceases. The same applies to feelings neither pleasant nor unpleasant. With a contact conducive to the generation of a feeling neither pleasant nor unpleasant, such a feeling is generated. With the cessation of such contact, the resultant feeling ceases.</p><p>The Buddha gives an ideal simile in order to explain contemplation on feeling, vedanānupassanā. ‘Monks, just as heat is generated by rubbing two pieces of wood together, that heat disappears then and there, when the two sticks are taken apart’. Here the word tajja is used.</p><p>“Yā tajjā usmā sā nirujjhati”.</p><p>The heat that arises by rubbing ceases then and there. Heat is generated by rubbing. By separating the two sticks, it cools. The message conveyed here is very deep. The Buddha has brought it up as a very important theory regarding vedanānupassanā. Here, in the Phassamūlaka Sutta, the Buddha declares it in poetic Pāli words, which can be easily commited to memory, as follows.</p><p>“Tajjaṁ tajjaṁ phassaṁ paṭicca tajjā tajjā vedanā uppajjanti. Tajjassa tajjassa phassassa nirodhā tajjā tajjā vedanā nirujjhanti”.</p><p>Let us see its meaning. We can translate tajja as ‘specific’. Then the statement would be roughly converted into English as ‘Depending on each different contact, each specific feeling is generated. With the cessation of each different contact, each specific feeling ceases’. That is the general idea. You have to understand the implication of tajja, which has a very specific meaning.</p><p>Generated by different contacts, feelings arise. With their disappearance, feelings vanish. Contemplation on feeling rests on this reality. The ordinary worldlings are unable to see impermanence. They ignore the middle. They always lean towards the ‘arising’ aspect. With reference to this, let us discuss the first interpretation in the Majjhe Sutta. Out of the six interpretations the first one on contact will help us here. It was the first to be approved by the Buddha as well. He said he too meant this interpretation, when uttering the verse although the other interpretations are also correct. What then is the first interpretation? Contact (phassa) is one end. Arising of contact (phassa samudaya) is the other end. It is not easy to grasp this. The middle is the cessation of contact (phassa nirodha). Now think what the seamstress does. She always sews the two opposite ends of the cloth, avoiding the middle. So are the worldlings who always live between contact and the arising of contact. Each time one contact fades away, they manoeuvre another to take its place. They never see the cessation in the middle. What does the seamstress craving (taṇhā) do? As in the simile of the two sticks, the Buddha says, if feeling arises dependent on contact, feeling should cease when contact ceases. But the worldlings are inclined towards origination. When one disappears, the stage is set for others to appear immediately. The implication here is deep, since it is suggestive of the perception of impermanace (anicca saññā). The term tajjaṁ can be grasped through yoniso manasikāra or seeing as it is with true insight. You must keep this in mind.</p><p>Depending on different contacts, different feelings arise. With the cessation of these different contacts, those feelings cease.</p><p>I think much has been said about contemplation on feeling, (vedanānupassanā). Let us remember as beckground knowledge the similes the Buddha gave for each of the five aggregates of grasping. Many of you are aware of them. Physical form is a cluster of foam. Feeling is a bubble. Perception is an illusion. Preparations are a banana stump. Consciousness is a deception. They all suggest impermanence, lack of solidity, lack of essence. Take the above simile given for feeling, for further contemplation. ‘Monks, rain coming down on water in large drops in the summer, causes bubbles to rise and break up fast. They arise and break up. A wise man will look at it as it is, and see its essencelessness. It ceases then and there. It ceases then and there’. That is the simile the Buddha gave to demonstrate the emptiness of feeling. Please retain it at the back of your mind.</p><p>Now let us go into a very special discourse among the suttas, with reference to contemplation on feeling, (vedanānupassanā), called Nandakovāda Sutta, in the Majjhima Nikāya. It’s a unique one. This is the background in brief. The Buddha was once residing at Jetavanārāma. According to a rule of discipline, senior monks were expected to give a fortnightly advisory talk to the nuns. On this particular day, Therī Prajāpatī Gotamī too dropped in, to remind the monks of the talk. The monks informed the Buddha that it was Nandaka Thera’s turn to advise the nuns. But, he showed reluctance until the Buddha himself made a request. He approached the nunnery Rājakārāmaya and addressed the anxiously waiting nuns. He said at the outset that the discussion would take the form of a question and answer session. Whenever necessary they should clarify their doubts by questioning him. The discussion began with the usual subject of tilakkhana, the three characteristics, beginning with the internal sense organs.</p><p>‘Sisters, is the eye permanent or impermanent?’</p><p>‘Impermanent, Venerable Sir’.</p><p>‘That which is impermanent, is it pleasant or unpleasant?’</p><p>‘Unpleasant, Venerable Sir’.</p><p>‘That which is impermanent, unpleasant and subject to change, is it worthwhile calling it I and mine?’</p><p>‘Definitely not, Venerable Sir’.</p><p>The other internal sense organs the ear, the nose, the tongue, the body and the mind were also discussed through a similar series of questions. The nuns concluded their answering by saying ‘Venerable Sir, we had already realized through noble wisdom the impermanence of all six internal sense spheres’.</p><p>The next series of questions was about the external sense objects.</p><p>‘Sisters, is the physical form permanent or impermanent?’</p><p>‘Impermanent, Venerable Sir’.</p><p>In a similar manner the nuns were questioned about sound, smell, taste, contact and cognizable objects. Again they concluded their answering by saying that they had already realized the impermanence of the six external sense objects through their noble wisdom.</p><p>The third series of questions was on the six viññāṇas, the six types of consciousness.</p><p>‘Sisters, is eye consciousness permanent or not?’</p><p>‘It’s impermanent, Venerable Sir’.</p><p>The series of questions was as above, to emphasis the quality of impermanence. At this point too, the nuns declared that they had already realized it.</p><p>Now this sutta offers us three wonderful similes. That I think makes this sutta invaluable. This is the first one:</p><p>‘Sisters, there is a kindled oil lamp. The oil in it is impermanent. The wick is impermanent. The flame is impermanent. So is the light. But if someone were to say that the oil, the wick and the flame are impermanent, but the light is permanent, would you agree?’</p><p>‘Definitely not, Venerable Sir, because if the oil, the wick and the flame are impermanent, the light produced by them is bound to be impermanent’.</p><p>Here the nuns spontaneously came out with the Buddha’s theory</p><p>“tajjaṁ tajjaṁ phassaṁ”.</p><p>They answered in unison as follows.</p><p>“Tajjaṁ tajjaṁ bhante paccayaṁ paṭicca tajjā tajjā vedanā uppajjanti. Tajjassa tajjassa paccayassa nirodhā tajjā tajjā vedanā nirujjhanti”</p><p>‘Venerable Sir, the reason is that different feelings arise dependent on different contacts. With the cessation of these contacts, the feelings cease’.</p><p>Paccaya or conditions here refers to phassa or contact, although the sutta doesn’t say so. We are compelled to believe that the nuns were not listening passively. For example, if they had continued to sit throughout in one posture, they would have experienced physical pain. They may have contemplated on vedanā in conformity with the discourse. That is why perhaps they answered in unison “Tajjaṁ tajjaṁ”,</p><p>“With the cessation of different contacts, the relevant feelings cease.”</p><p>Here the fundamental theory emerges, which is then applied to the simile as follows.</p><p>If someone says the internal sense spheres such as the eye, the ear and the nose are impermanent but the feelings that arise thereof such as happiness and pain are permanent, is that statement correct? It was in relation to this question that the similes were brought in. the simile of the oil lamp refers to the impermanence of internal sense spheres, the eye, the ear, the nose, the tongue, the body and the mind. Now the Thera presents his second simile.</p><p>‘Sisters, think of a huge tree. The roots are impermanent. The trunk is impermanent. The foliage is impermanent. The shadow is impermanent. If someone were to say that the root, the trunk and the foliage are impermanent, but the shadow is permanent, would you agree?’</p><p>‘No Venerable Sir. If roots, the trunk and the foliage are impermanent, the shadow has to be impermanent as well.’</p><p>‘Sisters, in the same way if the six external sense objects, physical form, sound, smell, taste, physical contact and cognizable objects are impermanent, the resultant pleasant feelings, unpleasant feelings and feelings neither pleasant nor unpleasant are bound to be impermanent’</p><p>To prove this argument the Buddha’s theory is cited</p><p>“Tajjaṁ tajjaṁ bhante paccayaṁ paṭicca tajjā tajjā vedanā uppajjanti. Tajjassa tajjassa paccayassa nirodhā tajjā tajjā vedanā nirujjhanti”.</p><p>With this logical argument most probably realization dawned upon the nuns regarding the cause – effect relationship although not mentioned in the sutta. The third simile is more peculiar.</p><p>‘Sisters, a butcher or his assistant, slaughters a cow, and skins it with a very sharp butcher’s knife. It is delicately done without damaging either the flesh or the skin. Only the nerves that joined the skin to the flesh were severed. He then expertly covers the body with the skin and says ‘There you are. The cow is there just as she was. No difference whatever’. Do you think that statement is correct?’</p><p>‘Certainly not, Venerable Sir. The nerves are severed between the skin and the flesh, with a butcher’s knife’.</p><p>‘Yes sisters. It is the simile I cited. Now I shall give you the interpretation. The flesh within the skin stands for the six internal sense faculties. The skin is compared to the external sense objects. The nerves that join the two, represent passion for lust, nandirāga.</p><p>Dear listeners, nandirāga is a synonym for taṇhā (craving). Nandi is to take delight in. Rāga is attachment. nandirāga is compared to the nerves that join the flesh and the skin of the cow together. Once the nerves are severed, the cow though apparently the same, is not really the same. The skin merely lies spread over the flesh.</p><p>Now I want you to recall some facts I stressed in the previous discourse. With reference to the Buddha’s sensitivity to taste it is said</p><p>“Rasa paṭisaṁvedi bhagavā hoti, no ca rasa rāga paṭisaṁvedi”.</p><p>He is sensitive to taste but not attached to taste. Let us interpret the simile of the cow on these lines. The nerves were severed by means of Nibbāna. The nerves are compared to passion for lust, nandirāga. Nandirāga is a synonym for craving. These nerves need not be cut off. It’s the passion for lust that has to be eliminated. Finally, what is the butcher’s knife? It is a synonym for noble wisdom. Noble wisdom is used, for the delicate job of severing the cow’s flesh from the skin. Only the nerves are severed leaving the false appearance that the body is intact. But there is a difference, the difference between worldly and transcendental. You must try to understand it. Try to apply it to the simile of a drop of water on a lotus petal.</p><p>Nandaka Thera, before concluding the discourse, briefly touched on the seven Factors of Enlightenment bojjhangas, that is,  mindfulness, investigation of Dhamma, effort, rapture, repose, concentration and equanimity.</p><p>‘Sisters, if one disciplines oneself in each of these seven Factors of Enlightenment with Nibbāna as the goal, one is certain of Arahanthood. What does ‘with Nibbāna as the goal’ mean? The specific terms used are ‘viveka nissitaṁ’, founded on seclusion, ‘virāga nissitaṁ’, founded on detachment, ‘nirodha nissitaṁ’, founded on cessation, ‘vossagga parināmiṁ’, maturing in total relinquishment. They all stand for Nibbāna.’</p><p>‘Sisters, now the time is up. You can leave.’</p><p>The nuns rose respectfully and proceeded to meet the Buddha. They stood by after venerating him. He then dismissed them saying briefly ‘Sisters, you may go’. Then the Buddha addressed the monks. ‘Monks, the Cātuddasa is the 14 day. The pañcadasa is the 15 day. Looking at the moon on the 14 day many will not notice that the moon is not fully visible, though really it is not. Similarly, here the Buddha makes the simile clear – the five hundred nuns were gladdened by Nandaka’s discourse but their expectations were not fulfilled. Then he advised the Venerable Nandaka to repeat the same discourse, the following day. If technology had been as advanced as it is today the task would have been simple. Venerable Nandaka was asked to repeat word to word the entire discourse, the following day.</p><p>This second day’s account is recorded briefly in the text. Venerable Nandaka, after the mid-day meal, entered the nunnery and repeated the discourse word for word, in the form of questions and answers, and finally said ‘Sisters, that’s all for today’. The nuns, as on the previous day met the Buddha, and were given permission to leave. Once they left, the Buddha addressed the monks and cited his simile again. ‘Monks, looking at the moon on the 15 day, many people have no doubt whether the moon appears full or not. It’s full without doubt.</p><p>Similarly, the nuns are not only gladdened but their expectations are fulfilled. Their ultimate objective has been realized. The final statement in this account is amazing. Of these five hundred nuns, the nun who acquired the lowest spiritual attainment is Sotāpanna, that of stream winner. At the end of the first hearing of the discourse, there were no spiritual attainments but on the following day, the lowest attainment was Sotāpanna. It indicates that contemplation of feeling or vedanānupassanā as explained in the statement “tajjaṁ tajjaṁ” is the force underlying it.</p><p>I wish to now introduce to you a dangerously critical sutta in the Māra Saṁyutta. Take care. Even certain educated people have misinterpreted this and insulted the Dhamma. Some have even committed suicide through misunderstanding. Although it has caused a lot of confusion, this Godhika Sutta touches the Dhamma at its depth. This is how it goes. When the Buddha was residing in Rajagaha, the monk Godhika lived in a cell on the slope of the Isigili rock. Striving hard in meditation he attained a worldly state of concentration or samādhi called ‘sāmayika ceto vimutti’. Due to some mysterious reason as his mind touched on the samādhi, it slipped away. He made the highest effort again and again but for the second, third, fourth, fifth and sixth time the samādhi slipped away. In deep disappointment he decided to commit suicide by severing his neck.</p><p>This is how the text records it. The Māra, reading this thought of Venerable Godhika, approached the Buddha with a show of deep reverence and said ‘Great Hero, a disciple of yours who is a Sekha (Sotāpanna) is planning to commit suicide. Please prevent him’. This request is very unusual of Māra. It reveals his shrewdness. Strange enough, at this very moment Venerable Godhika cut off his neck with a sharp weapon. Seeing this, the Buddha gives a very unusual reply.</p><p>“Evaṁ hi dhīrā kubbanti – nāvakaṁkhanti jīvitaṁ,</p><p>samūlaṁ taṇhaṁ abbuyha – Godhiko parinibbuto”</p><p>Instead of criticizing the monk he praised him.</p><p>“Evaṁ hi dhīrā kubbanti”, ‘That is how the wise men act’.</p><p>“nāvakaṁkhanti jīvitaṁ”, ‘They have no expectations in life’.</p><p>“samūlaṁ taṇhaṁ abbuyha”, ‘extracting craving at its very root’</p><p>“Godhiko parinibbuto”, ‘Godhika has attained parinibbāna’.</p><p>This story invites criticism. Let us see what followed. The Buddha informed the monks of this unusual incident and together with them climbed Kālasilā rock in Isigili to see the monk. At a distance they saw that the monk’s neck was completely severed from the body. They also observed a smoky cloud floating in all ten directions.</p><p>The Buddha explained the mystery behind it,</p><p>“Monks, can you see that smoky cloud floating about? That’s Māra trying to detect where Venerable Godhika’s consciousness is established”.</p><p>Finally what the Buddha disclosed was surprising</p><p>“Appatiṭṭhitena viññānena Godhiko parinibbuto”,</p><p>‘The Venerable Godhika attained parinibbāna, his consciousness unestablished’.</p><p>Let us explain the above statement. Those of you who have read our discourses on Nibbāna know that this reference is to the mind that wanders in continuous existence Bhava. The ordinary worldling is one who is forever grasping, forever pulling at. In Pañca upādānakkhanda, upādāna means grasping, grasping the five heaps of aggregates. A man grasping for life on his death bed is engaged in a tug-of-war with Māra or death. Death tries to pull him out of this life. The man, holding on to dear life pulls in the opposite direction. Now that’s exactly what the shrewd Māra wishes for. He suddenly lets go saying ‘Have it’. The unfortunate man falls back into continuous existence. Existence leads to birth. Birth has in store a package of birthday gifts such as decay, disease and death. That is the result of not letting the rope go at the moment of death. Holding on means victory to Māra. What is the benefit of letting go as Venerable Godhika did? This point is too subtle even for erudite westerners to understand. Too subtle. At the moment of death, Venerable Godhika lets go not only craving but also feeling which craving accompanies. Cutting off one’s neck is unbelievable. Due to some hidden spiritual strength in him he was unable to retain the samādhi which he attained six times over. Perhaps he wished to practice insight meditation with the help of the samādhi, failing which he was determined to practice it simultaneously with the samādhi. Unbelievably bold, wasn’t he?</p><p>Ultimately he seems to have succeeded. These are extremely disputable points. We have heard that certain monks misinterpreting this incident, committed suicide. Some are foolhardy. Those who think ‘I have no more prospects in life’ ‘My health has deteriorated’ or ‘I wish to be physically stronger’ and wish for a future life, easily get caught to Māra. It’s essential to let go of everything. Some have attained Nibbāna even while being impaled, by letting go. You have heard perhaps of such stories in the commentaries, though somewhat superfluous. A monk in the grip of a tiger, gradually attained each stage of spiritual development with each attack and finally attained Nibbāna when his heart was being attacked.</p><p>To get back to our serious discussion, vedanānupassanā or contemplation on feeling is a very effective object of meditation. We sometimes call it a strenuous path to Nibbāna. Everyone is reluctant to practice it. But if you practice it correctly, victory is certain. Let’s take another simile. In horse racing, the final stage is so uncertain that an instant camera decides the winner. The most unexpected horse may win. What Venerable Godhika did was similar to that. But anyone who believes, cutting off one’s neck is a shortcut to Nibbāna, he is certainly on the wrong track. Some have tried it out, unfortunately. On the other hand some may be critical of this story ignorant of the fact that vedanānupassanā underlies it.</p><p>This subject needs serious thinking. Imagine the tug-ofwar with Māra at the moment of death. What do the ordinary worldlings do? They think of sensuality in the presence of unpleasant feeling. They wish for Deva loka or the comforts at home. Māra lets go his firm grip saying ‘Have it’. What Venerable Godhika did was quite the opposite. He let go when Māra was pulling with his might. We can imagine Māra’s plight when he crash-landed on his back. That’s the lesson we learn here.</p><p>It would be beneficial, I think, to discuss the experiences of a vipassanā meditator, at this point. One of the main obstacles a meditator faces, is sitting in cross-legged position for long. Some cannot sit for more than thirty minutes at each sitting. Soon they reach the climax. That is the right moment to recall the fourfold effort practiced by the Buddha.</p><p>Kāmaṁ tacoca nahārū ca aṭṭhi ca avasissatu sarīre upasussatu maṁsa lohitaṁ, yaṁ taṁ purisa thāmena,</p><p>purisaviriyena, purisaparakkamena pattabbaṁ  na taṁ apāpuṇitvā viriyassa santhānaṁ bhavissati</p><p>Let the skin nerves and the bones remain. Let the flesh and blood dry up. I shall not lay down my effort until I attain that stage which has to be attained through unshaken manly energy, manly vigor, manly strength. With unshaken determination as demonstrated above, if a meditator takes his mind off the meditation object, to apply firmly on the pain saying ‘Let it break to pieces. I don’t care’, that effort will strengthen the Enlightenment Factors (bojjaṇga). You might sweat as a result. But haven’t we had more bitter experiences in life?</p><p>Putting up with unbearable pain unmoved, some meditators, even laymen, though without our advice, have tried out this method and have had strange experiences. The pain burns the meditator beyond the bearable point and suddenly turns cool and feels like concrete. Then one could sit for hours. Awareness develops under the circumstances which at the same time, introspection on feeling develops, the meditator comes to realize that feeling is not one solid unit but a cluster similar to a cluster of rain drops. He also realizes that he revolted against pain taking it to be one unit whereas he now sees each streak of pain revealing the true nature of name-and-form. Dear listeners, each streak of pain reveals the true nature of name-and-form. Finally, to use two terms I often repeat, the perception of the compact,  ghaṇa saññā fades away allowing the perception of cluster or rāsi saññā to emerge. There lies introspection. The worldling lives within the perception of the compact. He sees things as a complete whole. Through meditation one realizes the plurality of everything, true to the Buddha’s simile of a cluster of bubbles, arising and breaking. It takes one, deep into vipassanā , insight meditation and in fact, if applied correctly, one could firmly establish oneself in samādhi, awareness and even attain arahanthood while in that seat by means of vedanānupassanā, contemplation on feeling. That’s why ancient books contain such stories as that of the monk in the tiger’s grip. It’s important to remember this topic is of practical importance to meditators. It’s well worth taking Venerable Godhika as an example, not in the negative but in the positive aspect. It is not an invitation to commit suicide but an invitation to eliminate craving. Only an invitation to eliminate craving. In this discourse something practically useful to meditators cropped up. When we discussed feeling, contact and taṇhā automatically came into the scene.</p><p>From today’s discourse if you got any inspiration, any courage to continue with your meditation practice, we will feel satisfied. If you give importance to vedanānupassanā in your daily meditation instead of casting it aside as only appropriate for the educated, you can go far. You can sit and practice awareness longer and also attain a samādhi. Through insight meditation you could attain transcendental paths and fruits and even attain Arahanthood in this very life.</p><p>If you wish to cross over the samsara, before the lamp of this dispensation goes out, I do wish you would make use of the objects of meditation we explained in this discourse. The lamp of the dispensation is about to go out. If you want release from repeated births and deaths, it’s worth practicing them even at the risk of your life as Venerable Godhika did. We wish ‘May you soon attain release from continued existence’. Whatever beings there be, from the lowest hell ‘Avīci’ to the highest Brahma world ‘Akaniṭṭha’ may they rejoice in this discourse. May it conduce to their attainment of Nibbāna. May they attain the Deathless Nibbāna!</p>
+</article>
+
+<div class="sermon-nav-bar" style="margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+<a href="chapter_15.html">&larr; Previous Chapter</a>
+<a href="read.html">Table of Contents</a>
+<a href="chapter_17.html">Next Chapter &rarr;</a>
+</div>
+</main>
+<footer><p>This website is offered in the spirit of Dhamma Dana, freely available to all.</p></footer>
+<script>
+function setFontSize(size) {
+    const article = document.getElementById('readerArticle');
+    article.style.fontSize = size;
+    localStorage.setItem('preferred_font_size', size);
+    document.querySelectorAll('.control-group button').forEach(b => {
+        if(['Small','Medium','Large','X-Large'].some(t => b.innerText.includes(t))) {
+            b.classList.remove('active');
+        }
+    });
+    if(size === '1rem') document.getElementById('size-sm').classList.add('active');
+    if(size === '1.15rem') document.getElementById('size-md').classList.add('active');
+    if(size === '1.3rem') document.getElementById('size-lg').classList.add('active');
+    if(size === '1.5rem') document.getElementById('size-xl').classList.add('active');
+}
+
+function setFontFamily(font) {
+    const article = document.getElementById('readerArticle');
+    article.style.fontFamily = font;
+    localStorage.setItem('preferred_font_family', font);
+    document.getElementById('font-serif').classList.toggle('active', font.includes('Georgia'));
+    document.getElementById('font-sans').classList.toggle('active', !font.includes('Georgia'));
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const savedSize = localStorage.getItem('preferred_font_size');
+    const savedFont = localStorage.getItem('preferred_font_family');
+    if(savedSize) setFontSize(savedSize);
+    if(savedFont) setFontFamily(savedFont);
+});
+</script>
+</body>
+</html>

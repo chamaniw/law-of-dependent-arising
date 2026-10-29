@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 1 (Sermon 183) | The Law of Dependent Arising</title>
+<style>
+:root {
+    --header-bg: #800000;
+    --header-text: #ffffff;
+    --header-subtitle: #ffd1d1;
+    --primary-color: #5c2c16;
+    --accent-color: #c88a2a;
+    --bg-color: #fdfbf7;
+    --card-bg: #ffffff;
+    --text-color: #2c2c2c;
+    --text-muted: #666666;
+    --border-color: #e2d7c7;
+    --reader-font-family: Georgia, "Times New Roman", serif;
+    --reader-font-size: 1.15rem;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.site-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 1.5rem 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-align: center;
+}
+.brand-section .logo-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+}
+.brand-section .subtitle {
+    font-size: 0.95rem;
+    color: var(--header-subtitle);
+    font-style: italic;
+    padding: 0 0.5rem;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+}
+.top-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.2s, color 0.2s;
+}
+.top-nav a:hover, .top-nav a.active {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.main-content {
+    max-width: 950px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.hero {
+    background: var(--card-bg);
+    padding: 2.5rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    text-align: center;
+}
+.hero h1 { font-size: 2rem; color: #222; margin-bottom: 0.3rem; }
+.hero h2 { font-size: 1.15rem; color: var(--primary-color); margin-bottom: 0.4rem; font-weight: normal; font-style: italic; }
+.hero h3 { font-size: 1.2rem; color: #333; margin-bottom: 1.5rem; font-weight: normal; font-style: italic; }
+.hero .author-title { font-size: 1.05rem; color: #555; margin-bottom: 2rem; font-style: italic; }
+
+.pali-quote { 
+    color: var(--header-bg); 
+    text-align: center; 
+    margin: 2.5rem 0; 
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin: 2rem 0;
+}
+@media (max-width: 768px) {
+    .button-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .main-content {
+        margin: 1rem auto;
+        padding: 0 0.5rem;
+    }
+    .hero {
+        padding: 1.5rem 1rem;
+    }
+    .brand-section .logo-title {
+        font-size: 1.5rem;
+    }
+}
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1rem;
+    background-color: var(--header-bg);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+.btn:hover { background-color: #5c0000; }
+.btn-secondary {
+    background-color: transparent;
+    color: var(--header-bg) !important;
+    border: 1px solid var(--header-bg);
+}
+.btn-secondary:hover { background-color: #f4eee6; }
+
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.chapter-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-color 0.2s, transform 0.1s;
+    text-decoration: none;
+    color: inherit;
+}
+.chapter-card:hover {
+    border-color: var(--header-bg);
+    transform: translateY(-1px);
+}
+.chapter-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--header-bg);
+}
+.sermon-badge {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    font-size: 1.1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    outline: none;
+    font-family: Georgia, serif;
+}
+.search-input:focus {
+    border-color: var(--header-bg);
+    box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.1);
+}
+
+.sermon-reader {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2.5rem 3rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    font-family: var(--reader-font-family);
+    font-size: var(--reader-font-size);
+    line-height: 1.9;
+}
+@media (max-width: 768px) {
+    .sermon-reader {
+        padding: 1.2rem 1rem;
+    }
+}
+.sermon-reader p {
+    margin-bottom: 1.6rem;
+    text-align: justify;
+}
+.sermon-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.sermon-nav-bar a {
+    color: var(--header-bg);
+    text-decoration: none;
+    font-weight: 600;
+}
+.sermon-nav-bar a:hover { text-decoration: underline; }
+
+.reader-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4eee6;
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.control-group button, .download-btn {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--header-bg);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background 0.2s, color 0.2s;
+}
+.control-group button:hover, .control-group button.active, .download-btn:hover {
+    background: var(--header-bg);
+    color: #fff;
+    border-color: var(--header-bg);
+}
+
+mark {
+    background-color: #ffeeba;
+    color: inherit;
+    padding: 0.1rem 0.2rem;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    margin-top: 4rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="brand-section"><div class="logo-title">The Law of Dependent Arising</div><div class="subtitle">The Secret of Bondage and Release &mdash; Ven. Katukurunde Nanananda Thero</div></div><nav class="top-nav"><a href="index.html">Home</a><a href="read.html" class="active">Read</a><a href="listen.html">Listen</a><a href="search.html">Search</a><a href="about.html">About</a></nav></header>
+<main class="main-content" style="max-width: 950px;">
+<div class="sermon-nav-bar">
+<span></span>
+<a href="read.html">Table of Contents</a>
+<a href="chapter_2.html">Next Chapter &rarr;</a>
+</div>
+
+<div class="reader-controls">
+  <div class="control-group">
+    <span>Font Size:</span>
+    <button onclick="setFontSize('1rem')" id="size-sm">Small</button>
+    <button onclick="setFontSize('1.15rem')" id="size-md" class="active">Medium</button>
+    <button onclick="setFontSize('1.3rem')" id="size-lg">Large</button>
+    <button onclick="setFontSize('1.5rem')" id="size-xl">X-Large</button>
+  </div>
+  <div class="control-group">
+    <span>Font Type:</span>
+    <button onclick="setFontFamily('Georgia, serif')" id="font-serif" class="active">Serif</button>
+    <button onclick="setFontFamily('-apple-system, BlinkMacSystemFont, sans-serif')" id="font-sans">Sans</button>
+  </div>
+  <div class="control-group">
+    <span>Download:</span>
+    <a href="docx/sermon_001_ENGLISH.docx" class="download-btn" download>DOCX</a>
+    <a href="pdf/sermon_001_ENGLISH.pdf" class="download-btn" download>PDF</a>
+    <a href="epub/sermon_001_ENGLISH.epub" class="download-btn" download>EPUB</a>
+  </div>
+</div>
+
+<div style="text-align: center; margin-bottom: 2rem;">
+<h1 style="font-size: 1.8rem; margin-bottom: 0.3rem;">Chapter 1</h1>
+<p style="color: var(--text-muted); font-style: italic; font-family: -apple-system, sans-serif; font-size: 0.95rem;">(Pahankanuwa Sermon 183)</p>
+</div>
+
+<article class="sermon-reader" id="readerArticle">
+<p>Paticca Samuppada Sermon 1<br>The Law of Dependent Arising</p><p>(Pahan Kanuwa Sermon – No. 183)</p><p>‘Namo tassa bhagavato arahato sammāsambuddhassa’</p><p>‘Homage be! To the Fortunate One – the Worthy, Fully Enlightened!’</p><p>Yadā have pātubhavanti dhammā</p><p>ātāpino jhāyato brāhmaṇassa</p><p>athassa kaṅkhā vapayanti sabbā</p><p>yato pajānāti sahetudhammaṁ</p><p>Yadā have pātubhavanti dhammā</p><p>ātāpino jhāyato brāhmaṇassa</p><p>athassa kaṅkhā vapayanti sabbā</p><p>yato khayaṁ paccayānaṁ avedi</p><p>Yadā have pātubhavanti dhammā</p><p>ātāpino jhāyato brāhmaṇassa</p><p>vidhūpayaṁ tiṭṭhati mārasenaṁ</p><p>suriyova obhāsayamantalikkhaṁ</p><p>– Udāna, Bodhivagga</p><p>When phenomena manifest themselves</p><p>To the ardently meditating Brahmin</p><p>Then all his doubts get dispelled Since he knows the Causal Law</p><p>When phenomena manifest themselves</p><p>To the ardently meditating Brahmin</p><p>Then all his doubts get dispelled</p><p>Since he knows the extinction of conditions</p><p>When phenomena manifest themselves</p><p>To the ardently meditating Brahmins</p><p>Dispelling hosts of Māra he stands</p><p>Like the sun illumining the firmament</p><p>Dear Listeners,</p><p>The Teacher of the Three Worlds, the Fortunate One, Fully Enlightened, after his attainment of Enlightenment in the province of Uruvelā on the banks of River Nerañjarā, remained seated under the Bodhi tree for seven days experiencing the bliss of emancipation. According to the first three discourses of the Udāna, the Buddha at the end of the seven days kept attending thoroughly to the Law of Dependent Arising during the three watches of the seventh night. The three verses we brought up as the topic of our sermon today were uttered by the Buddha as paeons of joy (udāna) proclaiming that he attended to the Law of Dependent Arising in three ways during the three watches of the night.</p><p>Although on the first hearing one might think that all three verses are similar, those who listened carefully would have understood that the second verse differs from the first after three lines by substituting a new line as the fourth. Then in the third verse after two lines, the third and fourth lines say something new. For all the apparent similarity, each verse has a significance of its own in that it describes one of the three ways in which the Buddha attended to the Law of Dependent Arising. It is perhaps due to the specific importance of each of those verses that this discourse collection, the Udāna, introduces each of the three verses with the same introductory story.</p><p>First of all, let us try to understand the meaning of the verse that comes at the end of the first discourse. Even by getting at the meaning of these three verses, we can get some idea of the Law of Dependent Arising. To begin with, let us form a general idea of the meaning.</p><p>‘Yadā have pātubhavanti dhamma –  ātāpino jhāyato brāhmaṇassa’ ‘When phenomena manifest themselves to the ardently meditating Brahmin’ – according to the terminology of this dispensation, the term Brahmin, on occasion, can refer to the arahant or to the Buddha. Here we have to understand it in that sense.</p><p>athassa kaṅkhā vapayanti sabbā</p><p>yato pajānāti sahetudhammaṁ</p><p>When those phenomena become manifest to that Brahmin, all his doubts get dispelled because he understands thereby the Law of Causality. This then is the meaning of the first verse.</p><p>Now, for the second verse. It begins in the same way. At whatever time phenomena manifest themselves to the ardently meditating Brahmin (that is to the Buddha), all his doubts get dispelled  – ‘yato khayaṁ paccayānaṁ avedi’ – since he now knows the cessation of conditions.</p><p>And now for the third verse. ‘Yadā have pātubhavanti dhammā – ātāpino jhāyato brāhmaṇassa’– when phenomena manifest themselves to the ardently meditating Brahmin – then, something new comes up ‘vidhūpayaṁ tiṭṭhati mārasenaṁ – suriyova obhāsayamantalikkhaṁ’ – “like the sun illumining the sky, he stands dispelling the hosts of Māra. That is, just as the sun dispels the darkness, so he dispels (or exorcises, fumigates) the hosts of Māra.”</p><p>So this is the meaning of the three verses. Let us now try to understand the Law of Dependent Arising with the help of these three verses. The three ways of attention are briefly stated in the three discourses as follows.</p><p>During the first watch of the night, the Buddha attended on the Law of Dependent Arising in the direct order and during the second or the middle watch in reverse order. During the last watch, he combined both ways of attending and attended in both direct and reverse order. Now we shall give a clue to the understanding of these three ways of attention.</p><p>The first line of the verse says:</p><p>‘Yadā have pātubhavanti dhammā’ – when phenomena manifest themselves. What are these phenomena? The discourse itself explains what they are. Those of you who are acquainted with the Law of Dependent Arising know that it consists of twelve factors. Some even recite the formula in their meditation.</p><p>‘Avijjā paccayā saṅkhārā,</p><p>saṅkhārapaccayā viññāṇaṁ,</p><p>viññāṇapaccayā nāmarūpaṃ,</p><p>nāmarūpapaccayā saḷāyatanaṁ,</p><p>saḷāyatanapaccayā phasso,</p><p>phassapaccayā vedanā,</p><p>vedanāpaccayā taṇhā,</p><p>taṇhāpaccayā upādānaṁ,</p><p>upādānapaccayā bhavo,</p><p>bhavapaccayā jāti,</p><p>jātipaccayā jarāmaraṇaṁ, sokaparidevadukkhadomanassupāyāsā sambhavanti.</p><p>Evametassa kevalassa dukkhakkhandhassa samudayo hoti.’</p><p>‘From ignorance as condition (arise) preparations; from preparations as condition (arises) consciousness; from consciousness ……. name and form; from name and form ……. the six sense spheres; from  the six sense spheres ……. contact; from contact ……. feeling; from feeling ……. craving; from craving ……. grasping; from grasping ……. becoming; from becoming ……. birth; from birth as condition arise decay and death, sorrow, lamentation, pain, grief and despair. Such is the arising of this entire mass of suffering.</p><p>It is the occurrence of these 12 conditions that is meant by the phrase ‘when phenomena manifest themselves’. The 12 factors are called conditions (paccayā) because none of them arises by itself. They arise due to causes and conditions. When phenomena manifest themselves to the ardently meditating Brahmin, his doubts are dispelled. How? The last line gives the answer, ‘yato pajānāti sahetudhammaṁ’ because he understands now the Law of Causality. What is called ‘Paticca samuppāda’ is actually that norm, that Law of nature. That norm is stated as a formula in four lines. Only the first two came to light in the first sutta.</p><p>Iti imasmiṁ sati – idaṁ hoti</p><p>imassa uppādā – idaṁ uppajjati</p><p>Thus:</p><p>This being – this comes to be</p><p>With the arising of this – this arises.</p><p>Now this is the statement of the Law in its direct order. The first sutta deals with the two principles relevant to the direct order. One might wonder why the statement has ‘this’ and ‘this’ where we expect to have ‘this’ and ‘that’ as ‘This being that comes to be’. There is a subtle point involved in this apparently awkward statement. The reason is that if we take up any couple of links in the twelve-linked formula of illustration of the Law conjoined by ‘paccayā’, such as for instance ‘avijja  paccayā  saṅkhārā’ (with ignorance as condition preparations), we have to say this being this arises. Only if we are referring to something outside the context, that is outside the couple of links we have taken up, we have to say ‘that’. It is important to remember that the 12 links of the formula of Dependent Arising serve to illustrate the first principle:</p><p>This being – this comes to be</p><p>With the arising of this – this arises</p><p>Let us cite some such illustrations:</p><p>When there is ignorance – preparations come to be</p><p>With the arising of ignorance – preparations arise</p><p>When there are preparations – consciousness comes to be</p><p>With the arising of preparations – consciousness arises</p><p>When there is consciousness – name-and-form comes to be</p><p>With the arising of consciousness – name-and-form arises</p><p>It is this first principle that is called ‘sahetudhammaṁ’ – the causal law. The essential thing is to understand the Law as such. But what often happens is to fully ignore it and be satisfied with the rattling off of the 12 links. Some are not even aware that there is a first principle involved.</p><p>On the other hand, this discourse begins with that first principle itself, saying that the Buddha attended thoroughly to the Law of Dependent Arising in direct order (anulomaṁ).</p><p>Iti imasmiṁ sati – idaṁ hoti</p><p>imassa uppādā – idaṁ uppajjati</p><p>Thus:</p><p>This being – this comes to be</p><p>With the arising of this – this arises.</p><p>Then the illustrations of that first principle are introduced with the conjunctive ‘yadidaṁ’ – ‘namely’.</p><p>“Namely:</p><p>From ignorance as condition (arise) preparations, from preparations as condition (arises) consciousness, from consciousness … name-and-form, from name-and-form … the six sense spheres, from the six sense spheres … contact, from contact … feeling, from feeling … craving, from craving … grasping, from grasping … becoming, from becoming… birth, from birth as condition arise decay and death, sorrow, lamentation, pain, grief and despair.”</p><p>Last of all comes the statement which explains what all this is about:</p><p>‘Thus comes to be the arising of this entire mass of suffering.’</p><p>So the direct order explains the arising of this mass of suffering.</p><p>We said that there are three ways of attending. During the first watch of the night, the Buddha attended thoroughly to the arising aspect. That is why the first two lines amounted to saying:</p><p>‘This being – this comes to be</p><p>With the arising of this – this arises’</p><p>It is as an illustration of this fact that the twelve links are stated as summed up by the sentence:</p><p>Thus comes to be the arising of this entire mass of suffering. The first verse expresses the same idea.</p><p>At the same time, let us try to understand the significance of the third line of the verse.</p><p>‘Athassa kaṅkhā – vapayanti sabbā’</p><p>‘All his doubts get dispelled.’</p><p>Now what are these doubts? In order to understand what they are, one has to read the Sabbāsava Sutta of the Majjhima Nikāya. The ordinary worldling has doubts and waverings in regard to the three periods of time, past, future and present. As to the past, the ordinary worldling who has not seen, this Law of Dependent Arising is fully immersed in the personality view (sakkāyadiṭṭhi) thinking in terms of ‘I’ and ‘mine’ and attends unwisely to the past thus:</p><p>‘Was I in the past? Was I not in the past? What was I in the past? How was I in the past?  Having been what, what did I become, in the past? The ordinary worldling sets about, reasoning with the postulate ‘I’.</p><p>Similarly, he attends to the future in five ways. This kind of attention is called ‘ayonisomanasikāra’ wrong attention or non-radical attention. This is how he attends to the future:</p><p>Shall I be in the future? Shall I not be in the future? What shall I be in the future?</p><p>How shall I be in the future? Having been what, what shall I become in the future?’ This may sound jocular. But all wordlings are in this jocular position. Then about the present, he attends in six ways which may sound even funnier. ‘Am I? Am I not? What am I? How am I? Where has this being come from? Where will it go? The ‘Being’ here represents the self idea. He is involved in the self-view.</p><p>This sixteen-fold doubt gets dispelled by seeing the Norm of Conditionality. That is why the noble disciple, who has understood the Law of Dependent Arising by the Path of Stream winning entertains no doubts of this sort. All those doubts arise because of reasoning in terms of ‘I’ and ‘mine’ based on the personality view. The Buddha has declared that this way of reasoning leads to 62 views. They end up by falling into two extremes. Either they take up the view ‘I exist’ or go on asserting ‘I do not exist’ as regards the future. Thereby, on the one hand they uphold the eternalist view by claiming that they have a permanent soul or on the other hand they go to the annihilationist extreme by asserting that they would be no more after death since the body itself is the soul. Brahmajāla Sutta says that in between these two extreme views there are as many as 62 views. All those views get dispelled even by seeing the arising aspect of the conditions. That is the meaning of the first verse. What we have said so far is gleaned from the first verse. Out of the three modes of attending to the Law of Dependent Arising, the first is the direct mode which is concerned with the arising aspect.</p><p>The second verse refers to the way of attending during the middle watch of the night.</p><p>‘yato khayaṁ paccayānaṁ avedi’</p><p>‘Since he knows the extinction of conditions’</p><p>What the second verse says in particular is that the Buddha saw the extinction of conditions. When he attended to the reverse order, he saw that the conditions become extinct, precisely because they arise due to conditions. This fact is summed up in these two statements.</p><p>Iti – imasmiṁ asati – idaṁ na hoti</p><p>imassa nirodhā – idaṁ nirujjati</p><p>Thus:</p><p>This not being – this does not come to be</p><p>With the cessation of this – this ceases</p><p>The word ‘nirodha’ (cessation) is introduced with it and the illustration follows:</p><p>‘Avijjā nirodhā saṅkhāranirodho,</p><p>saṅkhāranirodhā viññāṇanirodho,</p><p>viññāṇanirodhā nāmarūpanirodho,</p><p>nāmarūpanirodhā saḷāyatananirodho,</p><p>saḷāyatananirodhā phassanirodho,</p><p>phassanirodhā vedanānirodho,</p><p>vedanānirodhā taṅhānirodho,</p><p>taṅhānirodhā upādānanirodho,</p><p>upādānanirodhā bhavanirodho,</p><p>bhavanirodhā jātinirodho,</p><p>jātinirodhā jarāmaraṇaṁ sokaparideva dukkhadomanass upāyāsā nirujjhanti.</p><p>Evametassa kevalassa dukkhakkhandhassa nirodho hotī.’</p><p>‘With the cessation of ignorance, the cessation of preparations, with the cessation of preparations, the cessation of consciousness, with the cessation of consciousness, the cessation of name and form, with the cessation of name and form, the cessation of six sense spheres, with the cessation of six sense spheres cessation of contact, with the cessation of contact, the cessation of feeling, with the cessation of feeling, the cessation of craving, with the cessation of craving, the cessation of grasping, with the cessation of grasping, the cessation of becoming, with the cessation of becoming, the cessation of birth, with the cessation of birth, decay and death, sorrow, lamentation pain grief and despair cease …..’</p><p>Then comes the conclusive statement:</p><p>‘Thus there comes to be the cessation of this entire mass of suffering.’ So this is the cessation aspect which is called ‘the reverse order’ (paṭilomaṁ). In this manner both the direct and the reverse order of the Law of Dependent Arising were attended to during the first two watches of the night.</p><p>Now for the third watch of the night. Here we have something that goes deeper. How did the Buddha spend the third watch? He combined both the direct and the reverse order in attending to the Law of Dependent Arising. One cannot easily understand the depth of this way of combined attention. It is presented in the discourse by citing all the four clauses of the Law of Dependent Arising together.</p><p>This being – this comes to be</p><p>With the arising of this – this arises</p><p>This not being – this does not come to be</p><p>With the cessation of this – this ceases</p><p>With this citation the norm of Paticca Samuppāda is expressed in full. Then, as the illustration of this norm, both the arising and cessation aspects of the 12 links are given. The formulation in the direct order begins as usual with the words ‘Avijja paccayā saṅkhārā, saṅkhārapaccayā viññāṇaṁ’ etc., i.e – ‘From ignorance as condition (arise) preparations, from preparations as condition (arise) consciousness’ etc, summed up by the statement that this is the arising of this entire mass of suffering. But then comes the highly significant statement ‘avijjāyatveva asesavirāganirodhā saṅkhāranirodho’  – that is ‘But with the remainderless fading away and cessation of ignorance, there comes to be the cessation of preparations’ and so on. Though easily overlooked, the ‘BUT’ here (Note:</p><p>avijjāya-tueva) is of prime importance in assessing the significance of this ‘combined attention’ as it may be called. The nature of the unimaginably long Saṁsāra is such that proverbially we say that there is no beginning to ignorance as the cause of it. But this phrase asserts that all the same, with the remainderless fading away of ignorance, the other links of the chain, preparations, consciousness, name and form etc. cease altogether culminating in the cessation of the entire mass of Saṁsāric suffering. Hence the pivotal significance of ignorance in the formula.</p><p>This occurs immediately – not as generally understood in the course of three lives. You know how Paṭicca Samuppāda is explained nowadays. With the cessation of ignorance, all the other links up to decay and death cease. This is an extremely deep point that is to say, the combined attention in the ‘direct and reverse order’. Even the simile given in this connection has deeper implications.</p><p>Vidhūpayaṁ tiṭṭhati mārasenaṁ</p><p>Suriyova obhāsayamantaḷikkhaṁ</p><p>Dispelling hosts of Māra he stands</p><p>Like the sun illumining the firmament</p><p>It would take one hour to give a full commentary to these two lines. This simile alludes to the change that the Brahmin undergoes as he attends to the direct and reverse order simultaneously. At that moment the Brahmin is dispelling the forces of Māra. In fact the word ‘vidhūpayaṁ’ rendered literally means ‘fumigating’ or ‘smoking out’ as in the case of exorcising demoniac forces by caustic incense. So the allusion is to the Buddha’s conquest of Māra. The sun illumining the sky is the light of wisdom. The army of Māra is the impelling power of thought. Those of you who have read the Padhāna Sutta of the Sutta Nipāta would know how the Bodhisatta himself has defined the ten armies of Māra.</p><p>Kāmā te paṭhamā senā</p><p>dutiyā arati vuccati</p><p>tatiyā khuppipāsā te</p><p>catutthī taṇhā pavuccati.</p><p>Sense desires is your first battalion</p><p>The second is called dejection</p><p>Hunger and thirst make up the third</p><p>And craving is called the fourth.</p><p>According to this definition the ten armies of Māra are the thoughts. Sense desires, dejection in regard to the holy life, thoughts about hunger and thirst and craving etc. – all these are distracting thoughts. Now what does this imply? All these thoughts arise due to ignorance. These are the saṅkhāras or preparations which make up this world with its pleasures and pains. So at whatever moment one attends both in the direct and reverse order in an extremely subtle way, thoughts are simply displaced. What does this amount to? In our sermons we have pointed out on many occasions that deliverance is not something that comes in the other world but one that is realizable here and now in the arahant’s mind by the subsidence of thoughts. You may have heard that Nibbāna is called the stilling of all preparations and the relinquishment of all assets (upadhi). This is a reference to the arahattaphalasamādhi. ‘Avitakkasamādhi’ (thoughtless concentration) and ‘avitakkajhāna’ (thoughtless absorption) are also allusions to it.</p><p>Now the last mentioned simile is a description of this arahattaphalasamādhi. The battalion of thoughts called the army of Māra is put to flight when the direct and reverse order of attending is accelerated. Sometimes in our sermons we gave a simile to illustrate this way of combined attention – the simile of sharpening a razor. In sharpening a razor on a whetstone or on a leather strap, the razor blade is moved up, up, up and down, down, down and at the final stage of sharpening the blade has to be moved rapidly up-and-down, up-and-down, up-and-down. Similarly, where both the direct and the reverse order unite ‘razor-edge sharp’, ‘thoughts’ can no longer survive. At that moment name-and-form is cut off and consciousness gains freedom as non-manifestative consciousness. The third stage Therefore, is in effect arahattaphalasamādhi itself.</p><p>So then we have sufficiently explained the three stages. We have here the Law of Dependent Arising as such. We mustn’t mix up things. The basic law we have mentioned already – namely what is epitomized in the four lines. That is what is essential. Though many go on rattling off the 12 links they do not know what it is all about. The twelve links are only illustrations.</p><p>They are called ‘paccayā dhammā’(conditioned things). What is called ‘sahetudhamma’ is the norm – the basic principle we have already mentioned.</p><p>This being – this comes to be</p><p>With the arising of this – this arises</p><p>This not being – this does not come to be</p><p>With the cessation of this – this ceases</p><p>Only a Buddha can discover this law. It is such a wonderful thing. Why? Because what up to then was explained in terms of ‘I’ and ‘mine’, the Buddha pointed out as a phenomenon that occurred due to a collocation of factors casually conditioned. That is to say, the Law of Dependent Arising.</p><p>Let me add this much by way of clarification. Some of you may have heard about the two  chief Disciples of the Buddha – Venerable Sāriputta and Moggallāna. As laymen they were called Upatissa and Kolita. These two Brahmin youths were going in search of Truth. Once they went to see a sort of concert called ‘giragga samajja’ (hilltop festival). While they were watching the dramatic performances both of them got disgusted before long probably because of their Samsāric maturity. It might have served as a prelude to them for the realization of the vacuity of the drama of existence. Shortly afterwards Upatissa happened to come across Venerable Assaji, one of the first five disciples of the Buddha. Venerable Assaji was on his alms-round when Upatissa saw him. Impressed by his saintly appearance, Upatissa followed him and after he has had his meal approached him and asked him:</p><p>“Who is your teacher? What sort of Dhamma does he preach?”</p><p>Venerable Assaji modestly replied:</p><p>“I have gone forth only recently. I do not know much Dhamma.”</p><p>“I am Upatissa” the other said “I can understand in detail what is said in brief.”</p><p>Then Venerable Assaji uttered the following verse.</p><p>Ye dhammā hetuppabhavā</p><p>tesaṁ hetuṁ tathāgato āha</p><p>tesañca yo nirodho</p><p>evaṁ vādī mahāsamaṇo</p><p>Whatever things that arise from causes</p><p>Their cause the Tathāgata has told</p><p>And also their cessation</p><p>Thus teaches the great recluse.</p><p>Upatissa became a Stream-winner on hearing the first two lines of the verse. How did he become a Stream-winner? The secret is to be found on the commentary we have given above.</p><p>Ye dhammā hetuppabhavā</p><p>tesaṁ hetuṁ tathāgato āha</p><p>Whatever things that arise from causes</p><p>Their cause the Tathāgata has told.</p><p>With these two lines only the direct order has been explained. But about this many are confused – even the commentators. Things that arise from causes are what we called ‘paccayā dhammā’. According to the commentators, however, the cause of things arising from causes is ignorance (avijjā). The cause (hetu) is not ignorance but the Law of Conditionality itself as we explained above. Upatissa understood that all these are conditioned as soon as he heard the first two lines. The norm underlying them is what is expressed as ‘This being – this arises’.</p><p>Since Uptissa was of mature wit, even by the first two lines he understood that whatever that arise from causes and conditions has to cease of necessity. Even before a hint to the reverse order was given, he inferred the norm in full. You may have heard that even when an ordinary person becomes a Stream-winner, the gist of his attainment is given in a short formula – in fact the shortest and purest expression of it – which runs as follows:</p><p>Yaṁ kiñci samudayadhammaṁ</p><p>sabbaṁ taṁ nirodhadhammaṁ</p><p>Whatever is of a nature to arise</p><p>All that is of a nature to cease.</p><p>Here we have the basic principle in a nutshell. Whatever arises due to causes and conditions has to cease of necessity. Though Upatissa attained the Fruit of Stream-winning merely by hearing the first two lines of Venerable Assaji’s verse, his friend Kolitha attained it only when he heard all four lines. The other two lines are:</p><p>Tesañca yo nirodho</p><p>evaṁ vādī mahāsamaṇo</p><p>And also their cessation</p><p>Thus teaches the great recluse.</p><p>‘Things arisen from causes (‘hetuppabhavā dhammā’) mentioned in the first line refer to the 12 links of the Law of Dependent Arising. All the 12 links are arisen from causes. Their cause (hetu) is the basic principle – the law as such. Even if a small child realizes it, he is a Stream-winner.</p><p>So let us proceed from there. By now you might have got some idea of it. The 12 links are so many illustrations. What underlies them is the law of conditionality. ‘From ignorance as condition, 	preparations, 	from 	preparations 	as 	condition, consciousness, and so on’. That is how the formula runs. But that is not all. It is only the direct order. But then the Buddha points out that if  ignorance can be made to cease at whatever moment, that is to say, with the dawn of wisdom, preparations, consciousness, name and form, six sense spheres and all the rest of the links cease altogether.</p><p>Though we say so, it might not be easy to understand all this. To facilitate understanding deep points, the Buddha has allowed the use of similes. So let us now pass on to the world of similes. But before that there is something worth mentioning in particular. There is a wonderful relationship between consciousness and name and form. Even in the past, many of our scholars have granted the fact that there is a reciprocal relationship between them. This is something the Buddha himself has declared. Even the Buddha Vipassi had proclaimed that there is such a relationship between consciousness and name and form. That is to say, dependent on consciousness is name and form and dependent on name and form is consciousness. This is where many scholars get stuck – this inter-dependence. If one starts searching from the other end:</p><p>‘What is the cause of decay and death? Birth. What is the cause of birth? Existence, or becoming’. If one goes on questioning like that and comes up to name and form, on searching further for its cause, one will find consciousness. But then search does not go beyond consciousness, for the cause of consciousness is name and form. Between these two there is an inter-dependence or a reciprocal relationship. This is the crux of the whole problem.</p><p>To explain this we have given various similes, such as the Vortex Simile. A current of water tries to run away from the main stream but when its attempt is foiled, it turns back. But on turning back it forgets its relationship with the mainstream. It is like the case of two halves. At whatever moment the cyclic process is complete, it becomes a ‘Unit’. There is a similar magical illusion implicit in consciousness. In fact the Buddha has declared that consciousness is comparable to a magic show. The magical effect of this magic show is such that it reflects something. As we all know, a conscious being has the ability to look back – to reflect. This is not a property common to inanimate things like trees and rocks. All conscious beings possess the ability to reflect or retrospect. This reflection can be done rightly or wrongly.</p><p>To illustrate these two ways of reflection, we gave a simile – a simple one intelligible to anybody. The simile of a dog on a plank crossing a stream. We have mentioned this quite often. While crossing the stream on a plank over it, a dog looks down in to the water. Seeing a dog there, it either wags its tail in a friendly way or growls angrily. Or else out of curiosity it keeps on looking down again and again. Due to wrong attention it doesn’t understand what really happens. The dog thinks that it is looking because it sees. But the truth of the matter is that it sees because it looks. Every time it looks it sees a dog. Consciousness has such a delusive magical quality about it. This is because consciousness has the property of reflecting something. What does it reflect? Name and from. Let me first explain what name and form is before giving other similes.</p><p>The term ‘nāmarūpa’ (name and form) is variously interpreted by scholars. ‘Nāma’ has nothing to do with ‘bending’ as sometimes explained. The constituents of ‘nāma’ are feeling (vedanā), perception (saññā), intention (cetanā), contact (phasso) and attention (manasikāro). You may even count these five on your fingers.</p><p>Feeling, perception, intention, contact and attention are collectively called ‘Name’ (nāma). Why are they called ‘name’? Generally, we recognize something with the help of a conventional name given to it. But a child gets to know something through feeling. Take for instance the case of a blind man. Isn’t it by ‘feeling’ that a blind man gets to know something? Feeling gives him a ‘sign’or perception. Perception gives rise to an intention. Intention directs him to some point of contact. Now that is where contact comes in. Last of all comes attention. There are many critics who question this counting of feeling as the foremost among constituents of name. As we sometimes pointed out, those who go by the commentarial tradition inadvertently put contact first. Did Venerable Sāriputta make a mistake? Did the Buddha himself go wrong? Definitely not. At this point we have to say something about consciousness.</p><p>Venerable Sāriputta clarifies it in the Mahā Vedalla Sutta. It is as if Venerable Mahā Koṭṭhita gets it clarified for us.</p><p>“Consciousness, consciousness, they say, friend, in how far is it friend called consciousness.”</p><p>(‘Viññāṇaṁ viññāṇanti āvuso vuccati,</p><p>Kittāvatā nu kho āvuso viññāṇanti vuccati’)</p><p>“Knows discriminatively, knows discriminatively, it is in that sense, friend, that consciousness is so called.”</p><p>Then Venerable Sāriputta goes on to explain what sort of discrimination consciousness is doing. Now listen attentively. What is this basic discrimination?</p><p>“This is pleasant’ – so one discriminates. ‘This is painful’ – so one discriminates. ‘This is neither painful nor pleasant’ – so one discriminates.”</p><p>(“Vijānāti vijānātīti kho āvuso,</p><p>tasmā viññāṇanti vuccati.</p><p>Kiñca vijānāti; Sukhantipi vijānāti,</p><p>dukkhantipi vijānāti,</p><p>adukkhamasukhantipi vijānāti …”)</p><p>So then the very first function of consciousness is the awareness of feeling. That is where consciousness awakens. It is true that even the rubber tree exudes latex when an incision is made on it. But surely we don’t say that the tree is weeping. Therefore, the basic function of consciousness is feeling. It is through feeling that the notion of self awakens. Even that fact is clearly pointed out. Once the Buddha asked Ānanda:</p><p>“Therein, Ānanda, whoever says this:</p><p>“Feeling is not my self. My self is not of a nature of experiencing,” he should be asked thus:</p><p>“Friend, where there is nothing felt in whatever way, would there be the notion ‘Am’ (or ‘I am’)?”</p><p>“There would not, Lord”</p><p>(“Tatr Ānanda yo so evamāha” na heva kho me vedanā attā, appaṭisaṁvedano me attāti “so evamassa vacanīyo yattha panāvuso sabbaso vedayitaṁ natthi api nu kho tattha ‘asmīti’ siyāti?”</p><p>“No hetaṁ bhante.”)</p><p>Now, that is the reason why feeling is counted first instead of contact. The basic function of consciousness is the discrimination between the three grades of feeling – the pleasant, the painful and the neither painful nor pleasant. As you are seated  here , why do you now and then change your posture? Isn’t it because of feeling? So in other situations too. ‘Feeling’ gives rise to ‘perception’. Then comes ‘intention’.</p><p>“Never mind listening to the sermon. Let me turn a little.”</p><p>That is the intention. Where does the next thought go? To the point of ‘contact’. With that ‘attention’ gets engaged.</p><p>I hope you all can now gather what the constituents of ‘name’ (nāma) are. Then what is called ‘form’ (rūpa)? There again many are confused. Here is the definition of ‘rūpa’in ‘nāmarūpa’.</p><p>‘Cattāroca – mahābhūtā – catuññañca – mahābhitānaṁ – upādāya rūpaṁ’</p><p>‘The four great primaries and form derived from the four great primaries.’</p><p>The word ‘upādāya’ in this definition is often mistranslated and misinterpreted. The four great primaries are like four ‘non-descript ghosts’ (eg. ‘bhūta’– ghostly being). They can be recognized only with the help of the factors listed under ‘nāma’ (name). So ‘rūpa’ is in effect ‘rūpa saññā’ (perception of form) derived from the four great primaries. Take it that way, for that is how the ‘non-descripts’ become ‘describable’. What we have here is not that ‘matter’ (rūpa) the scientists have in mind. To explain this, we coined various definitions:</p><p>‘Name in ‘name and form’ is formal name,</p><p>Form in ‘name and form’ is nominal form’</p><p>Now try to get this clear. What is meant by saying ‘Name’ in name and form is formal name is that it is not the type of conventional name known to the world like ‘clock’ and chair’. It is only the most preliminary or incipient stage in naming, as in the case of a blind man acquainting himself with some object through feeling, perception and the rest of the name  group. Then about form in name and form, we said, it is nominal form (or form only in name) in the sense that it is not something existing by itself as known in the world. It can only be known through the constituents of name. As you all know, the earth-element is perceived as hard and soft and the fire-element in terms of hotness and coolness. The four great primaries are recognized by means of the factors on the name side. In fact, it is only a perception of form (rūpasaññā). That is why we called it</p><p>‘nominal form’ or ‘form only in name’. If one correctly understands ‘name and form’ he would realize that it is merely a reflection on consciousness. Think for instance, of what comes before the eyes – what falls on the retina. Isn’t that the beginning of the camera? It is only a reflection which the brain interprets as beautiful. That is why the Buddha calls perception a mirage.</p><p>What appears out there as beautiful is actually not there. That is to say, with eye as a condition it appears beautiful. To one who wears green spectacles, for instance, it would appear green. Consciousness and name and form are inter-related. We use a special term in this connection – one that is found in the discourses, namely ‘dvayatā’ (duality). Existence involves a duality. That is what we call ‘vaṭṭa’ or vortex. We shall explain it in due course. There is a vortex between supply and demand on which price depends. The interdependence between consciousness and name and form involves the entire world in a vortical interplay.</p><p>Think of the cinema world or any other world we are familiar with – the sports world or the cricket world, for instance. First of all let us take the cricket world. Now what happens in the cricket world? The poor bat and ball become alive only when the two teams confront each other.  Isn’t that so? The rules of the game, and the prospect of winning represent ‘name’ in this case. The cricket world is sustained by the delusion with which the two teams take their stand on the two sides. That is the duality involved in this case.</p><p>Now think of the cinema world. It exists between the scenes on the screen and the audience. The darkness of ignorance provides the necessary background. In the case of the cricket game, the two teams forget their friendship in the heat of competition. That is the background of ignorance. Preparations arising out of that ignorance sustain the cricket-match, that is bodily verbal and mental preparations. Hopes and disappointments are bound by rules and regulations of the game. In the cinema world also, the background of darkness ironically highlights the delusion created by the make-up of actors and actresses. When one is enjoying a film-show, one is unaware of that background of darkness. One forgets that the scenes appear beautiful due to the darkness around. This gives us a clue to the significance of the darkness of ignorance. That is why the simile of the movie is helpful in understanding the Law of Dependent Arising. That is not a simile we have introduced. The Buddha himself has given the simile of the movie, though of course not in the modern sense. In the cinema world within the darkness of ignorance, preparations go on in the mind of the cinema fan with which he experiences joys and sorrows. In this way, we can create any number of worlds. As you turn the pages of a newspaper, you pass through several such worlds. Each world has its own ‘namefactors’ and ‘form-factors’. The illusion of life goes on within a succession of such worlds.</p><p>Let us take another simile to illustrate another aspect of this illusion – the simile of the chess game. The basic hint for what I am going to tell you, I borrowed from a certain story about a Zen master. Some of you may have heard of Mahāyāna Buddhism. As it went on spreading, one section became apprehensive of the trend towards excessive philosophizing and began to lay emphasis on concentration and insight. That section came to be known as Zen Buddhists. Zen masters are a strange lot. Sometimes they would train their pupils by giving them insoluble riddles called ‘koans’. It is said that while grappling with the puzzle they attained enlightenment. This sudden enlightenment they called ‘Satori’. So this is the background. Now I shall tell a story – whether it be true or not – is instructive all the same.</p><p>There was a Zen master who was very stern. He used to train his pupils by extremely stern methods. One day he ordered two of his pupils to play a game of chess without losing. In the story I read, no names are given. But I shall give two meaningful Sinhala names to the two pupils. One is Ajith (‘invincible’) the other is Sumith (‘good friend’). Now the Zen master orders Ajith and Sumith to play chess imposing a strict condition.</p><p>“You must play without losing. Whoever loses I shall behead?”</p><p>Both knew that the teacher meant what he said – as he stood sword in hand. So these two obedient pupils took up the challenge in mortal fear and started the game while the teacher stood nearby with a raised sword.</p><p>As the game went on, before long invincible Ajith reached a point where it was obvious that with two more draws he would be the winner. Sumith – the good friend that he is, though terrified resigned himself to his fate without malice. However, Ajith, moved by compassion for his good friend, knowingly made a false draw in a spirit of self sacrifice. With the next draw, Ajith, who could have been the winner, would lose his head and Sumith would win – but lose his friend. Now what will the Zen master do? Will he cut off Ajith’s head and keep his word – honest and truthful as he is?</p><p>Well, this is what he did. He bent down and swept the chess board clean. That was the end of the game. You might think that it was a ‘tame-draw’ with no winner or loser. But it seems both Ajith and Sumith emerged winners for the story ends with this enigmatic sentence:</p><p>‘Both of them attained Satori!’</p><p>But how? No explanation was given in the book I read. Granted that it is a true story, let us try to understand how such a thing is possible. Invincible Ajith sacrificed his life for his friend. Sumith with an air of resignation was ready to accept the inevitable so that his friend would survive the fatal game. So they both were prepared to ‘Let-go’. The chess board was their WORLD. Their existence (bhava) in the chess-world was due to grasping (upādāna). The prospect of winning was for them, a question of life and death. When they both sacrificed their lives, the ‘Let-go’ was complete. But neither of them had to die. Only ‘Death’ had to die, as they both gained insight into ‘Deathlessness’ (amata). How did it happen? When the Zen master swept the chess board declaring the game ‘null and void’ both pupils realized the delusion they were in. It was as if they woke up from a dream. The dream was the existence in a world of chess fully involved with the pieces. So it seems, by means of a game of chess in which no one won or lost, this tactful Zen master gave his pupils an insight into the Law of Dependent Arising – the secret of bondage and release.</p><p>One might think that such wonderful techniques of training are found only in Zen Buddhism. But that is not so. I shall tell you a similar story in our own tradition which perhaps you have already heard but not fully understood. It is about the acrobat Uggasena alluded to in the Dhammapada and related in detail in its commentary. It seems Uggasena was so skillful as an acrobat that he could stand balanced on a sixty – cubit bamboo pole. One day when he was performing in the midst of a crowd, the Buddha while on his alms-round came to the spot with Venerable Mahā Moggallāna. At the Buddha’s request Venerable Moggallāna challenged Uggasena to display his acrobat feats. The latter in response made a number of circling leaps into the sky and stood up right on the bamboo pole precariously balanced. Then the Buddha uttered the following riddle verse which embodied a challenge similar to the one the Zen master had made.</p><p>Muñca pure</p><p>muñca pacchato</p><p>majjhe muñca bhavassa pāragū</p><p>sabbattha vimuttamānaso</p><p>na puna jātijaraṁ upehisi.</p><p>Let go what has gone before</p><p>Let go that which comes after</p><p>Let go thy hold on the middle as well</p><p>Thus with mind released in every way</p><p>Thou comest never more to birth and decay.</p><p>Here the words ‘pure’ and ‘pacchato’ stand for the temporal past and future. But for the acrobat precariously balanced, they are suggestive of the spatial ‘before’ and ‘behind’. Likewise, ‘majjhe’ temporally means ‘the present’ but for the acrobat it could ironically refer to his risky spatial stance on the bamboo pole. So here we have something like a ‘Koan’. However Uggasena with his saṁsāric maturity in wisdom, backed by his literally ‘one-pointed’ concentration on top of the bamboo pole, took it as a challenge for insight. The last two lines gave the necessary hint. That was enough. He attained Arahanthood then and there, came down from the pole and worshipped the Buddha.</p><p>So there too we have an instance of a subtle topic of meditation being presented as an insoluble riddle. Here again the question of duality comes up. Past and future is a duality like victory and defeat. By the way, regarding that story about winning and losing, there is a beautiful verse in the Sukha Vagga (Chapter on Happiness) in the Dhammapada. As we saw, it was for winning that Ajith and Sumith played chess. Both of them realized the mass of suffering involved. They understood that birth, decay and all the rest of suffering are dependent on grasping. The Dhammapada verse is a beautiful summary of this idea.</p><p>Jayaṁ veraṁ pasavati</p><p>dukkhaṁ seti parājito</p><p>upasanto sukhaṁ seti</p><p>hitvā jayaparājayaṁ</p><p>Victory breeds hatred</p><p>The defeated lies in sorrow</p><p>Happily lies the tranquil one</p><p>Giving up victory and defeat</p><p>Victory and defeat both have to be given up. That is what Ajith and Sumith finally realized. The duality of victory and defeat is sustained by ignorance as in the case of a cricket match. How many have gone crazy about it? It is the same in regard to films and teledrama. That is why the Buddha declared that all worldlings are insane. We don’t like to be called mad. But the truth is that ignorance makes one forget, like darkness in the case of the film show. It is the darkness of ignorance that sustains the two teams in the sports world. The two teams with their respective well-wishers create their own worlds productive of hatred and malice.</p><p>So you should understand that the formula of Paṭicca Samuppāda is not something to be by hearted and rattled off meaninglessly. You must try to grasp the deep meaning behind the statement of the formula in direct and reverse order. Let us try to understand why it is said that ‘saṅkharā’ or preparations arise due to ‘avijjā’ or ignorance. The term ‘saṅkhārā’ itself has connotations of deception or spuriousness. In the Indian society in the past, it was associated with the ‘make-up’ and other preparatory activities of a drama. They could be bodily, verbal or mental. This applies to the cricket game as well. The magic show of consciousness is kept up by those saṅkhāras. Confroning consciousness (viññāṇa) in an inter-dependent partnership, there is name and form (nāmarūpa), that is feeling, perception, intention, contact and attention together with the four great primaries, earth, water, fire and air and form derived from them. The deepest point in Paṭicca Samuppāda is traceable to this interplay between consciousness and name and form. That is what we called the vortex. If all goes well, you might get the opportunity to hear more about the vortex next time.</p><p>For the present, just understand this much. Paṭicca Samuppāda as interpreted by many nowadays is divisible into three lives, with ignorance and preparations as the past, becoming, birth and death as the future and the intervening eight links as the present. Immediately, with the cessation of ignorance, preparations cease and along with it the consciousness. The cessation of consciousness is something like a subsidence or appeasement. One might mistake cessation of consciousness to be death itself.</p><p>That is not the case. It is the cessation of that conditioned or ‘made–up’ (saṅkhata) consciousness. What comes up then is the ‘non-manifestative consciousness’ (anidassana viññāṇa). This is an aspect of the Dhamma that had long remained neglected. There is a consciousness that is freed from name and form. It is a subsidence or appeasement which Arahants experience. It is within the conditioned consciousness that the worldlings are entrapped and bound.</p><p>This consciousness is six fold. The visual world, the auditory world and so forth. The Buddha has defined the world with reference to the six sense-spheres. As a matter of fact the so called world is the world of the six fold sense-sphere. It is not the world that modern scientists frame up. Now even they are becoming aware of their shortcomings in understanding. There is only a visual world, an auditory world, an olfactory world a gustatory world a tactile world and lastly a mental world. Let us not forget that the six sense-spheres are dependent on name and form. So the division, the bifurcation, the duality is maintained down the line as internal and external (ajjhatta – bahiddhā). Eye is the internal sphere and forms the external sphere. Both are made up of the four elements. But greater value is attached to the internal – to this conscious body (‘saviññāṇaka kāya’). It is the perception that this conscious body chases that the Buddha called a mirage. One simply goes on watching scenes on the ‘eyescreen’ and listening to the ‘ear-drum’. That is the ‘cinema’ and the ‘music’ we enjoy. The Buddha pointed out to the world for the first time that it is due to the ignorance or ‘not – knowing’ at the moment of touch in the case of all sense-spheres, that feeling, perception and all the rest of it flow in. As a result of it beings keep running round and round in the cycle of existence (bhava). It was probably the difficulty of explaining it to the world that made him ponder over the Law of Dependent Arising in the direct order, in the reverse order and in the direct-and-reverse order. He must have thought how difficult it is to present it to the world through the medium of language. It is so deep as a Dhamma.</p><p>Therefore, you should not take it lightly as a mere jumble of words but apply it to your own lives and tread the path of Dhamma. The path is morality, concentration and wisdom. There is no other path to understand this Dhamma in all its depth. Whoever in the past had understood this Dhamma – be they arahants, laymen or laywomen, they all accomplished it through morality, concentration and wisdom. It is the same today too. Therefore, it is not, as some believe, attainable through haphazard methods – though we spoke about instantaneous realization.</p><p>Whatever it may be, the Law of Dependent Arising is one thing and its illustration another, as far as the twelve – linked formula is concerned. When you get down to the practice of Satipaṭṭhāna you will understand how the Buddha has made known the distinctions between the internal and the external and arising and ceasing. To those who had developed insight in their Saṁsāric past like Uggasena, the Buddha could impart instant enlightenment. But you must not think that all are similarly gifted. So you should make a genuine effort with that aim, making a start from morality itself.</p><p>Today you have made a good start. Most of you have observed the higher precepts. I hope you have spent the day fruitfully in meditation and the like. I do hope and wish that this sermon too would be useful to you in your insight meditation and help you realize your noble aspirations. Whatever, beings there be, from the lowest hell ‘avīci’ to the highest Brahma world ‘Akaniṭṭha’ – may they all rejoice in this insightful sermon! May it conduce to their attainment of Nibbāna! May you all realize those high attainments in this very life!</p>
+</article>
+
+<div class="sermon-nav-bar" style="margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+<span></span>
+<a href="read.html">Table of Contents</a>
+<a href="chapter_2.html">Next Chapter &rarr;</a>
+</div>
+</main>
+<footer><p>This website is offered in the spirit of Dhamma Dana, freely available to all.</p></footer>
+<script>
+function setFontSize(size) {
+    const article = document.getElementById('readerArticle');
+    article.style.fontSize = size;
+    localStorage.setItem('preferred_font_size', size);
+    document.querySelectorAll('.control-group button').forEach(b => {
+        if(['Small','Medium','Large','X-Large'].some(t => b.innerText.includes(t))) {
+            b.classList.remove('active');
+        }
+    });
+    if(size === '1rem') document.getElementById('size-sm').classList.add('active');
+    if(size === '1.15rem') document.getElementById('size-md').classList.add('active');
+    if(size === '1.3rem') document.getElementById('size-lg').classList.add('active');
+    if(size === '1.5rem') document.getElementById('size-xl').classList.add('active');
+}
+
+function setFontFamily(font) {
+    const article = document.getElementById('readerArticle');
+    article.style.fontFamily = font;
+    localStorage.setItem('preferred_font_family', font);
+    document.getElementById('font-serif').classList.toggle('active', font.includes('Georgia'));
+    document.getElementById('font-sans').classList.toggle('active', !font.includes('Georgia'));
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const savedSize = localStorage.getItem('preferred_font_size');
+    const savedFont = localStorage.getItem('preferred_font_family');
+    if(savedSize) setFontSize(savedSize);
+    if(savedFont) setFontFamily(savedFont);
+});
+</script>
+</body>
+</html>

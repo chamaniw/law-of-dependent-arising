@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 15 (Sermon 197) | The Law of Dependent Arising</title>
+<style>
+:root {
+    --header-bg: #800000;
+    --header-text: #ffffff;
+    --header-subtitle: #ffd1d1;
+    --primary-color: #5c2c16;
+    --accent-color: #c88a2a;
+    --bg-color: #fdfbf7;
+    --card-bg: #ffffff;
+    --text-color: #2c2c2c;
+    --text-muted: #666666;
+    --border-color: #e2d7c7;
+    --reader-font-family: Georgia, "Times New Roman", serif;
+    --reader-font-size: 1.15rem;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.site-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 1.5rem 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-align: center;
+}
+.brand-section .logo-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+}
+.brand-section .subtitle {
+    font-size: 0.95rem;
+    color: var(--header-subtitle);
+    font-style: italic;
+    padding: 0 0.5rem;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+}
+.top-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.2s, color 0.2s;
+}
+.top-nav a:hover, .top-nav a.active {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.main-content {
+    max-width: 950px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.hero {
+    background: var(--card-bg);
+    padding: 2.5rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    text-align: center;
+}
+.hero h1 { font-size: 2rem; color: #222; margin-bottom: 0.3rem; }
+.hero h2 { font-size: 1.15rem; color: var(--primary-color); margin-bottom: 0.4rem; font-weight: normal; font-style: italic; }
+.hero h3 { font-size: 1.2rem; color: #333; margin-bottom: 1.5rem; font-weight: normal; font-style: italic; }
+.hero .author-title { font-size: 1.05rem; color: #555; margin-bottom: 2rem; font-style: italic; }
+
+.pali-quote { 
+    color: var(--header-bg); 
+    text-align: center; 
+    margin: 2.5rem 0; 
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin: 2rem 0;
+}
+@media (max-width: 768px) {
+    .button-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .main-content {
+        margin: 1rem auto;
+        padding: 0 0.5rem;
+    }
+    .hero {
+        padding: 1.5rem 1rem;
+    }
+    .brand-section .logo-title {
+        font-size: 1.5rem;
+    }
+}
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1rem;
+    background-color: var(--header-bg);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+.btn:hover { background-color: #5c0000; }
+.btn-secondary {
+    background-color: transparent;
+    color: var(--header-bg) !important;
+    border: 1px solid var(--header-bg);
+}
+.btn-secondary:hover { background-color: #f4eee6; }
+
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.chapter-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-color 0.2s, transform 0.1s;
+    text-decoration: none;
+    color: inherit;
+}
+.chapter-card:hover {
+    border-color: var(--header-bg);
+    transform: translateY(-1px);
+}
+.chapter-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--header-bg);
+}
+.sermon-badge {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    font-size: 1.1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    outline: none;
+    font-family: Georgia, serif;
+}
+.search-input:focus {
+    border-color: var(--header-bg);
+    box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.1);
+}
+
+.sermon-reader {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2.5rem 3rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    font-family: var(--reader-font-family);
+    font-size: var(--reader-font-size);
+    line-height: 1.9;
+}
+@media (max-width: 768px) {
+    .sermon-reader {
+        padding: 1.2rem 1rem;
+    }
+}
+.sermon-reader p {
+    margin-bottom: 1.6rem;
+    text-align: justify;
+}
+.sermon-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.sermon-nav-bar a {
+    color: var(--header-bg);
+    text-decoration: none;
+    font-weight: 600;
+}
+.sermon-nav-bar a:hover { text-decoration: underline; }
+
+.reader-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4eee6;
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.control-group button, .download-btn {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--header-bg);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background 0.2s, color 0.2s;
+}
+.control-group button:hover, .control-group button.active, .download-btn:hover {
+    background: var(--header-bg);
+    color: #fff;
+    border-color: var(--header-bg);
+}
+
+mark {
+    background-color: #ffeeba;
+    color: inherit;
+    padding: 0.1rem 0.2rem;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    margin-top: 4rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="brand-section"><div class="logo-title">The Law of Dependent Arising</div><div class="subtitle">The Secret of Bondage and Release &mdash; Ven. Katukurunde Nanananda Thero</div></div><nav class="top-nav"><a href="index.html">Home</a><a href="read.html" class="active">Read</a><a href="listen.html">Listen</a><a href="search.html">Search</a><a href="about.html">About</a></nav></header>
+<main class="main-content" style="max-width: 950px;">
+<div class="sermon-nav-bar">
+<a href="chapter_14.html">&larr; Previous Chapter</a>
+<a href="read.html">Table of Contents</a>
+<a href="chapter_16.html">Next Chapter &rarr;</a>
+</div>
+
+<div class="reader-controls">
+  <div class="control-group">
+    <span>Font Size:</span>
+    <button onclick="setFontSize('1rem')" id="size-sm">Small</button>
+    <button onclick="setFontSize('1.15rem')" id="size-md" class="active">Medium</button>
+    <button onclick="setFontSize('1.3rem')" id="size-lg">Large</button>
+    <button onclick="setFontSize('1.5rem')" id="size-xl">X-Large</button>
+  </div>
+  <div class="control-group">
+    <span>Font Type:</span>
+    <button onclick="setFontFamily('Georgia, serif')" id="font-serif" class="active">Serif</button>
+    <button onclick="setFontFamily('-apple-system, BlinkMacSystemFont, sans-serif')" id="font-sans">Sans</button>
+  </div>
+  <div class="control-group">
+    <span>Download:</span>
+    <a href="docx/sermon_015_ENGLISH.docx" class="download-btn" download>DOCX</a>
+    <a href="pdf/sermon_015_ENGLISH.pdf" class="download-btn" download>PDF</a>
+    <a href="epub/sermon_015_ENGLISH.epub" class="download-btn" download>EPUB</a>
+  </div>
+</div>
+
+<div style="text-align: center; margin-bottom: 2rem;">
+<h1 style="font-size: 1.8rem; margin-bottom: 0.3rem;">Chapter 15</h1>
+<p style="color: var(--text-muted); font-style: italic; font-family: -apple-system, sans-serif; font-size: 0.95rem;">(Pahankanuwa Sermon 197)</p>
+</div>
+
+<article class="sermon-reader" id="readerArticle">
+<p>Paticca Samuppada Sermon 15<br>The Law of Dependent Arising</p><p>(Pahan Kanuwa Sermon – No. 197)</p><p>‘Namo tassa bhagavato arahato sammāsambuddhassa’</p><p>‘Homage be! To the Fortunate One – the Worthy, Fully Enlightened!’</p><p>Tesaṁ phassaparetānaṁ</p><p>bhavasotānusārinaṁ</p><p>kummaggapaṭipannānaṁ</p><p>ārā saṁyojanakkhayo</p><p>Ye ca phassaṁ pariññāya</p><p>aññāya upasame ratā</p><p>te ve phassābhisamayā</p><p>nicchātā parinibbutā</p><p>– Dvayatānupassanā S. Sn.</p><p>To them that are fully given to contact</p><p>And are swept by the current of becoming</p><p>To them that tread the wrong path</p><p>Destruction of fetters is far away.</p><p>But they that fully understand contact</p><p>And with full comprehension are attached to appeasement</p><p>It is they that by the understanding of contact</p><p>Are hungerless and fully appeased.</p><p>Dear Listeners,</p><p>The Dhamma that the Teacher of the Three Worlds, the fully Enlightened Fortunate One placed before the world is one that goes against the current. That Dhamma which flows against the pervert and narrow current of becoming is the massive body of water called ‘Dhammasota’ that takes one towards the cessation of becoming. The worldlings caught up in the current of becoming go on revolving in this Saṁsāric whirlpool. The Noble Disciple who has fallen into the Dhamma current reaches Nibbāna which is called the cessation of becoming. The turning point between these two is contact.</p><p>Therefore, we have chosen as the topic of this 15th sermon, two verses on contact found in the Dvayatānupassanā Sutta of the Sutta Nipāta. Since we used as the topics of a number of earlier sermons, verses from this Dvayatānupassanā Sutta, you all might remember the style of preaching followed by the Buddha in that discourse. Introducing various items of Dhamma which incline to two sides and distinguishing their arising aspect and the cessation aspect is the style of preaching in this discourse. Now the two aspects of contact the Buddha first of all introduces to the congregation of monks with this statement in prose.   “If there are those who ask whether there could be another mode of contemplating the dualities, they should be told:</p><p>‘There is.’ How could there be? ‘Whatever suffering that arises, all that is due to contact.’ This is one mode of contemplation. With the remainderless cessation of contact, there is no arising of suffering. This is the second mode of contemplation.”</p><p>Having made this declaration, the Buddha goes on to state the benefits of practicing this contemplation of dualities.</p><p>“If a monk dwells diligently and ardently combatting defilements in accordance with this contemplation, one of two fruits could be expected of him; Either full comprehension here and now or if there is any residual clinging, non-returnership.</p><p>It is after this declaration that the Buddha uttered those two verses.</p><p>“Tesaṁ phassaparetānaṁ</p><p>bhavasotānusārinaṁ</p><p>kummaggapaṭipannānaṁ</p><p>ārā saṁyojanakkhayo</p><p>Ye ca phassaṁ pariññāya</p><p>aññāya upasame ratā</p><p>te ve phassābhisamayā</p><p>nicchātā parinibbutā”</p><p>“For them who are fully enslaved to contact and moving along with the current of becoming, who are on the wrong path the cutting off of the bonds of becoming namely the destruction of fetters, is far away. But they that have comprehended contact and take delight in the appeasement through knowledge born of realization, verily it is they by their higher understanding of contact are hungerless and fully appeased.”</p><p>I hope to give a special sermon today based on these two verses because this happens to be a significant day marking the end of the rains-retreat of the Sangha on which they hold the Vinaya act called Pavāraṇā – namely the Full Moon day ending the rains-retreat. Due to other reasons too I thought of presenting this sermon at a more practical level – though other sermons also are meditation topics. So let me request you all from this point onwards to listen attentively to what is being said from word to word and sentence to sentence. Speaking about contact, First of all I must mention something I had already brought out with reference to the very first discourse in the Dīgha Nikāya – namely Brahmajāla Sutta – that is to say, the fact that the Buddha dismissed all the sixty two wrong views listed there with a very brief phrase.</p><p>Now, what is that significant phrase? ‘Tadapi phassa paccayā’ – ‘That too is due to contact.’ Similarly towards the end of that discourse, the Buddha declares a statement like this with reference to the recluses and Brahmins who proclaim those views:</p><p>‘sabbe te chahi phassāyatanehi phussa phussa paṭisaṁvedenti’</p><p>‘They all go on experiencing through the six sense-spheres by contacting again and again.’</p><p>Then the consequences of it are also mentioned. Because of that feeling they get craving, and due to craving, grasping, due to grasping, becoming, due to becoming, birth and due to birth, decay and death and all the rest of suffering. What does it mean? As stated in the first verse all recluses and Brahmins who took up those sixty-two views are enslaved by contact, caught up in the current of becoming and fallen on the wrong track. Therefore, they have not attained freedom from the fetters of becoming. Finally the Buddha proclaims what sort of Dhamma he preaches. About the monk who has attained arahanthood in this dispensation, it is said that he is one who has reached full appeasement by five kinds of understanding about the six sense-spheres. What are they? As we mentioned in a previous sermon, the understanding of the arising, going down, satisfaction, misery and stepping-out in regard to the six sense-spheres – that is to say, samudaya, atthagama, assāda, ādīnava and nissaraṇa. This is the distinctive quality of this dispensation in regard to contact. From here onwards we shall take up a number of discourses to clarify further the phenomenon of contact. Now you had better take this as a pilgrimage – a pilgrimage to Nibbāna. With that idea uppermost in your minds please try to listen attentively to this sermon during this hour.</p><p>I need not mention this in particular for you know well enough about the twelve linked formula of Dependent Arising. In that formula beginning with ‘avijjā paccayā saṅkhārā’ –  ‘dependent on ignorance, preparations’ – this is how contact comes to be mentioned:</p><p>‘…..saḷāyatana paccayā phasso, phassa paccayā vedanā’ – ‘dependent on the six sense-spheres, contact, dependent on contact, feeling.’ But the deepest philosophy of contact is presented to us with the utmost clarity by the Madhupiṇḍika (‘Honey ball’) Sutta which is rich in its flavour of meaning like a ball of honey. On previous occasions we have discussed in full this Madhupiṇḍika Suttaof the Majjhima Nikāya. If we are to bring up what is relevant to this context, the venerable Arahant Mahā Kaccāna who was placed foremost among those disciples who are capable of expounding at length what is preached in brief, is seen explaining a brief utterance of the Buddha at the request of the company of monks. This sentence occurs in that explanation:</p><p>“….cakkhuñcāvuso, paṭicca rūpe ca uppajjati cakkhuviññāṇaṁ, tiṇṇaṁ saṅgati phasso”</p><p>This statement presents a very profound philosophy.</p><p>‘cakkhuñcāvuso, paṭicca rūpe ca uppajjati cakkhuviññāṇaṁ’</p><p>‘Dependent on eye and forms arises eye-consciousness.’</p><p>Then comes the phrase:</p><p>‘tiṇṇaṁ saṅgati phasso’</p><p>‘The concurrence of the three is contact.’</p><p>If you reflect on this deeply, you will discover an extremely knotty point – a subtle one at that. Now remember, here the two words ‘paṭicca’ and ‘uppajjati’ came up. This is a clear indication that the Law of Dependent Arising is concerned with the arising of consciousness. Because of eye and forms arises eye-consciousness. But once it arises, worldlings, because of their delusion, because of their ignorance, count them as three. It is not really justifiable to count these as three. Why? It is because of the eye and forms that consciousness arose. We have explained what eye-consciousness is. The nature of consciousness is the very discriminating as two things. Until consciousness arises there is no idea of eye and form as two things. It is when consciousness arises that one gets the idea:</p><p>‘This is my eye and there is that form.’</p><p>That is why we say that the gap – the interstice – between the two is consciousness. But due to non-understanding one counts eye, forms and consciousness as three. It is when one imagines them as three, that contact arises. From there onwards it is all delusion. That is why we call contact the turning point. Now that regarding contact we spoke of two things and a gap, let us now turn to a powerful discourse we had discussed on various occasions – namely the Majjhe Sutta among the ‘Sixes’ of Anguttara Nikāya. First of all let me mention the introductory story for those who do not know about it. When the Buddha was dwelling at Isipatana in Benares, a group of Elder monks gathered in the assembly hall after the alms-round and initiated a Dhamma discussion – in modern parlance it may be called a symposium. What was the point at issue? A question to this effect came up in the Dhamma discussion. The Fortunate One has preached in the Metteyya Pañha of Pārāyaṇa the following verse:</p><p>Yo ubhante viditvāna</p><p>majjhe mantā na lippati</p><p>taṁ brūmi mahāpurisoti</p><p>sodha sibbanimaccagā</p><p>Having taken up this verse, they extracted four questions as the subject  for their  symposium. What are they? Let me first explain the meaning of the verse. ‘yo ubhante viditvāna’ – ‘He who, having understood both ends’, ‘majjhe mantā na lippati’ – ‘does not get attached to the middle with wisdom’, ‘taṁ brūmi mahāpurisoti’ the Buddha is saying:</p><p>‘Him I call a great man’ – Why? ‘sodha sibbanimaccagā’ – ‘Because he has bypassed the seamstress in this world.’</p><p>So out of this cryptic verse four points are elicited as questions:</p><p>‘What is the one end mentioned in this verse? What is the second end? What is the middle? Who is the seamstress? To these four questions, six Elder monks put forward six interpretations. They seem to be wonderful meditation topics. Let me bring up only what is relevant to the context. Relating to the question of sense-spheres the interpretation given by the fifth Elder monk is this:</p><p>‘One end is the six internal sense-spheres, namely eye, ear, nose, tongue, body and mind. The second end is the six external sense-spheres – forms, sounds, smells, tastes, touches, ideas. The middle is consciousness and the seamstress is craving. Talking about seamstress, nowadays there could be skilled seamstresses in the garment industry. But  this seamstress can beat them all because she has three special qualifications, namely:</p><p>‘ponobhavikā’ – she puts the stitch for the next birth. ‘nandirāgasahagatā’ – she has delight and attachment and ‘tatratatrābhinandinī’ – she delights now here now there. It is that seamstress who puts the knot between the two ends ignoring the middle. Consciousness which is in the middle has arisen because of those two. But ignoring that fact the seamstress craving puts the stitch to those two ends. For instance it stitches up eye and forms.</p><p>The story of stitching up eye and forms, we have mentioned on various occasions. If we are to give a simile, one that is easily understood is the mirage. In short the Buddha has compared the entire aggregate of perception to a mirage. When we say ‘mirage’ we have in mind only the eye and forms. But the comparison of the entire aggregate of perception to a mirage is a very deep dictum. However in this context, for simplicity’s sake, let us take the question of eye and forms. Most of you know what a mirage is, but let us briefly remind ourselves about it. There is a  Sanskrit word for the mirage – namely ‘mṛgatṛsṇikā’ which means a sight that arouses craving and thirst in a deer. At times when there is a drought there is an appearance in the distance which resembles flowing water. The deer imagines water in it.</p><p>What is its stance? ‘I am here and water is there. I am here and water is there.’ Though it tells itself ‘I am here and water is there’ with every step it takes it is taking its eye with it. Still it goes on telling:</p><p>‘I am here, water is there.’ What it imagines to be water also recedes.</p><p>Now that is the nature of the mirage. It is an endless pursuit. The mirage is deceptive. What perpetuates that deception is the magic-like delusion in eye-consciousness. The deer keeps running unaware of the gap mentioned above. It is ignorant of the intervening space. Due to that delusion the deer runs and gets wearied. The Buddha has pointed out that not only the deer but the entire world of  living beings is deluded like it by this mirage of perception. It is this seamstress ‘craving’ who is playing this subtle trick. It is said that this seamstress puts the knot. How can one get free from these knots. A clue to that release is found in this verse itself.</p><p>‘Yo ubhante viditvāna – majjhe mantā na lippat’, ‘mantā’ means wisdom.</p><p>You might say:</p><p>‘But we don’t have wisdom. It is something that dawns on arahants automatically.’</p><p>You must not say so. The seed of wisdom is there in every one of us. It is ‘yonisomanasikāra’– radical attention.</p><p>‘Yonisomanasikāra’ is a very powerful word in this dispensation – particularly for insight meditators. But unfortunately we have to mention that in the commentaries we do not get a clear explanation of it. It is explained as ‘upāya manasikāra’ (skillful attention) and ‘patha manasikāra’ (attention according to the path). We call it ‘wise attention’ for convenience’s sake. But there is a great depth in it. ‘Yoni’ means the place of origin – the matrix. Therefore, ‘yonisomanasikāra’ means ‘attention by way of the place of origin’. Already you can guess what the place of origin is. It is contact (phassa) that we called the turning-point. That is why in the Brahmajāla Sutta we found the dictum:</p><p>‘tadapi phassa paccayā’ (‘That too is dependent on contact’). It seems for some reason or other that fact has not come to light so far. Contact is what seems to be the place of origin. So attending by way of the place of origin is yonisomanasikāra.</p><p>From here onwards we have to give various similes. There is a game called ‘table-tennis’. Well, let us call to mind this game. What we call the Ping-Pong ball and the two rackets are the paraphernalia required. There is a short net in the middle of the T.T table. What is the procedure in this game? The ball that the player on the other side spins with his racket, has to be returned to the other side by the player on this side before it falls to the ground. Now for easy comprehension of our simile let us call the player on the opposite side Māra. The player on this side is the meditator. Take it as a table tennis game between Māra and the meditator. There is no ‘racketeer’ like Māra. Just call to mind the nuances of the term ‘racket’ in the society. We have come all this way in Saṁsāra because we got caught in Māra’s racket. Now we are going to beat Māra. Even to beat him, the meditator has to take up the racket. What does the incompetent or unskillful player do? When the player on the other side sends the ball to this side he lets it bump off and with difficulty returns it bending his body this way and that way. He cannot go on like that. He will be the loser before long. On the other hand the competent one keeps standing straight and returns the ball to the other side as soon as it touches his side of the table. He does not allow it to bump off. You had better take this ‘bumping off’ itself as a simile for ‘papañca’ – conceptual proliferation. In the context of the Dhamma, this ‘bumping off’ is comparable to papañca. Not to give way to ‘papañca’ is attending then and there without allowing thoughts to bump off. What is the ‘then and there’? The point of contact – ‘phassa’. So attending then and there to the point of contact is like returning the ball to the other side as soon as it touches this side. You have to do it with extreme rapidity. It is one who does it very rapidly that in the end beats Māra. Māra will have to throw away his racket.</p><p>Let us take up another simile. It is not a game but a fight.</p><p>We are now going back to the age of sword-fights. Not only in Sri Lanka but in countries like England they used the sword both for offence and defense. They had a sword hung on the belt. When two such persons fall out, one challenges the other to come for a fight and draws the sword from the scabbard. Sometimes the fight would go on as a duelling. With no shield to protect oneself, a parry and thrust would go on with the sword. Just think about it. How rapidly should one wield the sword in order to be the winner. One has to be prepared to ward off every blow of the opponent. We gave both these similes to show how rapidly one has to go on attending. Whether it is the racket or the sword, one has to accelerate attention to the utmost. Since we gave the simile of the table-tennis game as a practical illustration, let us assume that Māra is sending a ‘form-ball’. As soon as the ‘form-ball’ comes, without allowing it to ‘bump off’ into ‘papañca’, one should turn it to the opposite side. How does one do it? What is the racket used on this Buddha side? ‘anicca, anicca’ – ‘impermanent, impermanent.’  Māra may send the ball again. But with this ‘anicca’ racket we turn it to the other side. We gave this simile to acquaint you with ‘aniccānupassanā’ – ‘contemplation of impermanence.’</p><p>On an earlier occasion too we mentioned in passing a very powerful sermon on the contemplation of impermanence. In the Saḷāyatana Vagga of the Saṁyutta Nikāya there are two discourses with the same title ‘Dvayaṁ’. Last time we discussed one of them. Now what is relevant to the present context is the second ‘Dvayaṁ’ Sutta. This is how the Buddha begins that discourse:</p><p>“Dvayaṁ bhikkhave paṭicca viññāṇaṁ sambhoti.”</p><p>‘Monks, depending on a dyad consciousness arises.’ “Kathañca bhikkhave dvayaṁ paṭicca viññāṇaṁ sambhoti.”</p><p>‘How, monks, does consciousness arise depending on a dyad?’ “Cakkhuñca  paṭicca rūpe ca uppajjati cakkhuviññāṇaṁ.”</p><p>‘Depending on eye and forms arises eye consciousness.’ Then comes a series of significant words.</p><p>“Cakkhuṁ aniccaṁ vipariṇāmi aññathābhāvī, rūpā aniccā vipariṇāmino aññathābhāvino.”</p><p>‘Eye is impermanent, changing and turning otherwise. Forms are impermanent, changing and turning otherwise.’ Then it is said:</p><p>“Itthetaṁ dvayaṁ calañceva vayañca aniccaṁ vipariṇāmī aññathābhāvī.”</p><p>‘Thus this dyad is unstable, liable to pass away, impermanent changing and turning otherwise.’ That is not all.</p><p>“Cakkhuviññāṇaṁ aniccaṁ vipariṇāmī aññathābhāvī.”</p><p>‘Eye consciousness is impermanent, changing, becoming otherwise.’ “Yopi hetu yopi paccayo cakkhuviññāṇassa uppādāya…….”</p><p>‘Whatever condition there is for the arising of eye-consciousness, that too is impermanent.’ Then the Buddha poses a question to the monks:</p><p>“Monks, how can something that arises due to a condition that is impermanent, be permanent?”</p><p>If the conditions are impermanent, how can eye-consciousness arisen depending on them be permanent? There are three terms used to denote the collocation of these three factors:</p><p>“tiṇṇaṁ dhammānaṁ saṅgati sannipāto samavāyo” – The concurrence, assemblage, togetherness – that is what is called ‘contact’. Then comes the statement:</p><p>“Cakkhusamphassopi anicco vipariṇāmī aññathābhāvī.”</p><p>‘Eye contact too is impermanent, changing, becoming otherwise.’ Then again the question is posed:</p><p>How can eye contact arisen due to impermanent conditions be permanent?</p><p>Now comes a significant declaration:</p><p>“Phuṭṭho bhikkhave, vedeti, phuṭṭho sañjānāti, phuṭṭho ceteti.”</p><p>‘contacted, monks, one feels, contacted one perceives, contacted one intends.’ Keep in mind, then:</p><p>The origin and matrix of feeling, perception and intention is contact itself. It is not without reason that we stated that ‘yonisomanasikāra’ or radical attention is attending mentally to the point of touch. In conclusion it is said that all these things are unstable, passing away, impermanent and changing otherwise:</p><p>“itthetepi dhammā calā ceva vayā ca aniccā vipariṇāmino aññathābhāvino.”</p><p>This is the wonderful presentation of the contemplation of impermanence by the Buddha. With that background you can now understand that whether it is the racket or the sword, what matters is the speed of directing attention. It is at the moment one has accelerated the speed of attention to the utmost, that one can understand the secret of that mirage. We have now said enough about the eye. There are six. So then, let us turn our attention to the ear. I hope to explain that too with similes. Let me mention first of all that I have to hark back to the Majjhe Sutta, when speaking about every sense sphere. According to the exposition in the Majjhe Sutta, this is what is stated about the ear. Ear is one end, sound is the second end and ear consciousness is in the middle. The seamstress as usual is craving. What does this seamstress do? She puts the stitch on ear and sound ignoring earconsciousness. In this case too accelerating attention is what is helpful. I would like to give a simile to illustrate the acceleration of attention. It may be a little unconventional.</p><p>As you know, there is an insect like a beetle, about two inches in size living on the trees which we call ‘Rähäyyā’ (English. ‘cicada’) That creature starts a music around 4 o’clock in the afternoon. When one ‘rähäyyā’ gives the start, others join in the chorus. It is an extremely rough music irritating the ear. If you bear with me I shall imitate it:</p><p>‘R-R-R…………R-R-R-R-R………..R-R’</p><p>Sometimes I wonder whether it is called ‘Rähäyyā’ because it teaches us how to roll our ‘R’s. Of course I do not know the etymology of the word. Rähäyyā’s music is a big disturbance to our meditation for calm and serenity (that is ‘Samatha’) because it digs into the ear. But it reminds us that there is something called the ‘ear-drum’. The most wonderful musical instrument in the world is the ear-drum. Rähäyyā reminds us of the fact that we have an ear-drum. Though it is our ‘enemy’ in ‘samatha’, we can make it our ‘friend’ in ‘vipassanā’ (Insight-meditation) if we use radical attention with mindfulness (sati) and full awareness (‘sampajañña’). Between two ‘R’s (R….R) there is Nibbāna, if one focusses one’s attention there. Only if you get caught in the ‘knot’ of the seamstress craving that it becomes a rough and irritating music. At last you will realize that it is only a concatenation of ‘R’s. According to the terminology of insight meditation, we may say, one can leave behind the ‘perception of the compact’ (ghanasaññā) and arouse the perception of the heap (rāsisaññā) if one directs one’s attention then and there with mindfulness and full awareness. So after all, rähäyyā is an insect that gives us a meditation-topic for Nibbāna, though apparently it is a disturbance to calm.</p><p>I must confess, I forgot to mention one thing when speaking about the eye. All the similes I gave about the eye are gross when compared with the simile given by the Buddha in the Indriyabhāvanā Sutta. It is the last discourse in the Majjhima Nikāya. It is a wonderful discourse which the Buddha addressed to Venerable Ānanda. We may say, that the quintessence of that discourse is the supreme and incomparable development of sense faculties (anuttarā indriyabhāvanā). It is illustrated with a number of similes. The simile that the Buddha had given there with reference to the eye beats all our similes regarding the acceleration of attention. The simile is:</p><p>As quickly as a man with vision opens his eyes and closes them and closes the eyes and opens them, one should exercise radical attention with regard to forms coming before the eyes. So for the eyes, the Buddha has aptly given a simile based on the eye.</p><p>When it comes to the ear, he gives a simile about the ear itself. Just as a strong man snaps his fingers with perfect ease so quickly, should one attend to a sound. By the way, the snapping of the fingers is often taken as an indication of a moment (khaṇa). The Buddha says that on hearing a sound a monk might be pleased or displeased or have a mingling of both but that he should immediately get rid of them and bring his mind to rest in equanimity.</p><p>Then we come to the nose. There too, if we go back to the Majjhe Sutta, nose is one end, smell is the second end and nose consciousness is in the middle. The seamstress craving ignores the middle and puts the stitch. When we smell something, we actually take in the air bearing the odour. If it is a pleasant smell we take it in with attachment. Air is the bearer of smell.</p><p>There is a story in the Sagāthaka Vagga of the Saṁyutta Nikāya regarding attachment to fragrant smells. In the Kosala country a forest dwelling monk was living in a hut in the jungle. One day on returning from his alms-round he went down into a pond and eagerly smelt a lotus flower. A forest deity saw it and accused him as a thief of fragrance. The monk in defense said:</p><p>“How can you call me a thief of fragrance? I didn’t pluck the flower or take it away.”</p><p>But the deity said:</p><p>“You are here purifying your mind. So, even a slight fault appears as a serious one.”</p><p>The monk confessed his guilt and thanked the deity for pointing it out. So, it seems even intentionally smelling a flower is a defilement. The delusion of the mirage is perpetuated in doing so. One imagines that the fragrance is in the flower.In regard to the tongue ‘Majjhe Sutta’ says:</p><p>Tongue is one end, taste is the other end and tongue-consciousness is in the middle.’ When it comes to tasty things it may be ice-cream or a piece of instant chicken. What happens as soon as one sees the ice-cream or the piece of chicken? Saliva flows into the tongue. Saliva is the bearer of taste just as air is the bearer of smell. Saliva gets ready to receive the taste. So, one greedily gulps down the tasty thing. The craving for taste is so powerful that the Buddha has recommended the meditations on elements and loathsomeness to combat it. He declares that one who is greedy will never awaken his heart (to Nibbāna). ‘Rasataṇhāya gadhito hadayaṁ nāvabujjhati.”</p><p>Sometimes he gives a simile that makes one shudder when reflecting on it. In the Nālaka Sutta of Sutta Nipāta when describing the path of practice befitting a muni (sage), he mentions it in brief:</p><p>‘Khuradhārūpamo bhava.’ – ‘Be one who has the simile of the razor-edge in mind.’ The simile about the razor-edge given by the Buddha is as follows:</p><p>A razor-blade is smeared with honey. To one who is greedy the razor-blade is given to lick. Can he do it without cutting his tongue? That is a simile which arouses fright in the greedy. Taste is such a subtle craving. Why does the Buddha give us such a frightful simile? Because he has conquered the craving for taste. Even the other arahants cite the example of the Buddha.</p><p>“Rasapaṭisaṁvedī kho pana so bhavaṁ Gotamo āhāraṁ āhāreti no ca rasarāgapaṭisaṁvedī.”</p><p>The Brahmin youth Uttara once observed:</p><p>“Experiencing taste that Venerable Gotama partakes of food but he is not one who experiences an attachment to taste.”</p><p>The tastebuds of the Buddha are as acute as ours. They do not go inactive with the attainment of Buddhahood. But he has no attachment to taste. Nowadays people cannot understand this wonderful fact.</p><p>This means that there is Nibbāna even at the tip of the tongue. A meditator can realize this to some extent while taking food with mindfulness and full awareness. So after all, the taste is neither in the tongue nor in the ‘instant-chicken’. It is only at the ‘instant’ the tongue and the instant-chicken come together that the flavour becomes active. Now that we have spoken of saliva, just see how aptly the Buddha has given a simile for it. When speaking about the eye, he gave a simile that befits the eye and in speaking about the ear, one that befits the ear. Now see how apt the simile about the tongue is. Just as a strong man with the greatest ease gathers a bit of saliva at the tip of the tongue and spews it out, so quickly should a monk, as soon as the attachment to taste has arisen, free his mind from likes and dislikes and bring it to rest in equanimity.</p><p>Let us now take up the question of body and tangibles. In this connection too the Majjhe Sutta says that the body is the one end, the tangible is the second end and body-consciousness the middle. There too it is precisely due to body and the tangible that body-consciousness arises. But the seamstress craving stitches up the two. You had better remember all these similes. That is why I cautioned you to listen attentively. It is here that what we actually call ‘contact’(phassa) comes. That is why the Buddha called it a ‘nutriment’ (āhāra). He pointed out that there are four kinds of nutriments (cattāro āhārā) which sustain beings. The first is the gross or subtle food taken in morsels (kabaliṅkāra āhāra). The second is contact (phassa). The third is intentional thinking going on in the mind (manosañcetanā). The fourth is consciousness (viññāṇaṁ). It leads to a very deep dhamma disquisition. But there too the simile the Buddha has given for contact is one that makes one shudder. It is found in the ‘Puttamaṁsa Sutta’. Without relating the whole story we shall give only the simile.</p><p>There the Buddha uses the term ‘niccammā gāvī’ – literally ‘the cow that has been skinned.’ But we have to understand by it not a cow that is fully skinned to death – only that in some parts of its body skin has come off. The Buddha is here speaking about such a cow. He says that if that cow stands near a wall, creatures in the wall would eat the flesh. If it stands near a tree, creatures in the tree would eat into the wound. If it goes down into water, creatures living in the water would eat into its body. If it stands in an open space, birds would peck at its wounds. Wherever that cow stands, creatures there would eat into it. Just ponder over the depth of this simile. How do we experience the pleasure of bodily contact? What is next to contact is feeling. You had better reflect on this statement:</p><p>There is a difference between the feeling experienced with the skin and the feeling experienced without the skin. Suppose we have an open wound. Let alone other soft things, a velvet cloth is extremely soft to the touch. When a velvet cloth touches the wound, do we get a pleasurable feeling? What has happened now?</p><p>Let us add a post-script to this simile. The Buddha has compared the entire body to a wound. If the whole body is a ‘wound’, what could be the skin? The skin is the ‘bandage’ on it. It is to decorate this bandage that worldlings, especially females, are spending so much. To ‘paint’ the bandage and make it fashionable, females in particular take a lot of pains. When a tiny scratch occurs the pleasure of touch is gone. I need not give you instances. Just reflect on the difference between the feeling with the skin and without the skin. So the simile of ‘niccammā gāvī’ (skinned cow) given by the Buddha is extremely profound.</p><p>Let us now revert to the simile given by the Buddha with reference to the feeling of touch in the Indriyabhāvanā Sutta. It concerns the reaction to the feeling of touch. He even gives a formula to show how quickly a monk should dispel a liking or a dislike or a mixture of both on experiencing a touch sensation. He gives an insightful formula to be used in bringing the mind to rest in equanimity. A monk should reflect:</p><p>‘Here is a liking, a disliking or both arisen in me. But that is something prepared, gross and dependently arisen. This is peaceful, this is excellent, namely equanimity (….tañca kho saṅkhataṁ oḷārikaṁ paṭiccasamuppannaṁ. Etaṁ santaṁ etaṁ paṇītaṁ yadidaṁ  upekkhā’). In fact, that principle is applied to every sense faculty. With reference to the body this is the simile given in the Indriyabhāvanā Sutta to illustrate the rapidity of bringing one’s mind to ‘upekkhā’ or equanimity:</p><p>‘As quickly as a strong man would stretch his bent arm or bend his outstretched arm.’ This simile often occurs in the Buddhist scriptures with reference to the speed with which one who has  psychic powers ‘disappears’ from one place and appears at another place. So in speaking about the body, the Buddha has taken a simile from the body itself.</p><p>Now we come to the mind. It is with the idea of saving time for dealing with the mind that I dealt with the other senses in brief. Mind is the knottiest point in the stitch of the seamstress craving. It is the last ‘trump’ of Māra. That is where all beings in the world including the scientist and the philosopher has got stuck. There too, to begin with, let us take up the ‘two ends’ of the Majjhe Sutta. Mind is one end. The other end is mind-objects (dhammā). One who puts the knot between them is the seamstress craving. We have to explain a very deep point in this connection.</p><p>Let us hark back to the term ‘manasikāra’. In the Pāli language the etymology of the word is:</p><p>‘Manasi’ is in the locative case – that means ‘in the mind’ and ‘kāra’ is ‘doing’. So ‘manasikāra’ is suggestive of some ‘doing’ in the mind. That ‘doing’ in the mind inadvertently we direct towards some object. That is a very deep point. Now that we have mentioned the word ‘manasikāra’ let us bring in another discourse we came across earlier too. We have already discussed it. When I mention its title those of you who had listened to it earlier would easily understand – namely Kimmūlaka Sutta. That also is a very wonderful discourse.</p><p>The Buddha asks the monks:</p><p>“How, monks, would you reply if wandering ascetics of other sects raise a set of questions like this?” the monks confess:</p><p>“We do not know how to reply. Would the Fortunate One himself tell us the answers.”</p><p>What is noteworthy is that the Buddha himself presents the set of questions. That indicates how important and how deep the questions are. Now the Buddha repeats the set of questions and says:</p><p>“If they question you, you had better give these answers.”</p><p>We have discussed that discourse earlier. So in this context we shall take up only the first three questions that are relevant.</p><p>“Kimmūlakā āvuso sabbe dhammā?”</p><p>“What, friends, is the root of all things?”</p><p>“kiṁ sambhavā sabbe dhammā?”</p><p>“What is the coming up of all things?”</p><p>“kiṁ samudayā sabbe dhammā?”</p><p>“What is the arising of all things?”</p><p>The answer to the first question is:</p><p>“Chandamūlakā āvuso sabbe dhammā.”</p><p>“Interest, friends, is the root of all things.”</p><p>We defined ‘chanda’ as the lightest shade of craving. In fact it is so light that it is hardly recognizable. According to the traditional way of explanation “craving is bad but the desire for the skillful (Kusalacchanda) is alright.”</p><p>But even that has to be given up. That is why it is said in the Dhamma</p><p>“Chandaṁ nissāya chandaṁ pajahatha”</p><p>“Depending on desire give up desire.”</p><p>It is a wonderful Middle Path. In the final reckoning even that has to be abandoned. The desire for the skillful is good. One cannot do without it. The desire for calm and insight must be there. But there comes a time to give it up as well.</p><p>That shows the fact that ‘chanda’ which we rendered by ‘interest’ is the root of all things. Just think why a problem comes to our mind as if from nowhere. It is ‘interest’ however subtle it may be. But it comes up. What finds or discovers it is attention – ‘manasikāra sambhavā’. It arises from ‘contact’ – ‘phassa samudayā’. I do not know much about the computer but as far as I can see, all the above three are found in the computer. We spoke of ‘chanda’ (interest), ‘manasikāra’ (attention) and ‘phassa’ (contact). Out of these, ‘chanda’ is the ‘mouse’. As you know, the mouse works unseen – stealthily. One cannot even see it working. When the mouse is active what happens? The ‘cursor’ starts running. That is attention. So ‘interest’ is the ‘root’ – the ‘mouse’, which works stealthily. What does it do stealthily? It sets the ‘cursor’ working. What does the cursor aim at? The ‘menu’ – that is phassa – ‘contact’. It is from there onwards that one ‘enjoys’ what is ‘dished up’ by the computer. We gave this analysis to make the explanation as practical as possible.</p><p>So then it seems ‘interest’ is the root of all things. Until the Buddha pointed it out, the world was unaware of it. Every time we conclude a deep disquisition by citing two simple verses which everyone knows. Let us recall them – at least the relevant portion. ‘Manopubbaṅgamā dhammā – manoseṭṭhā mano-mayā’. All this time the commentarial tradition had interpreted it differently. As we pointed out in explaining the line ‘manopubbaṅgamā dhammā’, out of the two terms ‘mano’ (mind) and ‘dhammā’ (mind-objects) on either side, mind comes first as the ‘forerunner’ (manopubbaṅgamā). ‘Manoseṭṭhā’ – the mind-objects have mind as their chief. Not only that, ‘manomayā’ – the mind-objects are ‘mind-made’. That is why there is that word with its peculiar etymology:</p><p>‘manasikāra’ (lit. doingwithin-the mind) that is attention. We were not aware that an object of the mind is of mind’s own making. So then it seems that all this gimmick is carried on with something made by the mind itself. Just see how subtle the knotty stitch of the seamstress craving is. It is by accelerating the speed of attention as in the table-tennis game,  that one can catch up with it. The secret of attention (manasikāra) is discovered by accelerating ‘radicalattention’ (yoniso-manasikāra). That is to say by attending promptly – then and there. This is something almost ‘unimaginable’.</p><p>There comes a time when the place of origin of a thought comes to light. There is in fact a couple of lines of a verse in a certain discourse which even the commentaries do not explain correctly:</p><p>‘Disvā āyatanuppādaṁ – sammā cittaṁ vimuccati.’ ‘Having seen the arising of sense-spheres – the mind is well released.’ What is meant by saying that if at any time one sees the arising of the sense-spheres, the mind is emancipated? The arising of the sense-spheres occurs at a speed hardly discernible.</p><p>With extreme rapidity, the ‘give-and-take’ process goes on between the mind and the mind-object. Everyone thinks that the mind-object stands before the mind, for one can argue:</p><p>‘How can we think without an object?’ But from the etymology of the term ‘manasi-kāra’, one can understand that the mind-object itself is mind-made. That is why we say ‘manomayā’. At whatever occasion one comes to understand it, the magic-show of consciousness gets exposed. It is this magician – this juggler – who creates this confusion. What we find in this magic-show is the mind and its object which is of its own making. In the final reckoning it amounts to the same problem of the deer and the mirage. Only when one accelerates radical attention to the utmost, one comes to understand it as it is.</p><p>We need not give a simile of our own. Any simile we can give falls far below the mark when compared to the simile given by the Buddha with reference to the mind.</p><p>“Suppose, monks, a man lets fall two or three drops of water into an iron-cauldron heated all day long. The dropping of those water-drops is slow but their drying up and evaporation is instantaneous.”</p><p>Just try to visualize it. You let two or three drops of water to fall from above into an intensely heated iron-cauldron. If you watch the drops as they fall, you fail to see them drying up.</p><p>In this simile we seem to get a hint to what is happening between mind and mind-object. But even that if a meditator realizes by accelerating radical attention, he has seen the arising of sense-spheres – how the two come together and consciousness arises. To see the arising of consciousness is to see the Law of Dependent Arising:</p><p>“Cakkhuñca  paṭicca rūpe ca uppajjati cakkhuviññāṇaṁ.”</p><p>Note the significance of the two words:</p><p>‘Paṭicca uppajjati’ – Depending on eye and forms arises eye consciousness. The Buddha has preached that consciousness is a magic show. That is why it is said:</p><p>‘Majjhe mantā na lippati’. Gets not attached at the middle with wisdom. ‘Yo ubhante viditvāna’ – ‘He who having understood both ends.’ Why does one who understands both ends has no attachment to the middle? Because he has wisdom. He has discovered the magic of consciousness. We have so often said that if one sees the interior of a magic show the magic is no more for him. It happens at the above mentioned occasion. It is then that radical attention or ‘yoniso manasikāra’ which we called the ‘seed’ of wisdom bears its fruit as wisdom itself. In that wisdom, consciousness has no place. That is why it is said ‘paññā bhāvetabhā viññāṇaṁ pariññeyyaṁ’ – ‘wisdom has to be developed, consciousness has to be comprehended.’ In order to comprehend consciousness wisdom has to be developed. At the peak of the development of wisdom, the secret of consciousness is exposed. It is exposed at the above mentioned moment. The arising of sense-spheres is seen then and there. Along with the seeing of the arising of sense-spheres, their cessation becomes obvious, since whatever that has arisen has to cease. That is the realization of cessation (nirodha). Then, there is that peaceful and excellent Nibbāna as expressed in the memorable formula, beginning with ‘Etaṁ santaṁ etaṁ paṇītaṁ’ (This is peaceful, this is excellent.) etc.</p><p>The question now comes up about the object of the mind – dhamma. We said that a meditator cannot do without it. There is a very important discourse which is relevant to the discussion of that point – namely, Alagaddūpama Sutta. In that discourse the Buddha has given the simile of the raft. He declares:</p><p>“Kullūpamaṁ vo bhikkhave dhammaṁ desissāsi.”</p><p>“Monks, I will preach to you a Dhamma which is comparable to a raft.”</p><p>A man going on a long journey comes across a great expanse of water. There is no ferry boat or bridge. Since there is no other alternative he collects some branches from here and there, binds them together with creepers and improvises a raft. With its help and making an effort with his hands and feet, he gets across to the farther shore. Once he gets to the other shore, he no longer needs the raft. So he sets it adrift in the water. Drawing the  moral from this parable the Buddha says:</p><p>“Kullūpamo mayā bhikkhave dhammo desito nittharaṇatthāya, no gahaṇatthāya.”</p><p>“I have preached the Dhamma with the simile of the raft just for crossing over, not for grasping.”</p><p>In the same connection he says:</p><p>If one has understood this simile, even those things that have to do with Dhamma have to be given up. What to say of things on the side of Adhamma – that is those contrary to the Dhamma.</p><p>If I may allude to another simile for you to understand this moral in brief, I have already discussed the simile of the seven relay-chariots in the Rathavinīta Sutta. It is a simile resembling the modern relay-race. King Pasenadi of Kosala has some urgent business in Sāketa and seven relay-chariots are arranged for him. Because horses get tired the king dismounts from the first relay- chariot and mounts the second relay-chariot. Likewise from the second to the third and from the third to the fourth and so on and finally arrives at Sāketa by the seventh chariot. It is after getting down from the seventh chariot that he settles his business. The simile given is an illustration of the sequence of the seven purifications. The purification of virtue is purposeful as far as purification of the mind, purification of the mind is purposeful as far as purification of view and in this way seven purifications are mentioned. The seventh is purification by knowledge and vision but even that has to be given up because perfect Nibbāna is without clinging (anupādā parinibbāna). This is very wonderful. In no other religious system you find anything like this. Giving up itself is Nibbāna.</p><p>It is to explain this that we used two terms in our sermons and books, namely ‘pragmatic’ and ‘relative’. Because it is pragmatic we make use of it, because it is relative we give it up. Now I am going to give you a new simile of a type you had never heard before. As you know, there are relay-races. In this race I am going to describe, there are two teams – Māra team and the Buddha team. We are not concerned with the participants of the Māra team. In the Buddha-team there are four runners. In a relay race they make use of a baton to be carried and passed on. The baton has to reach the winning-post for a team to win. Runner  No 1. starts running. He runs in self-sacrificing spirit. He runs with all his efforts, panting all the way. On reaching the second runner he successfully hands over the baton to him but himself falls dead. His partner does not look back to see whether his friend is dead but runs in the same spirit putting forth his best efforts. He runs and runs panting and passes the baton to the third and falls dead. The third in the same spirit and with the same vigour runs and passes the baton to the fourth but falls dead. The fourth likewise runs in the same spirit with all his might to reach the winning-post. There he hands over the baton to the judge and himself falls dead. Who gets the prize? Who won the race? Is the ‘baton’ the winner? There is no one to receive the      prize. Take it that Nibbāna too is something like that.</p><p>Everyone seems to have the problem of ‘self’ and ‘not-self’ (‘attā’ and ‘anattā’).</p><p>Who attains Nibbāna?</p><p>The Buddha has said in repudiation:</p><p>“These Brahmins are leveling at me a false charge of preaching annihilation.”</p><p>We are also accused of it because of our sermons highlighting the Buddha-word. But this is how the Buddha answers the charge of preaching annihilation:</p><p>“Formerly, as well as now I point out only suffering and the cessation of suffering”.</p><p>“Dukkhameva uppajjamānaṁ uppajjati dukkhaṁ nirujjhamānaṁ nirujjhati.”  “What arises is only suffering and what ceases is only suffering.”</p><p>There is no question of persons at all. If so there is nothing to lament. Those who lament it are doing so because of ignorance.</p><p>Well then, if you all have come with me in this pilgrimage, the destination is the mind. But of course one can reach it through any of the six senses. That is why we said that there is Nibbāna even at the tip of the tongue, provided the meditator properly directs radical attention. Some ancient episodes can be true up to a point though there are exaggerations in the commentaries. It is said that in the past in such sacred cities like Anuradhapura and Mihintale there is no seat in the monasteries seated on which some monk had not attained arahanthood while partaking of porridge at dawn by reflecting wisely on food. By practicing it regularly as soon as one discovers the secret at the tip of the tongue, one directly comes to the mind. Finally one arrives at the mind. Whatever is amassed through other senses at last boils down to mind and mind-objects. That is where insight reaches its peak. If one discovers that secret the magic-show of consciousness is exposed then and there. Wisdom is perfected and the journey ends. The Buddha team has won, and the Māra team has lost.</p><p>Now that, dear listeners, you have listened attentively to what we have said, try to bring victory to the Buddha team. Don’t think that you go somewhere on attaining Arahanthood. Don’t expect a ‘Simple Simon’ (‘Siyadoris’) Nibbāna. Try to boost up the Buddha team taking the cue from those dead runners. So that is the illustration for the Four Supramundane Paths and Four Fruits. Try to recognize the four runners. I wish to wind up now.</p><p>Out of all sermons given so far this is probably the most practical. Please make the best use of this sermon. May the merits of listening to this sermon conduce to your attainment of Nibbāna here and now! Whatever beings there be, from the lowest hell to the highest Brahma world wishing to rejoice in this sermon, may they, with the help of this sermon with its meditation topics, attain the highest aim – the Deathless Nibbāna!</p>
+</article>
+
+<div class="sermon-nav-bar" style="margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+<a href="chapter_14.html">&larr; Previous Chapter</a>
+<a href="read.html">Table of Contents</a>
+<a href="chapter_16.html">Next Chapter &rarr;</a>
+</div>
+</main>
+<footer><p>This website is offered in the spirit of Dhamma Dana, freely available to all.</p></footer>
+<script>
+function setFontSize(size) {
+    const article = document.getElementById('readerArticle');
+    article.style.fontSize = size;
+    localStorage.setItem('preferred_font_size', size);
+    document.querySelectorAll('.control-group button').forEach(b => {
+        if(['Small','Medium','Large','X-Large'].some(t => b.innerText.includes(t))) {
+            b.classList.remove('active');
+        }
+    });
+    if(size === '1rem') document.getElementById('size-sm').classList.add('active');
+    if(size === '1.15rem') document.getElementById('size-md').classList.add('active');
+    if(size === '1.3rem') document.getElementById('size-lg').classList.add('active');
+    if(size === '1.5rem') document.getElementById('size-xl').classList.add('active');
+}
+
+function setFontFamily(font) {
+    const article = document.getElementById('readerArticle');
+    article.style.fontFamily = font;
+    localStorage.setItem('preferred_font_family', font);
+    document.getElementById('font-serif').classList.toggle('active', font.includes('Georgia'));
+    document.getElementById('font-sans').classList.toggle('active', !font.includes('Georgia'));
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const savedSize = localStorage.getItem('preferred_font_size');
+    const savedFont = localStorage.getItem('preferred_font_family');
+    if(savedSize) setFontSize(savedSize);
+    if(savedFont) setFontFamily(savedFont);
+});
+</script>
+</body>
+</html>

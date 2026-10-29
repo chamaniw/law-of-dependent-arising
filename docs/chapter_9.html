@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 9 (Sermon 191) | The Law of Dependent Arising</title>
+<style>
+:root {
+    --header-bg: #800000;
+    --header-text: #ffffff;
+    --header-subtitle: #ffd1d1;
+    --primary-color: #5c2c16;
+    --accent-color: #c88a2a;
+    --bg-color: #fdfbf7;
+    --card-bg: #ffffff;
+    --text-color: #2c2c2c;
+    --text-muted: #666666;
+    --border-color: #e2d7c7;
+    --reader-font-family: Georgia, "Times New Roman", serif;
+    --reader-font-size: 1.15rem;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.site-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 1.5rem 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-align: center;
+}
+.brand-section .logo-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+}
+.brand-section .subtitle {
+    font-size: 0.95rem;
+    color: var(--header-subtitle);
+    font-style: italic;
+    padding: 0 0.5rem;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+}
+.top-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.2s, color 0.2s;
+}
+.top-nav a:hover, .top-nav a.active {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.main-content {
+    max-width: 950px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.hero {
+    background: var(--card-bg);
+    padding: 2.5rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    text-align: center;
+}
+.hero h1 { font-size: 2rem; color: #222; margin-bottom: 0.3rem; }
+.hero h2 { font-size: 1.15rem; color: var(--primary-color); margin-bottom: 0.4rem; font-weight: normal; font-style: italic; }
+.hero h3 { font-size: 1.2rem; color: #333; margin-bottom: 1.5rem; font-weight: normal; font-style: italic; }
+.hero .author-title { font-size: 1.05rem; color: #555; margin-bottom: 2rem; font-style: italic; }
+
+.pali-quote { 
+    color: var(--header-bg); 
+    text-align: center; 
+    margin: 2.5rem 0; 
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin: 2rem 0;
+}
+@media (max-width: 768px) {
+    .button-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .main-content {
+        margin: 1rem auto;
+        padding: 0 0.5rem;
+    }
+    .hero {
+        padding: 1.5rem 1rem;
+    }
+    .brand-section .logo-title {
+        font-size: 1.5rem;
+    }
+}
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1rem;
+    background-color: var(--header-bg);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+.btn:hover { background-color: #5c0000; }
+.btn-secondary {
+    background-color: transparent;
+    color: var(--header-bg) !important;
+    border: 1px solid var(--header-bg);
+}
+.btn-secondary:hover { background-color: #f4eee6; }
+
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.chapter-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-color 0.2s, transform 0.1s;
+    text-decoration: none;
+    color: inherit;
+}
+.chapter-card:hover {
+    border-color: var(--header-bg);
+    transform: translateY(-1px);
+}
+.chapter-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--header-bg);
+}
+.sermon-badge {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    font-size: 1.1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    outline: none;
+    font-family: Georgia, serif;
+}
+.search-input:focus {
+    border-color: var(--header-bg);
+    box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.1);
+}
+
+.sermon-reader {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2.5rem 3rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    font-family: var(--reader-font-family);
+    font-size: var(--reader-font-size);
+    line-height: 1.9;
+}
+@media (max-width: 768px) {
+    .sermon-reader {
+        padding: 1.2rem 1rem;
+    }
+}
+.sermon-reader p {
+    margin-bottom: 1.6rem;
+    text-align: justify;
+}
+.sermon-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.sermon-nav-bar a {
+    color: var(--header-bg);
+    text-decoration: none;
+    font-weight: 600;
+}
+.sermon-nav-bar a:hover { text-decoration: underline; }
+
+.reader-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4eee6;
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.control-group button, .download-btn {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--header-bg);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background 0.2s, color 0.2s;
+}
+.control-group button:hover, .control-group button.active, .download-btn:hover {
+    background: var(--header-bg);
+    color: #fff;
+    border-color: var(--header-bg);
+}
+
+mark {
+    background-color: #ffeeba;
+    color: inherit;
+    padding: 0.1rem 0.2rem;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    margin-top: 4rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="brand-section"><div class="logo-title">The Law of Dependent Arising</div><div class="subtitle">The Secret of Bondage and Release &mdash; Ven. Katukurunde Nanananda Thero</div></div><nav class="top-nav"><a href="index.html">Home</a><a href="read.html" class="active">Read</a><a href="listen.html">Listen</a><a href="search.html">Search</a><a href="about.html">About</a></nav></header>
+<main class="main-content" style="max-width: 950px;">
+<div class="sermon-nav-bar">
+<a href="chapter_8.html">&larr; Previous Chapter</a>
+<a href="read.html">Table of Contents</a>
+<a href="chapter_10.html">Next Chapter &rarr;</a>
+</div>
+
+<div class="reader-controls">
+  <div class="control-group">
+    <span>Font Size:</span>
+    <button onclick="setFontSize('1rem')" id="size-sm">Small</button>
+    <button onclick="setFontSize('1.15rem')" id="size-md" class="active">Medium</button>
+    <button onclick="setFontSize('1.3rem')" id="size-lg">Large</button>
+    <button onclick="setFontSize('1.5rem')" id="size-xl">X-Large</button>
+  </div>
+  <div class="control-group">
+    <span>Font Type:</span>
+    <button onclick="setFontFamily('Georgia, serif')" id="font-serif" class="active">Serif</button>
+    <button onclick="setFontFamily('-apple-system, BlinkMacSystemFont, sans-serif')" id="font-sans">Sans</button>
+  </div>
+  <div class="control-group">
+    <span>Download:</span>
+    <a href="docx/sermon_009_ENGLISH.docx" class="download-btn" download>DOCX</a>
+    <a href="pdf/sermon_009_ENGLISH.pdf" class="download-btn" download>PDF</a>
+    <a href="epub/sermon_009_ENGLISH.epub" class="download-btn" download>EPUB</a>
+  </div>
+</div>
+
+<div style="text-align: center; margin-bottom: 2rem;">
+<h1 style="font-size: 1.8rem; margin-bottom: 0.3rem;">Chapter 9</h1>
+<p style="color: var(--text-muted); font-style: italic; font-family: -apple-system, sans-serif; font-size: 0.95rem;">(Pahankanuwa Sermon 191)</p>
+</div>
+
+<article class="sermon-reader" id="readerArticle">
+<p>Paticca Samuppada Sermon 9<br>The Law of Dependent Arising</p><p>(Pahan Kanuwa Sermon – No. 191)</p><p>‘Namo tassa bhagavato arahato sammāsambuddhassa’</p><p>‘Homage be! To the Fortunate One – the Worthy, Fully Enlightened!’</p><p>Yo ubhante viditvāna</p><p>Majjhe mantā na lippati</p><p>taṁ brūmi mahāpurisoti</p><p>sodha sibbanimaccagā</p><p>– Majjhe S. A.</p><p>He who having known both ends</p><p>Gets not attached at the middle with wisdom</p><p>Him I call a Great Man</p><p>He has gone beyond the seamstress here.</p><p>Dear Listeners,</p><p>It is on a Vesak Full Moon day like this, that the Fully Enlightened One, the Teacher of the Three Worlds realized the Deliverance from repeated birth in Saṁsāra. Through the understanding he achieved along with Full Enlightenment, he discovered the secret of Saṁsāric existence.  He understood that for an incalculable period, beings in the world have been wandering in Saṁsāra hindered by ignorance and fettered to craving.  We have chosen as the topic of our ninth sermon on Dependent Arising, a verse with a deep meaning that helps one to dispel ignorance and break free from the fetter of craving.  This verse which according to the Pārāyaṇa Vagga of the Sutta Nipāta, was preached by the Buddha to the Brahmin youth Tissa Metteyya, was so deep in meaning that when the Buddha was dwelling at Isipatana in Benares, a group of monks there, made it the topic for a Dhamma discussion as evidenced by the Majjhe Sutta in the Anguttara Nikāya.  A group of elder monks gathered at the assembly hall and in the course of their Dhamma discussion, took up this verse as the topic for a sort of symposium. This is how the topic was introduced:</p><p>“Friends, this was said by the Fortunate One in the Metteyya question of Pārāyaṇa Vagga.</p><p>Yo ubhante viditvāna Majjhe mantā na lippati taṁ brūmi mahāpurisoti sodha sibbanimaccagā</p><p>He who having understood both ends, does not get attached at the middle with wisdom, him I call a Great Man.  He has gone beyond the seamstress here.”</p><p>Having cited the verse, they extracted four questions out of it.</p><p>"What friends is the first end?</p><p>What is the second end? What is the middle?</p><p>Who is the seamstress?"</p><p>The four questions resemble a topic for a symposium. When these four questions were put forward one Venerable Thera offered the following explanation:</p><p>"Contact, friends, is one end, arising of contact is the second end, cessation of contact is the middle, craving is the seamstress, for it is craving that stitches up for the birth of this and that specific existence.”</p><p>After giving this explanation, he goes on to say:</p><p>"In so far friends, does a monk understand by higher knowledge what is to be understood by higher knowledge, comprehend by full understanding what is to be comprehended by full understanding. Understanding by higher knowledge what is to be understood by higher knowledge, comprehending by full understanding what is to be comprehended by full understanding, he becomes an ender of suffering in this very life."</p><p>That is to say, this verse is in itself a meditation topic that takes one as far as Arahanthood. The term for higher knowledge is ‘abhiññā’ and the term for full understanding or comprehension is ‘pariññā’.</p><p>Then a second Venerable Thera offers his opinion.</p><p>According to his point of view the past is one end, the future is the second end, the present is the middle and craving is the seamstress. He too sums up the depth of the verse in the same words as the other Thera.</p><p>A third Venerable Thera gives a different interpretation. For him one end is pleasant feeling, the second end is unpleasant or painful feeling and the middle is neither unpleasant nor pleasant feeling. Craving is again the seamstress.</p><p>A fourth Venerable Thera opines that one end is name, the second end is form, the middle is consciousness and the seamstress is craving.</p><p>A fifth Venerable Thera puts forward the view that the one end is the six internal sense spheres, the second end  is the six external sense spheres, consciousness is the middle and craving is the steamstress.</p><p>A sixth Venerable Thera is of the opinion that one end is sakkāya – a term for the five aggregates of grasping (lit. the existing body), the second end is the arising of sakkāya, the middle is the cessation of sakkāya and the seamstress is craving.</p><p>When six explanations had come up in this way one monk made this suggestion:</p><p>“Now that we have explained the verse according to our abilities, let us approach the Fortunate One and report our discussion. In whatever way the Fortunate One explains, so shall we bear it in mind.”</p><p>Approving that suggestion, they all went to the Buddha and after reporting the discussion in full, asked:</p><p>"Venerable Sir, whose words are well spoken (‘Kassa nu kho bhante subhāsitam?’). The Buddha replied:</p><p>"Monks, what you all have said is well said from some point of view or other, but that for which I preached that verse in the Metteyyapañha is this:</p><p>and quoting the verse in question, the Buddha explains:</p><p>"Monks contact is one end, and the arising of contact is the second end, the cessation of contact is in the middle, craving is the seamstress for it is craving that puts the stitch for the birth of this or that existence.</p><p>In so far Monks, does a monk understand by higher knowledge what is to be understood by higher knowledge and comprehend by full understanding what is to be comprehended by full understanding, understanding by higher knowledge what is to be understood by higher knowledge and comprehending by full understanding what is to be comprehended by full understanding, he becomes and ender of suffering in this very life."</p><p>From this we can see that the Buddha’s explanation happens to coincide with the interpretation given by the first speaker at the symposium.  However the interpretations given by the other five monks are also correct. From this we can see how profound in meaning this cryptic verse is. It may be that the six</p><p>Theras presented their own meditation topics through these interpretations. The common feature of these six interpretations is that the seamstress is identified with craving.</p><p>Let us now turn our attention to craving. Why is craving called the seamstress?  Craving has a number of nicknames. It is called the ‘glue’ (lepa) or the ‘sticker’ (visattikā).  In such discourses as the Dhammacakkappavattana Sutta  this seamstress craving has been given a number of titles. By the way, since taṇhā happens to be in the feminine gender the idea of a seamstress is quite apt, and those titles are like her qualifications.</p><p>‘yāyaṁ tanhā ponobhavikā nandirāgasahagatā tatratatrābhinandinī’. She is the one responsible for bringing about rebirth (ponobhavikā) accompanied by delight and lust</p><p>(nandirāgasagatā) 	delighting 	now-here, 	now-there (tatratatrābhinandinī). Notoriously licentious as she is, this flirting trait of delighting now here, now there helps the seamstress in putting stitch after stitch in rapid succession as in the case of a sewing machine. The net result is the sewing together of two folds. Though this may sound as an anachronism, the sewing machine is a good illustration of the role of the seamstress. As soon as the needle goes down, the shuttle hastens to put the stitch. So the epithet ‘seamstress’ is quite apt since craving puts together the two ends ignoring the middle, even as the sewing machine stiches the two folds in sewing.</p><p>Let us now try to clarify for ourselves the characteristics of craving with reference to the six interpretations. First of all, we may take up the first interpretation which was approved directly by the Buddha himself. According to it, one end is contact, the second end is the arising of contact, the middle is the cessation of contact and craving is the seamstress. What can we understand by saying that contact is one end? Now as for contact, it is customary for the world to think of one who contacts, when the word ‘contact or touch’ comes up. For instance, one might say ‘it touched my body’ or ‘I touched it’. We come across something to that effect in the Nidāna Saṁyutta of the Saṁyutta Nikāya where Venerable Moḷiya Phagguna asks the Buddha:</p><p>‘Who is it Venerable Sir, that touches?’  The Buddha disallows the question with the words ‘na kallo pañho’ – ‘not a proper question.’ There the Buddha says:</p><p>‘I do not say one touches’ and instructs Venerable Phagguna to understand the occurrence of touch as a dependently arisen phenomenon. The correct mode of understanding according to the Buddha is:</p><p>‘saḷāyatana paccayā phasso, phassa paccayā vedanā’ – ‘Dependant on the six sense spheres is contact and dependant on contact is feeling’. So it seems that what happens due to contact, the world attributes to a person because of the ‘personality-view’ (sakkāyadiṭṭhi). The phrase ‘yo ubhante viditvāna’ means ‘he who having understood both ends’. By understanding correctly both ends, with wisdom one does not get attached at the middle. The correct understanding of contact is in the way the Buddha has pointed out:</p><p>‘saḷāyatana paccayā phasso’ – ‘Dependant on the six sense spheres is contact.’</p><p>‘Arising of contact’ (phassa samudaya) is a question that goes even deeper.  It is not easy for one to understand how contact arises. We get a clue to its understanding from the Madhupiṇḍika Sutta  of the Majjhima Nikāya. On previous occasions too, we may have explained to you in various ways the exposition by Venerable Mahā Kaccāna of the workings of the six sense spheres. There he says;</p><p>‘cakkhuñcāvuso 	paṭicca 	rūpe 	ca 	uppajjati cakkhuviññāṇaṁ. Tiṇṇaṁ saṅgati phasso. Phassa paccayā vedanā ....’</p><p>‘Friends, depending on eye and forms arises eyeconsciousness. The concurrence of the three is contact.  Dependent on contact, feeling .....’</p><p>Therein the words:</p><p>‘cakkhuñcā paṭicca rūpe uppajjati cakkhuviññāṇaṁ’ are noteworthy. The two words ‘paṭicca’ and ‘uppajjati’ reminds us of the term ‘paṭicca samuppāda.’ It seems then that the arising of eye consciousness itself gives a clue to the understanding of the Law of Dependent Arising.  Even consciousness is dependently arisen.  The world takes consciousness to be self. But the Buddha points out that eyeconsciousness arises depending on eye and forms. For a further clarification of this point one has to turn to the exposition given by Venerable Sāriputta in the Mahā Hatthipadopama Sutta.  Usually, we think that if something comes before our eyes we ought to see it.  But that is not exactly the case.  Venerable Sāriputta tells us that something subtle is involved in a perceptual situation.</p><p>First of all, in order to see, the eye must be in working order. Even if the eye is unimpaired and forms come within the visual range, still the eye consciousness does not arise.</p><p>The third requirement is expressed with an unusual phrase:</p><p>‘tajjo samannāhāro’.  ‘Tajjo’ means ‘born thereof’, that is to say ‘specific’. ‘Samannāhāro’ has the sense of coming into proper ‘focus’. But that focussing is part and parcel of that particular perceptual situation.  It is not a focussing directed from elsewhere.</p><p>So then, simply because the eye is intact, one does not see. Even if forms come within the proper range, one does not see.</p><p>The third essential factor is what is called ‘tajjo samannāhāro’. The focussing or the ‘bringing together’ implied by ‘samannāhāro’ is ‘born of that’ (tajjo), that is the perceptual situation itself. That means it is conditionally arisen. It seems, Therefore, that even eye consciousness arises due to causes and conditions. This is something the worldling is not prepared to accept. Instead he brings in the idea of a self.</p><p>Venerable Mahā Kaccāna goes on to say something more. ‘cakkhuñca paṭicca rūpe ca uppajjati cakkhuviññāṇaṁ tiṇṇaṁ saṅgati phasso’</p><p>‘Depending on eye and forms arises eye consciousness, the concurrence of the three is contact’.</p><p>Now, what is the ‘three’? The eye, forms and eyeconsciousness. It is not proper to count eye, forms and eyeconsciousness as ‘three’ because the third is the outcome of the other two. But the world doesn’t see it because of ignorance. Just try to understand this. Depending on eye and forms eye-consciousness arises, but it is by putting the three together that the situation called ‘contact’ comes to be. That means contact is something ‘made-up’ – something ‘prepared’ (saṅkhata). It is by forgetting or ‘ignoring’ the fact that consciousness is dependently arisen, that one puts together ‘the three’ to make up contact. So at whatever moment the dependently arisen nature of consciousness is seen as a matter of experience that contact ceases then and there.</p><p>Well, that is the cessation of contact, what prevents its occurrence? Craving. It stitches together contact and the arising of contact without allowing the worldling to see the cessation that is in the middle. One can see it only with keen insight. It is by seeing penetratively the impermanence of contact, that one gets the ability to see its cessation. Since this is the first interpretation which tallied with the Buddha’s own explanation, we discussed it at length.</p><p>Let us now take up the second interpretation. According to it, one end is the past, the second end is the future and the middle is the present. There too it is craving that puts the stitch. The best illustration is found in the Bhaddekaratta Sutta  which we had discussed earlier too. There we get the following instructive lines:</p><p>Atītaṁ nānvāgameyya</p><p>Nappatikaṅkhe anāgataṁ</p><p>Yadatītaṁ pahīnaṁ taṁ</p><p>appattañca anāgataṁ</p><p>paccuppannañca yo dhammaṁ</p><p>tattha tattha vipassatī</p><p>Let one not trace back the past</p><p>Or yearn for the future – yet to come</p><p>That which is past is left behind</p><p>The yet-to-come is unattained</p><p>And that which is present he discerns</p><p>With insight as and when it comes</p><p>The advice is not to run after the past nor to have expectations about the future because the past is gone and the future has not come yet. Even the present has nothing in it to hold on to when one sees it with insight. That is to say, as insight gets keener and keener, one finds nothing to grasp there. But what craving does is to stitch up past and future ignoring the present. On a previous occasion, we cited a highly significant verse in that connection based on the story of the acrobat Uggasena. That verse the Buddha addressed to Uggasena as he stood on top of the sixty-cubit bamboo pole, served as the meditation subject for him to attain arahanthood.</p><p>Muñca pure muñca pacchato</p><p>Majjhe muñca bhavassa pāragū</p><p>Sabbattha vimutta mānaso</p><p>Na puna jātijaraṁ upehisi</p><p>Let go what has gone before</p><p>Let go that which comes after</p><p>Let go thy hold on the middle as well</p><p>And get well beyond all existence</p><p>Thus with mind released in every way</p><p>Thou comest never more to birth and decay</p><p>As soon as he heard that verse, the acrobat Uggasena attained arahanthood even as he stood on top of the bamboo pole. He stood balanced on the bamboo pole having given up thoughts of the past and the future. It was for him a very critical moment. The middle is the present moment. To let-go of the middle is to give up the present. To the acrobat who has given up thoughts of the past and future to stand precariously balanced with concentration, it is easy to let go of the present. What the seamstress craving keeps doing is to tempt us to forget the present and hold us confused between memories of the past and dreams about the future. Instead of it, if one gets used to attending to the present preparations then and there, at the peak of insight meditation, one can by-pass the seamstress and win freedom.</p><p>Now as for the third interpretation, the pleasant feeling is one end, the unpleasant feeling is the second end and the middle is the neither unpleasant nor pleasant feeling. There too, craving is the seamstress. What is her job there? The Buddha says that the uninstructed worldling when touched by painful feeling, delights in the pleasant feeling because he doesn’t see an escape from it other than sense pleasures.  On a previous occasion when we were discussing this problem we said that the ordinary worldling is ‘see-sawing’ between pain and pleasure ignoring the neither unpleasant nor pleasant feeling in the middle. The Buddha puts across to us this truth in another way saying that what underlies pleasant feeling is the latency to lust, what underlies unpleasant feeling is the latency to hate and that what underlies neither unpleasant nor pleasant feeling is the latency to ignorance. That is why generally the neither unpleasant nor pleasant feeling is slurred over and ignored. It is by exploiting this ignorance that the seamstress craving puts the stitch between pleasant feeling and unpleasant feeling.</p><p>However, the Buddha shows us a way out through insight here too by a peculiar analysis. He says that the counterpart of pleasant feeling is painful feeling and the counterpart of unpleasant feeling is pleasant feeling. But between these two, at the fulcrum of the see-saw, there is ignorance as the counterpart of the neither unpleasant nor pleasant feeling. Luckily, the counterpart of ignorance is knowledge, the counterpart of knowledge is deliverance and the counterpart of deliverance is Nibbāna. So instead of the ‘dead-end’ between pain and pleasure the Buddha points to a way out at the middle that goes deep.  For deliverance, one has to delve deeper at the middle. In removing the ignorance underlying the neither unpleasant nor pleasant feeling, one hits upon knowledge. In other words, to give up ignorance is to arouse knowledge. Along with knowledge comes deliverance leading to Nibbāna. Exploiting the ignorance of the worldling of this exit at the middle, craving lures the worldling into an endless ‘see-sawing’ between pain and pleasure. So then here too, in order to bypass the seamstress, one has to have insight directed on the neither unpleasant nor pleasant feeling and understand it in the light of preparations (saṅkhārā) and attain deliverance. That is as far as the third interpretation is concerned.</p><p>Now for the fourth interpretation. Once again we are at a deep point. One end is name (nāma), the second end is form (rūpa) and the middle is consciousness (viññāṇa). This is a telling argument against the popular definition of nāma as the four immaterial aggregates – feeling, perception, preparations and consciousness. The aggregate of ‘form’ is taken as ‘form’ (rupa) in name and form (nāmarūpa). The fact that this popular definition is utterly ill founded is clearly revealed by this fourth interpretation since according to this interpretation consciousness comes in between name and form, it can in no way be included under name. Besides, we have quoted the words of the Buddha as well as of Venerable Sāriputta  in support of the fact that feeling, perception, intention, contact and attention are the five constituents of name and that form is tantamount to the perception of form based on the four primaries as amenable to the constituents of name. In fact once we got you to count on your fingers so that you will have the constituents of name literally at your finger tips. On several occasions we pointed out that name in name and form is formal name and form in name and form is nominal form. Now what does the seamstress craving do?  She makes one forget about consciousness and stitches up name with form. The deer runs after the mirage imagining it to be over there. It thinks the form it sees is real.</p><p>In this connection we brought up another simile – the story of the Greek youth Narcissus. Handsome Narcissus who had never seen his own face while roaming in a forest bent down into a pond to wash his face. Seeing the reflection of his face in the water he imagined an angel in the pond and made a vain attempt to embrace her and pined away and died by the pond. Here too Narcissus was deceived by the seamstress craving. This is an apt illustration of ‘nāmarūpa’ since the five factors of name can be clearly understood through it. Now, feeling is the love or lust giving rise to the ‘perception’ of an angel prompting an intention to look again and again and there is an apparent ‘contact’ to sustain ‘attention’. But as it was non-radical attention or ‘ayonisomanasikāra’ Narcissus was deluded enough to think that he looked because the ‘angel’ appeared, but the truth is that an angel appeared because he looked. So he imagined an angel in the pond. Consciousness also has a reflective quality like that of water. That is the magical illusion about it. Psychologically, it makes ‘reflection’ a possibility. Reflection invites attention. Wrong or non radical attention creates delusion but radical attention enables one to understand the delusion. Here we can clearly see that consciousness is in the middle between name and form.</p><p>All this conclusively shows that in no way can consciousness be included in name (nāma) as traditionally explained. In order to bypass the seamstress craving with her tactful stitching up, one has to have a proper understanding of the nature of consciousness. Only when one understands the magical illusion in it, can one attain freedom from name and form (nāmarūpa).</p><p>The interpretation advanced by the fifth Venerable Thera has as the two ends the six internal sense spheres and the six external sense spheres. There too the middle is consciouness.</p><p>The sixth interpretation refers to a ‘sakkāya’ which means the ‘five aggregates of grasping’, since the Buddha has said that ‘sakkāya’ is a synonym for these five. The one end according to this interpretation is ‘sakkāya’ or personality and the second end is ‘sakkāya samudaya’ or arising of personality and the middle is ‘sakkāya nirodha’ or cessation of personality. It is due to not seeing the cessation of personality that beings keep on arousing the notion of personality. Worldlings are always on the samudaya (arising) side. The seamstress craving hastens to put the stitch under the veil of ignorance. What helps to eradicate ignorance is the perception of impermanence. By developing it one comes to understand all these as ‘preparations’ (saṅkhārā). It is easy enough to understand the impermanence of past preparations. It is also not so difficult to understand the impermanence of future preparations. But what is difficult is the understanding of the present preparations. The fact that the perception of impermanence is helpful in winning freedom is clearly revealed by the story of the Arahant Venerable Adhimutta. When he was going through a forest, a bandit chief caught him and was about to kill him as a human oblation. He addressed the bandit chief in some verses which are highly insightful.</p><p>He says:</p><p>‘Na me hoti ahosinti</p><p>bhavissanti na hoti me</p><p>saṅkhārā vibhavissanti</p><p>tattha kā paridevanā’</p><p>It does not occur to me ‘I was’</p><p>Nor does it occur to me ‘I will be’</p><p>Mere preparations get destroyed</p><p>What is there to lament?</p><p>The next verse is all the more meaningful in the light of the simile of the seamstress.</p><p>Suddhaṁ dhamma samuppādaṁ</p><p>suddaṁ saṅkhāra santatiṁ</p><p>passantassa yathābhūtaṁ</p><p>na bhayaṁ hoti gāmaṇī</p><p>To one who sees as it is</p><p>The arising of pure preparations</p><p>And the sequence of pure preparations</p><p>There is no fear O! headman</p><p>‘Seeing as it is pure preparations – that is to say, influx free preparations – arising and ceasing as a process of pure preparations, there is no fear, O! headman.’</p><p>If we bring this in line with the simile of the sewing machine, while the sewing is going on the shuttle may run out of its load of cotton. Then the needle will pierce through one fold giving a semblance of contact to the second fold but as it comes up there is no stitch, though the cloth has moved forward. There has been a cessation in the middle as there was no grasping. Craving puts the knot so long as there is grasping. That is why the Buddha says that there is deliverance when there is no grasping. Apparently stitching goes on and there seems to be a seam, but there is no seam. To go deeper into this simile of the sewing machine, we may say that what happens during the period an Arahant is in the Arahattaphala-samāpatti (attainment to the Fruit of Arahanthood) is similar to what we have already said about the sewing machine. His ‘shuttle-free’ mind is experiencing the cessation of existence. It is free from TIME and SPACE. It is ‘time’ and ‘space’ that ‘prepare’ this world – which is a ‘prepared’ (saṅkhata).</p><p>So then, as soon as grasping ceases this mind is free from the shackles of Time and Space. The needle goes down but there is no stitch. When there is no grasping there is no Death. What helps one to attain this Deathless is insightful attention directed on preparations (saṅkhārā). They have to be seen then and there with razor-edge sharp attention. Whether it is the name and form or the sense spheres there are these two ends and the middle. The world is imprisoned in the middle. The true state of affairs comes to light in the course of insight meditation. To understand the two ends the perception of impermanence has to be developed. The personality view (sakkāyadiṭṭi) has to be done away with in order to see preparations as and when they come up with keen insight.</p><p>To non-radical attention contact appears as something done by a person. But when one arouses radical attention it is seen as a phenomenon arisen due to causes and conditions. In that understanding craving loses its hold on the mind.</p><p>Craving seeks to stitch up the two ends with the help of the notion of the compact nurtured by the perception of permanence. The two ends could even be contact and the arising of contact. The worldling is said to be on the ‘arising side’ because he cannot see the cessation of contact. But at the peak of insight meditation generally known as the ‘knowledge of breaking up’ (bhaṅgañāṇa) one sees cessation at each and every touch, as it is said:</p><p>‘phussa phussa vayaṁ passaṁ’</p><p>‘touch after touch seeing how it wanes’</p><p>The Buddha is telling us that deliverance comes by seeing the fact of cessation. Venerable Nandaka explains the same fact to the nuns. He asks them:</p><p>‘If the six internal sense spheres and the six external sense spheres are impermanent how can consciousness arising out of them could be permanent?’ Their response to that question is:</p><p>‘Tajjaṁ tajjaṁ bhante paccayaṁ paṭicca tajjā tajjā vedanā uppajjanti.</p><p>Tajjassa tajjassa paccayassa nirodhā tajjā tajjā vedanā nirujjhanti’</p><p>‘Venerable sir, due to each and every specific condition each and every specific feeling arises. With the cessation of each and every specific condition, each and every specific feeling ceases.’</p><p>As one goes on directing penetrative radical attention to preparations, one comes to understand that each contact is specific (lit. ‘born thereof’ – ‘tajjo’). The eye is impermanent and forms are impermanent and consciousness arising out of them is also impermanent. As the perception of impermanance develops by accelerating attention, one comes to understand this state of affairs. Thereby the skill in attending to preparations then and there grows. In non-radical attention the notion of mine prevails. But in radical attention one is able to discern the process of arising and ceasing of preparations. By way of a simile, what happens at the peak of accelerating attention can be compared to the rapidity of parry and thrust of the sword in duelling. If one wields radical attention with such rapidity holding Māra at bay, one can see the present preparations as and when they come up. That is what is meant by the phrase ‘tattha tattha vipassati’  (‘seeing with insight then and there’) in the Bhaddekaratta Sutta. As we said earlier, it is easy enough to understand what is past as past and what pertains to the future as future. But the present poses the biggest problem to the worldling. The present seems to be real. But to one who has developed the perception of impermanence by accelerating attention, in deep insight meditation the present crumples up then and there giving rise to dejection. It is as if while walking along a precipice with two steep slopes (that is Past and Future) on either side one is clutching on to a fence for safety. But as one proceeds one gets to know that the fence is rickety. The fence is present preparations.</p><p>As a matter of fact, attention is kept up through these preparations. However, it dawns on him at last that even these preparations are brittle. That is what gives rise to dejection. This is the middle path in insight shown by the Buddha. The instruction is to go on attending to these as preparations. But as one goes on attending, there comes a stage when they are seen to be breaking up at a dreadful rate. With that comes the knowledge of breaking up (bhaṅgañāṇa). At the start the understanding of impermanence is in terms of seeing the rise and fall. As that understanding deepens, one tends to see the falling more prominently and with it the cessation aspect reveals itself.</p><p>As soon as the cessation aspect becomes clear, a fear arises as the first reaction because what one is holding on to is breaking up. The question may come up:</p><p>‘What should be done in such a situation?’ Nothing other than deepening the insight into impermanence to such a level that one realizes the reason for that fear – namely the mis-taking of those fragile preparations to be one’s own. The only solution is to let-go of the notion of I and mine with regard to them.</p><p>In fact all these interpretations when regarded as meditation topics, have to do with the perception of impermanence. On the one hand the line ‘yo ubhante viditvāna’ – ‘He who having known both ends’ refers to the two ends. To understand the two ends is to see their impermanence. Ignorance becomes active through the notion of the compact – that is through the perception of permanence. If instead of it the meditator constantly attends to their impermanent nature, the understanding comes when they appear as name and form that everything is of a nature to arise and cease. When greater attention is directed towards the cessation aspect of preparations, their breaking up appears all the more vividly giving rise to the series of insight knowledges such as bhaṅga (breaking up) and ‘bhaya’ (fear) leading on finally to what is called ‘anupadā parinibbāna, perfect extinction through not grasping. Since existence depends on grasping (upādāna paccayā bhavo) cessation of existence (bhava nirodha) comes with the giving up. Though craving as the seamstress puts the knots, if the mind is set in such a way as to by pass the seamstress, there is deliverance.</p><p>There is one discourse which clearly shows that for birth in this and that existence craving itself becomes the grasping. It is the Kutūhalasālā Sutta of the Saṁyutta Nikāya. There the wandering ascetic Vacchagotta puts forward a certain simile to the Buddha which became the subject for a controversy on ‘antarābhava’ or ‘intermediate existence’. Vacchagotta asks the Buddha what acts as the grasping (upādāna) when a flame thrown off by the wind travels even far – probably in the case of a forest fire. The Buddha says that at that time the flame has wind as the grasping. Vacchagotta’s next question is when a being abandons this body and approaches a particular body, what is the grasping involved in it. The Buddha answers that craving itself is the grasping at that time. By misunderstanding this passage, some cite it as an argument for an intermediate existence between death and rebirth. This is definitely not a case of intermediate existence. It is craving that puts the stitch for this and that existence as it is stated after every one of the six interpretations in the explanatory note. The episode of Vacchagotta offers us a clear illustration of this phenomenon. At the moment of death, craving itself serves as the grasping (upādāna). If one has not abandoned grasping during one’s life time, at the moment of death craving prompts a desire for another existence because one is holding on to name and form. On the other hand, if one has given up the attachment to the five aggregates of grasping, then there is nothing to be grasped as a future existence.</p><p>With regard to the Five Aggregates of Grasping known as ‘sakkāya’ a certain monk once asked the Buddha a peculiar question. He asked whether the Five Aggregates of Grasping and grasping mean the same thing or whether grasping is something apart from the Five Aggregates of Grasping. The Buddha says that the Five Aggregates of Grasping and grasping do not mean the same thing nor does grasping exist apart from the Five Aggregates of Grasping. But whatever desire and lust (chandarāga) there is in the Five Aggregates of Grasping, that is the grasping therein. So the advice of the Buddha is to get rid of the desire and lust for the Five Aggregates of Grasping. Once that is given up there is no possibility of a birth into a future existence. The conviction that no future existence is possible is received in the attainment of the Fruit of Arahanthood. The experience of the cessation of existence (bhavanirodha) can be compared to the seamless sewing we described above. The needle goes down piercing the two folds as the machine goes into action but there is no seam. This is the miracle of the arahant’s ‘shuttlefree mind’, where grasping is no more. What everyone is grasping can be boiled down to the five groups – form, feeling, perception, preparations and consciousness. The term ‘group’ is defined as eleven-fold in each case, namely:</p><p>past, future, present, internal, external, gross or subtle, inferior or superior, far or near. We grasp these groups in these eleven ways. They are embedded in our memory as ‘This is my form, this is my feeling’ etc.</p><p>If at any time the desire and lust for these five groups are abandoned, then at the moment of death there will be no grasping. Not only at the moment of death, but even during the lifetime too when the arahant is in his attainment to the Fruit of Arahanthood, he experiences Deathlessness. It is like death but there is no fear because attachment is no more. That is the Ambrosial Deathless (amata) – the deliverance from existence. During that attainment name and form, which is the sum-total of existence, does not occur. The mind is emancipated.</p><p>The world is imprisoned within the six sense-spheres or in name and form – within spatial and temporal limitations. Consciousness is based on a duality – ‘Dvayaṁ bhikkhave paṭicca viññāṇaṁ sambhoti’ – ‘Monks, depending on a dyad consciousness arises.’ Even consciousness arises depending on two things. Consciousness ceases on seeing their impermanence. The cessation of consciousness is the stilling of consciousness. Consciousness by definition is the discrimination between two things. The deer runs forward taking the mirage it sees in the distance to be water. What impels it to run towards it, is craving the THIRST. At every step the deer thinks it is coming closer to water. But the mirage recedes. The Buddha has preached that not only what appears to the eyes but objects of all the six senses keep on receding the more we approach them. But the world does not understand it. Instead craving prompts:</p><p>‘It is over there. Go further.’</p><p>What craving does is to put the knot under the veil of ignorance, kept up by the perception of permanence. Whether it be the past and the future or name and form, all the time craving keeps on putting the knot. The world doesn’t see the workings of the preparations. Instead it grasps the personality view with the thought:</p><p>‘This am I, This is mine’. Due to that grasping – that upādāna – they get pushed on from existence to existence. That is what is called the ‘Saṁsāric journey’. What happens at the moment of death is not different from what is happening at this moment. Just as at this moment the mind keeps grasping this and that object, so also at the time of death since the lust for existence is there, one grasps the object presented to the mind by one’s kamma. That is why craving itself is said to be the grasping (upādāna).</p><p>From all this it appears that all the six Elder monks have presented meditation topics leading to arahanthood. Out of them it is the first one that the Buddha directly approved. The world finds itself held between contact and the arising of contact. With its partiality for the arising aspect, it forgets about the cessation. Craving puts the knot blindfolding the worldling. Likewise, the world leans on the past and the future. It revels in memories of the past and dreams about the future, ignoring the present. The world is see-sawing between pain and pleasure without seeking release through the neither unpleasant nor pleasant feeling. Between name and form it is entangled like Narcissus who tried to embrace his own reflection on water unaware of the magical illusion of consciousness in the middle. Similarly, between the six internal spheres and the six external spheres there is a duality that ignores consciousness which is in the middle. Lastly comes the question of ‘sakkāya’. The cessation of the Five Groups of Grasping is not seen and due to that they go on accumulating. The Buddha points out that if one sees the impermanence of the eye, the forms, the consciousness and the rest, the five Groups get diminished. Impermanence has to be seen then and there to prevent that accumulation. The two terms ‘upacaya’ and ‘apacaya’ are used in this connection. ‘Upacaya’ is accumulation and ‘apacaya’ is effacement. As the phrase ‘tattha tattha vipassati’ indicates by seeing with insight the impermanence then and there, one can attain deliverance.</p><p>Yo ubhante viditvāna Majjhe mantā na lippati</p><p>taṁ brūmi mahāpurisoti sodha sibbanimaccagā.</p><p>‘Mahāpurisa’ (Great Man) refers to the arahant. To understand the impermanent as well as the suffering fraught and not self nature is the higher level of understanding called ‘abhiññā’. The perfection of that understanding is ‘pariññā’ – full comprehension. The stream-winner has higher understanding and he attains full comprehension on attaining arahanthood. This verse succinctly presents the course of training leading to arahanthood. Whether it be the Five Groups of Grasping or the six spheres of contact or name and form, by constantly reflecting on their impermanent, suffering fraught and not-self nature, one can realize the state indicated by this verse.</p><p>The Buddha has proclaimed the path to deliverance from Saṁsāra. As we have mentioned, ignorance is like the father and craving is like the mother  to beings in Saṁsāra. Hindered by ignorance and fettered to craving beings keep running round. The Buddha has offered the solution to this Saṁsāric problem in the form of the Three Signata – impermanence, suffering and notself. Seeing everything as not-self with insight if one liberates the mind from this condition by passing the seamstress craving, one can realize the cessation of existence here and now. That is why the dictum goes ‘Bhavanirodho nibbānaṁ’  – ‘Cessation of existence is Nibbāna.’</p><p>You should seriously consider why the Buddha has declared that beings have wandered in Saṁsāra for an incalculable period because of ignorance and craving. The verse we have discussed also says that if one understands the two ends and with wisdom does not get attached at the middle, by passing the seamstress one can attain deliverance. Getting whatever help you can from this sermon for your meditation, you should put forth your best efforts to attain deliverance from this Saṁsāra by realizing the Fruits of the Path to Stream-winning, Oncereturning, Non-returning and Arahanthood. We wish you all success in that endeavour.</p><p>Whatever beings there be from the lowest hell to the highest Brahma world wishing to rejoice in this sermon, may they all rejoice in our sermon. May the merits accrued thereby conduce to their highest aim – the Deathless Nibbāna!</p>
+</article>
+
+<div class="sermon-nav-bar" style="margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+<a href="chapter_8.html">&larr; Previous Chapter</a>
+<a href="read.html">Table of Contents</a>
+<a href="chapter_10.html">Next Chapter &rarr;</a>
+</div>
+</main>
+<footer><p>This website is offered in the spirit of Dhamma Dana, freely available to all.</p></footer>
+<script>
+function setFontSize(size) {
+    const article = document.getElementById('readerArticle');
+    article.style.fontSize = size;
+    localStorage.setItem('preferred_font_size', size);
+    document.querySelectorAll('.control-group button').forEach(b => {
+        if(['Small','Medium','Large','X-Large'].some(t => b.innerText.includes(t))) {
+            b.classList.remove('active');
+        }
+    });
+    if(size === '1rem') document.getElementById('size-sm').classList.add('active');
+    if(size === '1.15rem') document.getElementById('size-md').classList.add('active');
+    if(size === '1.3rem') document.getElementById('size-lg').classList.add('active');
+    if(size === '1.5rem') document.getElementById('size-xl').classList.add('active');
+}
+
+function setFontFamily(font) {
+    const article = document.getElementById('readerArticle');
+    article.style.fontFamily = font;
+    localStorage.setItem('preferred_font_family', font);
+    document.getElementById('font-serif').classList.toggle('active', font.includes('Georgia'));
+    document.getElementById('font-sans').classList.toggle('active', !font.includes('Georgia'));
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const savedSize = localStorage.getItem('preferred_font_size');
+    const savedFont = localStorage.getItem('preferred_font_family');
+    if(savedSize) setFontSize(savedSize);
+    if(savedFont) setFontFamily(savedFont);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | The Law of Dependent Arising</title>
+<style>
+:root {
+    --header-bg: #800000;
+    --header-text: #ffffff;
+    --header-subtitle: #ffd1d1;
+    --primary-color: #5c2c16;
+    --accent-color: #c88a2a;
+    --bg-color: #fdfbf7;
+    --card-bg: #ffffff;
+    --text-color: #2c2c2c;
+    --text-muted: #666666;
+    --border-color: #e2d7c7;
+    --reader-font-family: Georgia, "Times New Roman", serif;
+    --reader-font-size: 1.15rem;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.site-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 1.5rem 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-align: center;
+}
+.brand-section .logo-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+}
+.brand-section .subtitle {
+    font-size: 0.95rem;
+    color: var(--header-subtitle);
+    font-style: italic;
+    padding: 0 0.5rem;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+}
+.top-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.2s, color 0.2s;
+}
+.top-nav a:hover, .top-nav a.active {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.main-content {
+    max-width: 950px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.hero {
+    background: var(--card-bg);
+    padding: 2.5rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    text-align: center;
+}
+.hero h1 { font-size: 2rem; color: #222; margin-bottom: 0.3rem; }
+.hero h2 { font-size: 1.15rem; color: var(--primary-color); margin-bottom: 0.4rem; font-weight: normal; font-style: italic; }
+.hero h3 { font-size: 1.2rem; color: #333; margin-bottom: 1.5rem; font-weight: normal; font-style: italic; }
+.hero .author-title { font-size: 1.05rem; color: #555; margin-bottom: 2rem; font-style: italic; }
+
+.pali-quote { 
+    color: var(--header-bg); 
+    text-align: center; 
+    margin: 2.5rem 0; 
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin: 2rem 0;
+}
+@media (max-width: 768px) {
+    .button-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .main-content {
+        margin: 1rem auto;
+        padding: 0 0.5rem;
+    }
+    .hero {
+        padding: 1.5rem 1rem;
+    }
+    .brand-section .logo-title {
+        font-size: 1.5rem;
+    }
+}
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1rem;
+    background-color: var(--header-bg);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+.btn:hover { background-color: #5c0000; }
+.btn-secondary {
+    background-color: transparent;
+    color: var(--header-bg) !important;
+    border: 1px solid var(--header-bg);
+}
+.btn-secondary:hover { background-color: #f4eee6; }
+
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.chapter-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-color 0.2s, transform 0.1s;
+    text-decoration: none;
+    color: inherit;
+}
+.chapter-card:hover {
+    border-color: var(--header-bg);
+    transform: translateY(-1px);
+}
+.chapter-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--header-bg);
+}
+.sermon-badge {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    font-size: 1.1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    outline: none;
+    font-family: Georgia, serif;
+}
+.search-input:focus {
+    border-color: var(--header-bg);
+    box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.1);
+}
+
+.sermon-reader {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2.5rem 3rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    font-family: var(--reader-font-family);
+    font-size: var(--reader-font-size);
+    line-height: 1.9;
+}
+@media (max-width: 768px) {
+    .sermon-reader {
+        padding: 1.2rem 1rem;
+    }
+}
+.sermon-reader p {
+    margin-bottom: 1.6rem;
+    text-align: justify;
+}
+.sermon-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.sermon-nav-bar a {
+    color: var(--header-bg);
+    text-decoration: none;
+    font-weight: 600;
+}
+.sermon-nav-bar a:hover { text-decoration: underline; }
+
+.reader-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4eee6;
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.control-group button, .download-btn {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--header-bg);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background 0.2s, color 0.2s;
+}
+.control-group button:hover, .control-group button.active, .download-btn:hover {
+    background: var(--header-bg);
+    color: #fff;
+    border-color: var(--header-bg);
+}
+
+mark {
+    background-color: #ffeeba;
+    color: inherit;
+    padding: 0.1rem 0.2rem;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    margin-top: 4rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="brand-section"><div class="logo-title">The Law of Dependent Arising</div><div class="subtitle">The Secret of Bondage and Release &mdash; Ven. Katukurunde Nanananda Thero</div></div><nav class="top-nav"><a href="index.html">Home</a><a href="read.html">Read</a><a href="listen.html">Listen</a><a href="search.html">Search</a><a href="about.html" class="active">About</a></nav></header>
+<main class="main-content">
+<section class="hero" style="text-align: left; padding: 2.5rem 1.5rem;">
+<h1 style="text-align: center; font-size: 1.8rem; margin-bottom: 0.5rem;">The Law of Dependent Arising</h1>
+<h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--text-color); font-style: normal; font-size: 1.1rem;">(Paticca Samuppada)<br>The Secret of Bondage and Release</h2>
+<p style="text-align: center; font-style: italic; margin-bottom: 2rem; color: var(--primary-color); font-size: 0.95rem;">
+Library Edition by Bhikkhu K. Nanananda<br>
+Published by Katukurunde Nanananda Sadaham Senasun Bharaya, Sri Lanka
+</p>
+<h3 style="color: var(--header-bg); font-family: Georgia, serif; margin-top: 1.5rem; margin-bottom: 0.8rem; font-size: 1.2rem;">About the Book</h3>
+<p style="margin-bottom: 1.2rem; line-height: 1.8;">
+<em>The Law of Dependent Arising: The Secret of Bondage and Release</em> is the English translation of Ven. Katukurunde Nanananda Thero's twenty-sermon exposition of Paticca Samuppada (Dependent Arising), originally delivered as Sermons 183–202 of the Pahankanuwa sermon series.
+</p>
+<p style="margin-bottom: 1.2rem; line-height: 1.8;">
+Inspired by a wish to clarify the profound teaching of Dependent Arising through the Buddha's own discourses, Ven. Nanananda devoted this series entirely to the themes of conditionality, bondage, and liberation. The work expands and develops many of the insights introduced in his renowned <em>Nibbana - The Mind Stilled</em> sermons and represents one of most sustained examinations of the Buddha's central teaching on dependent arising.
+</p>
+<h3 style="color: var(--header-bg); font-family: Georgia, serif; margin-top: 2rem; margin-bottom: 0.8rem; font-size: 1.2rem;">About Ven. Katukurunde Nanananda Thero</h3>
+<p style="margin-bottom: 1.2rem; line-height: 1.8;">
+Ven. Katukurunde Nanananda Mahathera (1940–2018) was a Sri Lankan Buddhist monk, Pali scholar, and meditator widely respected for his original and thought-provoking expositions of the Buddha's teachings.
+</p>
+<p style="margin-bottom: 1.2rem; line-height: 1.8;">
+Among his best-known works are <em>Concept and Reality</em>, <em>Nibbana - The Mind Stilled</em>, and <i>The Law of Dependent Arising: The Secret of Bondage and Release</i>. His teachings place particular emphasis on direct insight into experience, dependent arising, emptiness, and the nature of liberation as presented in the early Buddhist texts.
+</p>
+<h3 style="color: var(--header-bg); font-family: Georgia, serif; margin-top: 2rem; margin-bottom: 0.8rem; font-size: 1.2rem;">Dhamma Dana</h3>
+<blockquote style="border-left: 4px solid var(--header-bg); padding-left: 1rem; margin: 1.5rem 0; font-style: italic; color: #444; line-height: 1.7;">
+"It is the express wish of Venerable Bhikkhu Katukurunde Nanananda that all his Dhamma Books and recorded sermons be offered as a pure gift of Dhamma free of charge to the Dhamma-thirsty world."
+</blockquote>
+<p style="margin-bottom: 1.2rem; line-height: 1.8;">
+This website is offered in that same spirit of Dhamma Dana, freely available to all who wish to study, reflect upon, and practise the Buddha's teaching.
+</p>
+<h3 style="color: var(--header-bg); font-family: Georgia, serif; margin-top: 2rem; margin-bottom: 0.8rem; font-size: 1.2rem;">Source Material & Acknowledgements</h3>
+<p style="margin-bottom: 0.8rem;">This website gratefully acknowledges:</p>
+<ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.7;">
+<li>The original Pahankanuwa sermon series, from which these sermons were delivered as Sermons 183–202.</li>
+<li>The K.N.S.S.B. (Katukurunde Nanananda Sadaham Senasuna Buddhist Society) for publishing and preserving the English edition of <em>The Law of Dependent Arising: The Secret of Bondage and Release</em>.</li>
+<li>Ven. Nanananda Thero and all those who contributed to the preservation and dissemination of these teachings.</li>
+<li>The translators of the English edition. In the published volume, Ven. Nanananda records: <em>"I wish to thank Mrs. Lilian Ratnayake for translating on my behalf sermons No. 12, 13, 14, 16, 17, 18 and 19 in this volume. Due to failing health I could translate only sermons No. 1–11, 15 and 20."</em></li>
+</ul>
+</section>
+</main>
+<footer><p>This website is offered in the spirit of Dhamma Dana, freely available to all.</p></footer>
+</body>
+</html>
