@@ -515,6 +515,19 @@ def generate_read_and_reader_pages():
 """ + GOOGLE_VERIFICATION_TAG + r"""
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chapter """ + str(ch_num) + r""" (Sermon """ + s_num + r""") | The Law of Dependent Arising">
+<meta property="og:site_name" content="The Law of Dependent Arising">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Chapter """ + str(ch_num) + r""" (Sermon """ + s_num + r""")",
+  "author": {
+    "@type": "Person",
+    "name": "Ven. Katukurunde Nanananda Thero"
+  },
+  "inLanguage": "en"
+}
+</script>
 <title>Chapter """ + str(ch_num) + r""" (Sermon """ + s_num + r""") | The Law of Dependent Arising</title>
 <style>""" + SITE_CSS + r"""</style>
 </head>
