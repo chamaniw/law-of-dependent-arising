@@ -513,6 +513,8 @@ def generate_read_and_reader_pages():
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 """ + GOOGLE_VERIFICATION_TAG + r"""
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chapter """ + str(ch_num) + r""" (Sermon """ + s_num + r""") | The Law of Dependent Arising">
 <title>Chapter """ + str(ch_num) + r""" (Sermon """ + s_num + r""") | The Law of Dependent Arising</title>
 <style>""" + SITE_CSS + r"""</style>
 </head>
@@ -551,7 +553,7 @@ def generate_read_and_reader_pages():
 <p style="color: var(--text-muted); font-style: italic; font-family: -apple-system, sans-serif; font-size: 0.95rem;">(Pahankanuwa Sermon """ + s_num + r""")</p>
 </div>
 
-<article class="sermon-reader" id="readerArticle">
+<article class="sermon-reader" id="readerArticle" itemscope itemtype="https://schema.org/ScholarlyArticle">
 """ + sermon_text + r"""
 </article>
 
