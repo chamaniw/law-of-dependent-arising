@@ -811,6 +811,39 @@ This website is offered in that same spirit of Dhamma Dana, freely available to 
     with open(DOCS_DIR / "about.html", "w", encoding="utf-8") as f:
         f.write(html)
 
+def generate_sitemap():
+    base_url = "https://chamaniw.github.io/law-of-dependent-arising" # Replace with your GitHub Pages URL if needed
+    urls = [
+        ("/", "1.0", "daily"),
+        ("/index.html", "1.0", "daily"),
+        ("/read.html", "0.9", "weekly"),
+        ("/listen.html", "0.8", "weekly"),
+        ("/search.html", "0.8", "weekly"),
+        ("/about.html", "0.5", "monthly"),
+    ]
+    
+    for i in range(1, 21):
+        urls.append((f"/chapter_{i}.html", "0.8", "monthly"))
+
+    xml_lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+    ]
+    
+    for path, priority, freq in urls:
+        # If hosting locally or relative, you can also use relative or absolute URLs
+        clean_path = path.lstrip('/')
+        xml_lines.append('  <url>')
+        xml_lines.append(f'    <loc>{base_url}/{clean_path}</loc>')
+        xml_lines.append(f'    <changefreq>{freq}</changefreq>')
+        xml_lines.append(f'    <priority>{priority}</priority>')
+        xml_lines.append('  </url>')
+        
+    xml_lines.append('</urlset>')
+    
+    with open(DOCS_DIR / "sitemap.xml", "w", encoding="utf-8") as f:
+        f.write("\n".join(xml_lines))
+
 def copy_folder(src, dst):
     if src.exists() and src.is_dir():
         for f in src.iterdir():
@@ -818,7 +851,6 @@ def copy_folder(src, dst):
                 shutil.copy2(f, dst / f.name)
 
 def copy_complete_files():
-    # Copy complete book files from BASE_DIR into DOCS_DIR
     complete_files = [
         "Paticca_Samuppada_Sermons_Complete.docx",
         "Paticca_Samuppada_Sermons_Complete.epub",
@@ -837,11 +869,12 @@ def copy_assets():
     copy_complete_files()
 
 if __name__ == "__main__":
-    print("Building digital book website...")
+    print("Building digital book website and XML sitemap...")
     generate_read_and_reader_pages()
     generate_listen_page()
     generate_search_page()
     generate_about_page()
     generate_index_page()
+    generate_sitemap()
     copy_assets()
     print("Build complete successfully!")

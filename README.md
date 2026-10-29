@@ -1,3 +1,10 @@
+##### Website
+
+[![Website Preview](images/website-homepage.png)](https://chamaniw.github.io/law-of-dependent-arising/)
+
+🌐 **Read Online:**  
+https://chamaniw.github.io/law-of-dependent-arising/
+
 # The Law of Dependent Arising
 ### *Paṭicca Samuppāda*
 ### *The Secret of Bondage and Release*
@@ -56,9 +63,7 @@ While many readers know his renowned work *Nibbāna – The Mind Stilled*, this 
 
 > "It is the express wish of Venerable Bhikkhu Kaṭukurunde Ñāṇananda that all his Dhamma books and recorded sermons be offered as a pure gift of Dhamma free of charge to the Dhamma-thirsty world."
 
----
 
-### Website
 
-*Coming soon.*
+
 
