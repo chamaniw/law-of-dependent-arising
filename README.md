@@ -1,6 +1,6 @@
 ##### Website
 
-[![Website Preview](images/website-homepage.png)](https://chamaniw.github.io/law-of-dependent-arising/)
+[![Website Preview](images/website-homepage.png.jpeg)](https://chamaniw.github.io/law-of-dependent-arising/)
 
 🌐 **Read Online:**  
 https://chamaniw.github.io/law-of-dependent-arising/
