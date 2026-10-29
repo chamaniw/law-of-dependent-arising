@@ -283,7 +283,7 @@ body {
 }
 .sermon-reader p {
     margin-bottom: 1.6rem;
-    text-align: justify;
+    text-align: left; /* Left-aligned for easier online reading */
 }
 .sermon-nav-bar {
     display: flex;
@@ -430,7 +430,7 @@ def generate_index_page():
 
 <div style="text-align: left;">
 <h3 style="color: var(--header-bg); font-family: Georgia, serif; font-size: 1.3rem; margin-bottom: 1rem; font-style: normal;">Introduction</h3>
-<p style="text-align: justify; line-height: 1.8;">
+<p style="text-align: left; line-height: 1.8;">
 The Law of Dependent Arising: The Secret of Bondage and Release is the English translation of Ven. Katukurunde Nanananda Thero's twenty-sermon exposition of Paticca Samuppada (Dependent Arising), originally delivered as Sermons 183–202 of the Pahankanuwa sermon series. Inspired by a wish to clarify the profound teaching of Dependent Arising through the Buddha's own discourses, Ven. Nanananda devoted this series entirely to the themes of conditionality, bondage, and liberation.
 </p>
 </div>
@@ -728,9 +728,9 @@ function performSearch() {
                     }
 
                     if (pIdx === idx) {
-                        passageHtml += `<p style="margin-bottom: 0.8rem; background: #fdf6ec; padding: 0.4rem; border-left: 3px solid var(--header-bg);"><strong>[Paragraph ${pIdx + 1}]</strong> ${highlightedText}</p>`;
+                        passageHtml += `<p style="margin-bottom: 0.8rem; background: #fdf6ec; padding: 0.4rem; border-left: 3px solid var(--header-bg); text-align: left;"><strong>[Paragraph ${pIdx + 1}]</strong> ${highlightedText}</p>`;
                     } else {
-                        passageHtml += `<p style="margin-bottom: 0.8rem; color: #444;">${highlightedText}</p>`;
+                        passageHtml += `<p style="margin-bottom: 0.8rem; color: #444; text-align: left;">${highlightedText}</p>`;
                     }
                 }
 
@@ -751,7 +751,7 @@ function performSearch() {
     if (matchCount === 0) {
         results.innerHTML = "<p style='color: var(--text-muted); text-align: center;'>No matching passages found.</p>";
     } else {
-        results.innerHTML = `<p style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-muted);">Found matching passages across the sermons:</p>` + resultsHtml;
+        results.innerHTML = `<p style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-muted); text-align: left;">Found matching passages across the sermons:</p>` + resultsHtml;
     }
 }
 
@@ -783,29 +783,29 @@ Library Edition by Bhikkhu K. Nanananda<br>
 Published by Katukurunde Nanananda Sadaham Senasun Bharaya, Sri Lanka
 </p>
 <h3 style="color: var(--header-bg); font-family: Georgia, serif; margin-top: 1.5rem; margin-bottom: 0.8rem; font-size: 1.2rem;">About the Book</h3>
-<p style="margin-bottom: 1.2rem; line-height: 1.8;">
+<p style="margin-bottom: 1.2rem; line-height: 1.8; text-align: left;">
 <em>The Law of Dependent Arising: The Secret of Bondage and Release</em> is the English translation of Ven. Katukurunde Nanananda Thero's twenty-sermon exposition of Paticca Samuppada (Dependent Arising), originally delivered as Sermons 183–202 of the Pahankanuwa sermon series.
 </p>
-<p style="margin-bottom: 1.2rem; line-height: 1.8;">
+<p style="margin-bottom: 1.2rem; line-height: 1.8; text-align: left;">
 Inspired by a wish to clarify the profound teaching of Dependent Arising through the Buddha's own discourses, Ven. Nanananda devoted this series entirely to the themes of conditionality, bondage, and liberation. The work expands and develops many of the insights introduced in his renowned <em>Nibbana - The Mind Stilled</em> sermons and represents one of most sustained examinations of the Buddha's central teaching on dependent arising.
 </p>
 <h3 style="color: var(--header-bg); font-family: Georgia, serif; margin-top: 2rem; margin-bottom: 0.8rem; font-size: 1.2rem;">About Ven. Katukurunde Nanananda Thero</h3>
-<p style="margin-bottom: 1.2rem; line-height: 1.8;">
+<p style="margin-bottom: 1.2rem; line-height: 1.8; text-align: left;">
 Ven. Katukurunde Nanananda Mahathera (1940–2018) was a Sri Lankan Buddhist monk, Pali scholar, and meditator widely respected for his original and thought-provoking expositions of the Buddha's teachings.
 </p>
-<p style="margin-bottom: 1.2rem; line-height: 1.8;">
+<p style="margin-bottom: 1.2rem; line-height: 1.8; text-align: left;">
 Among his best-known works are <em>Concept and Reality</em>, <em>Nibbana - The Mind Stilled</em>, and <i>The Law of Dependent Arising: The Secret of Bondage and Release</i>. His teachings place particular emphasis on direct insight into experience, dependent arising, emptiness, and the nature of liberation as presented in the early Buddhist texts.
 </p>
 <h3 style="color: var(--header-bg); font-family: Georgia, serif; margin-top: 2rem; margin-bottom: 0.8rem; font-size: 1.2rem;">Dhamma Dana</h3>
-<blockquote style="border-left: 4px solid var(--header-bg); padding-left: 1rem; margin: 1.5rem 0; font-style: italic; color: #444; line-height: 1.7;">
+<blockquote style="border-left: 4px solid var(--header-bg); padding-left: 1rem; margin: 1.5rem 0; font-style: italic; color: #444; line-height: 1.7; text-align: left;">
 "It is the express wish of Venerable Bhikkhu Katukurunde Nanananda that all his Dhamma Books and recorded sermons be offered as a pure gift of Dhamma free of charge to the Dhamma-thirsty world."
 </blockquote>
-<p style="margin-bottom: 1.2rem; line-height: 1.8;">
+<p style="margin-bottom: 1.2rem; line-height: 1.8; text-align: left;">
 This website is offered in that same spirit of Dhamma Dana, freely available to all who wish to study, reflect upon, and practise the Buddha's teaching.
 </p>
 <h3 style="color: var(--header-bg); font-family: Georgia, serif; margin-top: 2rem; margin-bottom: 0.8rem; font-size: 1.2rem;">Source Material & Acknowledgements</h3>
-<p style="margin-bottom: 0.8rem;">This website gratefully acknowledges:</p>
-<ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.7;">
+<p style="margin-bottom: 0.8rem; text-align: left;">This website gratefully acknowledges:</p>
+<ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.7; text-align: left;">
 <li>The original Pahankanuwa sermon series, from which these sermons were delivered as Sermons 183–202.</li>
 <li>The K.N.S.S.B. (Katukurunde Nanananda Sadaham Senasuna Buddhist Society) for publishing and preserving the English edition of <em>The Law of Dependent Arising: The Secret of Bondage and Release</em>.</li>
 <li>Ven. Nanananda Thero and all those who contributed to the preservation and dissemination of these teachings.</li>
@@ -876,7 +876,7 @@ def copy_assets():
     copy_complete_files()
 
 if __name__ == "__main__":
-    print("Building digital book website and XML sitemap...")
+    print("Building digital book website with left-aligned text and XML sitemap...")
     generate_read_and_reader_pages()
     generate_listen_page()
     generate_search_page()

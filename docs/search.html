@@ -204,7 +204,7 @@ body {
 }
 .sermon-reader p {
     margin-bottom: 1.6rem;
-    text-align: justify;
+    text-align: left; /* Left-aligned for easier online reading */
 }
 .sermon-nav-bar {
     display: flex;
@@ -333,9 +333,9 @@ function performSearch() {
                     }
 
                     if (pIdx === idx) {
-                        passageHtml += `<p style="margin-bottom: 0.8rem; background: #fdf6ec; padding: 0.4rem; border-left: 3px solid var(--header-bg);"><strong>[Paragraph ${pIdx + 1}]</strong> ${highlightedText}</p>`;
+                        passageHtml += `<p style="margin-bottom: 0.8rem; background: #fdf6ec; padding: 0.4rem; border-left: 3px solid var(--header-bg); text-align: left;"><strong>[Paragraph ${pIdx + 1}]</strong> ${highlightedText}</p>`;
                     } else {
-                        passageHtml += `<p style="margin-bottom: 0.8rem; color: #444;">${highlightedText}</p>`;
+                        passageHtml += `<p style="margin-bottom: 0.8rem; color: #444; text-align: left;">${highlightedText}</p>`;
                     }
                 }
 
@@ -356,7 +356,7 @@ function performSearch() {
     if (matchCount === 0) {
         results.innerHTML = "<p style='color: var(--text-muted); text-align: center;'>No matching passages found.</p>";
     } else {
-        results.innerHTML = `<p style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-muted);">Found matching passages across the sermons:</p>` + resultsHtml;
+        results.innerHTML = `<p style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-muted); text-align: left;">Found matching passages across the sermons:</p>` + resultsHtml;
     }
 }
 
