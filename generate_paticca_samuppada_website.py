@@ -10,6 +10,7 @@ except ImportError:
     docx = None
 
 BASE_DIR = Path(r"C:\law-of-dependent-arising")
+IMAGES_DIR = BASE_DIR / "images"
 DOCS_DIR = BASE_DIR / "docs"
 DOCS_AUDIO_DIR = DOCS_DIR / "audio"
 DOCS_DOCX_DIR = DOCS_DIR / "docx"
@@ -358,6 +359,18 @@ footer {
 
 GOOGLE_VERIFICATION_TAG = '<meta name="google-site-verification" content="NkJU5DZeKtPJ9VdSStdwPMNk8dOVW9erCKCQr88meQE" />'
 
+# Open Graph Meta Tags for Social Sharing / WhatsApp Previews
+BASE_SITE_URL = "https://chamaniw.github.io/law-of-dependent-arising"
+THUMBNAIL_META_TAGS = f"""
+<meta property="og:image" content="{BASE_SITE_URL}/thumbnail.png">
+<meta property="og:image:secure_url" content="{BASE_SITE_URL}/thumbnail.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{BASE_SITE_URL}/thumbnail.png">
+"""
+
 def build_header_html(active_tab="home"):
     tabs = [
         ("home", "Home", "index.html"),
@@ -393,7 +406,7 @@ def generate_index_page():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-""" + GOOGLE_VERIFICATION_TAG + r"""
+""" + GOOGLE_VERIFICATION_TAG + THUMBNAIL_META_TAGS + r"""
 <title>The Law of Dependent Arising | Ven. Katukurunde Nanananda Thero</title>
 <style>""" + SITE_CSS + r"""</style>
 </head>
@@ -461,7 +474,7 @@ def generate_read_and_reader_pages():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-""" + GOOGLE_VERIFICATION_TAG + r"""
+""" + GOOGLE_VERIFICATION_TAG + THUMBNAIL_META_TAGS + r"""
 <title>Read | The Law of Dependent Arising</title>
 <style>""" + SITE_CSS + r"""</style>
 </head>
@@ -512,7 +525,7 @@ def generate_read_and_reader_pages():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-""" + GOOGLE_VERIFICATION_TAG + r"""
+""" + GOOGLE_VERIFICATION_TAG + THUMBNAIL_META_TAGS + r"""
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chapter """ + str(ch_num) + r""" (Sermon """ + s_num + r""") | The Law of Dependent Arising">
 <meta property="og:site_name" content="The Law of Dependent Arising">
@@ -639,7 +652,7 @@ Your browser does not support the audio element.
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-""" + GOOGLE_VERIFICATION_TAG + r"""
+""" + GOOGLE_VERIFICATION_TAG + THUMBNAIL_META_TAGS + r"""
 <title>Listen | The Law of Dependent Arising</title>
 <style>""" + SITE_CSS + r"""</style>
 </head>
@@ -683,7 +696,7 @@ def generate_search_page():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-""" + GOOGLE_VERIFICATION_TAG + r"""
+""" + GOOGLE_VERIFICATION_TAG + THUMBNAIL_META_TAGS + r"""
 <title>Search | The Law of Dependent Arising</title>
 <style>""" + SITE_CSS + r"""</style>
 </head>
@@ -783,7 +796,7 @@ def generate_about_page():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-""" + GOOGLE_VERIFICATION_TAG + r"""
+""" + GOOGLE_VERIFICATION_TAG + THUMBNAIL_META_TAGS + r"""
 <title>About | The Law of Dependent Arising</title>
 <style>""" + SITE_CSS + r"""</style>
 </head>
@@ -872,6 +885,15 @@ def copy_folder(src, dst):
             if f.is_file():
                 shutil.copy2(f, dst / f.name)
 
+def copy_thumbnail():
+    # Copies thumbnail.png from C:\law-of-dependent-arising\images to C:\law-of-dependent-arising\docs
+    src_thumbnail = IMAGES_DIR / "thumbnail.png"
+    if src_thumbnail.exists():
+        shutil.copy2(src_thumbnail, DOCS_DIR / "thumbnail.png")
+        print("Thumbnail image copied successfully to docs folder.")
+    else:
+        print("Warning: thumbnail.png not found in C:\\law-of-dependent-arising\\images")
+
 def copy_complete_files():
     complete_files = [
         "Paticca_Samuppada_Sermons_Complete.docx",
@@ -889,9 +911,10 @@ def copy_assets():
     copy_folder(SRC_PDF_DIR, DOCS_PDF_DIR)
     copy_folder(SRC_EPUB_DIR, DOCS_EPUB_DIR)
     copy_complete_files()
+    copy_thumbnail()
 
 if __name__ == "__main__":
-    print("Building digital book website with left-aligned text and XML sitemap...")
+    print("Building digital book website with left-aligned text, thumbnail metadata, and XML sitemap...")
     generate_read_and_reader_pages()
     generate_listen_page()
     generate_search_page()
