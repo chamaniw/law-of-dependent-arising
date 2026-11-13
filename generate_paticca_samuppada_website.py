@@ -284,7 +284,7 @@ body {
 }
 .sermon-reader p {
     margin-bottom: 1.6rem;
-    text-align: left; /* Left-aligned for easier online reading */
+    text-align: left;
 }
 .sermon-nav-bar {
     display: flex;
@@ -359,7 +359,6 @@ footer {
 
 GOOGLE_VERIFICATION_TAG = '<meta name="google-site-verification" content="NkJU5DZeKtPJ9VdSStdwPMNk8dOVW9erCKCQr88meQE" />'
 
-# Open Graph Meta Tags for Social Sharing / WhatsApp Previews
 BASE_SITE_URL = "https://chamaniw.github.io/law-of-dependent-arising"
 THUMBNAIL_META_TAGS = f"""
 <meta property="og:image" content="{BASE_SITE_URL}/thumbnail.png">
@@ -399,6 +398,8 @@ FOOTER_HTML = (
     '<p>This website is offered in the spirit of Dhamma Dana, freely available to all.</p>'
     '</footer>'
 )
+
+ANALYTICS_SNIPPET = '<script defer src="/_vercel/insights/script.js"></script>'
 
 def generate_index_page():
     html = r"""<!DOCTYPE html>
@@ -450,6 +451,7 @@ The Law of Dependent Arising: The Secret of Bondage and Release is the English t
 </section>
 </main>
 """ + FOOTER_HTML + r"""
+""" + ANALYTICS_SNIPPET + r"""
 </body>
 </html>"""
     with open(DOCS_DIR / "index.html", "w", encoding="utf-8") as f:
@@ -501,6 +503,7 @@ def generate_read_and_reader_pages():
 </section>
 </main>
 """ + FOOTER_HTML + r"""
+""" + ANALYTICS_SNIPPET + r"""
 </body>
 </html>"""
     with open(DOCS_DIR / "read.html", "w", encoding="utf-8") as f:
@@ -621,6 +624,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if(savedFont) setFontFamily(savedFont);
 });
 </script>
+""" + ANALYTICS_SNIPPET + r"""
 </body>
 </html>"""
         with open(DOCS_DIR / ("chapter_" + str(ch_num) + ".html"), "w", encoding="utf-8") as f:
@@ -667,6 +671,7 @@ Your browser does not support the audio element.
 </section>
 </main>
 """ + FOOTER_HTML + r"""
+""" + ANALYTICS_SNIPPET + r"""
 </body>
 </html>"""
     with open(DOCS_DIR / "listen.html", "w", encoding="utf-8") as f:
@@ -785,6 +790,7 @@ function performSearch() {
 
 document.getElementById('searchBox').addEventListener('input', performSearch);
 </script>
+""" + ANALYTICS_SNIPPET + r"""
 </body>
 </html>"""
     with open(DOCS_DIR / "search.html", "w", encoding="utf-8") as f:
@@ -842,6 +848,7 @@ This website is offered in that same spirit of Dhamma Dana, freely available to 
 </section>
 </main>
 """ + FOOTER_HTML + r"""
+""" + ANALYTICS_SNIPPET + r"""
 </body>
 </html>"""
     with open(DOCS_DIR / "about.html", "w", encoding="utf-8") as f:
@@ -886,7 +893,6 @@ def copy_folder(src, dst):
                 shutil.copy2(f, dst / f.name)
 
 def copy_thumbnail():
-    # Copies thumbnail.png from C:\law-of-dependent-arising\images to C:\law-of-dependent-arising\docs
     src_thumbnail = IMAGES_DIR / "thumbnail.png"
     if src_thumbnail.exists():
         shutil.copy2(src_thumbnail, DOCS_DIR / "thumbnail.png")
