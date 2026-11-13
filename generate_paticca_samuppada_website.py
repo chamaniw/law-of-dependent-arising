@@ -51,9 +51,27 @@ def read_sermon_content_as_paragraphs(ch_num, s_num):
             try:
                 doc = docx.Document(docx_path)
                 for p in doc.paragraphs:
-                    text = p.text.strip()
-                    if text:
-                        paragraphs.append(text)
+                    # Check if paragraph has content
+                    if p.text.strip():
+                        para_html_parts = []
+                        for run in p.runs:
+                            run_text = run.text
+                            if not run_text:
+                                continue
+                            # Escape special HTML characters to prevent injection/breaking layout
+                            run_text = run_text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+                            
+                            # Apply inline formatting based on Word run properties
+                            if run.italic:
+                                run_text = f"<em>{run_text}</em>"
+                            if run.bold:
+                                run_text = f"<strong>{run_text}</strong>"
+                            
+                            para_html_parts.append(run_text)
+                        
+                        full_para_html = "".join(para_html_parts)
+                        if full_para_html.strip():
+                            paragraphs.append(full_para_html)
                 if paragraphs:
                     return paragraphs
             except Exception as e:
@@ -74,6 +92,7 @@ def read_sermon_content_as_paragraphs(ch_num, s_num):
 
 def read_sermon_content_html(ch_num, s_num):
     paras = read_sermon_content_as_paragraphs(ch_num, s_num)
+    # Since paragraphs already contain HTML formatting (like <em> or <strong>), we just wrap them in <p> tags
     return "".join(["<p>" + p.replace("\n", "<br>") + "</p>" for p in paras])
 
 def normalize_text(text):
@@ -355,9 +374,12 @@ footer {
     margin-top: 4rem;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
-"""
+"""  # <-- Make sure this closing triple-quote is here!
 
-GOOGLE_VERIFICATION_TAG = '<meta name="google-site-verification" content="NkJU5DZeKtPJ9VdSStdwPMNk8dOVW9erCKCQr88meQE" />'
+GOOGLE_VERIFICATION_TAG = """
+<meta name="google-site-verification" content="2_OrBlpKDiIQNUb1j7nRBbppa3M0-BjMlPGiUDvEeK0" />
+<meta name="google-site-verification" content="NkJU5DZeKtPJ9VdSStdwPMNk8dOVW9erCKCQr88meQE" />
+"""
 
 BASE_SITE_URL = "https://chamaniw.github.io/law-of-dependent-arising"
 THUMBNAIL_META_TAGS = f"""
